@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:wght@400;500;600;700;800;900&display=swap');
+
+/*
+white: #fefefe
+grey: #fafafa
+black: #303030
+red: #AE3131
+blue: #224193 
+ */
+
+/* 
+dropshadows?
+borderstrokes: 2px solid
+dot patterns okay
+*/
+/* 
+use opacity to bring text into focus
+*/
+
+* {
+    color: #303030;
+}
