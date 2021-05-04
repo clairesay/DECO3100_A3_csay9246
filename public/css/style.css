@@ -20,3 +20,15 @@ use opacity to bring text into focus
 * {
     color: #303030;
 }
+
+/* STRUCTURE */
+/* Main sections that break up parts of the page */
+section.contain {
+    position: relative;
+}
+
+div.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
