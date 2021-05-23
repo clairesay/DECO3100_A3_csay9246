@@ -1,5 +1,6 @@
+/* @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:wght@400;500;600;700;800;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 :root {
     --white: #fefefe;
     --dark-white: #fafafa;
@@ -23,14 +24,155 @@ use opacity to bring text into focus
     color: #303030;
 }
 
+/* text */
+
+h1, h2, h3, h4 {
+    font-family: 'PT Sans';
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 12px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    margin-top: 48px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+p {
+    font-family: 'PT Serif';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    max-width: 332px;
+    text-align: left;
+}
+
+p:first-child::first-letter {
+    font-size: 48px;
+}
+
+p:not(:first-child) {
+    margin-top: 16px;
+}
+
+/* NAV */
+nav#jump-links {
+    position: fixed;
+    top: 100px;
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: flex-start;
+}
+nav#jump-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Work Sans';
+    margin-left: 6px;
+    opacity: 0.2;
+}
+nav#jump-links a:hover, nav#jump-links a.active {
+    opacity: 1;
+}
+nav#jump-links a::before {
+    position: absolute;
+    content: '';
+    left: -4px;
+    width: 4px;
+    height: 16px;
+    background-color: var(--white);
+    transition: all 0.2s ease-out;
+}
+nav#jump-links a.active::before {
+    width: 12px;
+    left: -12px;
+}
+/* dark nav */
+nav#jump-links.dark a {
+    color: var(--black)
+}
+nav#jump-links.dark a::before {
+    background-color: var(--black)
+}
+
 /* STRUCTURE */
 /* Main sections that break up parts of the page */
 section.contain {
     position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto auto 1fr;
+    grid-template-rows: 200px auto 200px;
+    grid-template-areas: '. . . .' '. Graphic Text .' '. . . .';
+
+    background-color: var(--red);
+}
+
+section.contain * {
+    color: var(--dark-white);
+}
+
+section.contain:first-child div.background {
+    background-color: var(--red);
 }
 
 div.background {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     height: 100%;
+}
+
+/* TEXT HALF */
+section.contain section.text{
+    width: 600px;
+    color: var(--white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 72px;
+    grid-area: Text;
+}
+
+section.contain section.graphic ~ section.text {
+    align-items: flex-start;
+}
+
+/* GRAPHIC HALF */
+section.contain section.graphic {
+    grid-area: Graphic;
+    position: sticky;
+    /* top: 0; */
+    /* height: max-content; */
+    top: 10vh;
+    height: 80vh;
+    display: flex;
+}
+/* change this to suit plots too */
+section.contain section.graphic img, section.contain section.graphic div.plot {
+    /* margin: auto; */
+}
+
+/* TEXT */
+article.padded-text {
+    min-height: 75vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
 }
