@@ -112,6 +112,12 @@ nav#jump-links.dark a::before {
     background-color: var(--black)
 }
 
+/* hidden nav */
+nav#jump-links.hide {
+    display: none;
+    opacity: 0;
+}
+
 /* STRUCTURE */
 /* Main sections that break up parts of the page */
 section.contain {

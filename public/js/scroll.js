@@ -57,6 +57,13 @@ window.addEventListener('scroll', function () {
         nav.classList.remove('dark')
     }
 
+    if (sections[indexInView].classList.contains('full-screen')) {
+        nav.classList.add('hide')
+    } else {
+        nav.classList.remove('hide')
+    }
+
+
     // setting the relevant jumpLink to be active
     nav.querySelectorAll('a').forEach(function (jumpLink, jumpLinkIndex) {
         jumpLink.classList.remove('active')
@@ -76,6 +83,6 @@ function isScrolledIntoView(el) {
     // Only completely visible elements return true:
     // var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
     // Partially visible elements return true:
-    var isVisible = elemTop < window.innerHeight / 4 && elemBottom >= 0;
+    var isVisible = elemTop < window.innerHeight / 3 && elemBottom >= 0;
     return isVisible;
 }
