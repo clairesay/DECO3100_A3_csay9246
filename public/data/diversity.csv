@@ -1,0 +1,154 @@
+﻿code,state,year,index
+AL,Alabama,2000,.7730
+AK,Alaska,2000,1.0907
+AZ,Arizona,2000,1.0204
+AR,Arkansas,2000,.7147
+CA,California,2000,1.2756
+CO,Colorado,2000,.8376
+CT,Connecticut,2000,.8108
+DE,Delaware,2000,.8551
+DC,District of Columbia,2000,1.0566
+FL,Florida,2000,1.0100
+GA,Georgia,2000,.9581
+HI,Hawaii,2000,1.2666
+ID,Idaho,2000,.4981
+IL,Illinois,2000,.9909
+IN,Indiana,2000,.5666
+IA,Iowa,2000,.3645
+KS,Kansas,2000,.6832
+KY,Kentucky,2000,.4496
+LA,Louisiana,2000,.8813
+ME,Maine,2000,.2053
+MD,Maryland,2000,1.0052
+MA,Massachusetts,2000,.7221
+MI,Michigan,2000,.7517
+MN,Minnesota,2000,.5428
+MS,Mississippi,2000,.8170
+MO,Missouri,2000,.6101
+MT,Montana,2000,.4586
+NE,Nebraska,2000,.5492
+NV,Nevada,2000,1.0719
+NH,New Hampshire,2000,.2676
+NJ,New Jersey,2000,1.0565
+NM,New Mexico,2000,1.1213
+NY,New York,2000,1.1303
+NC,North Carolina,2000,.8871
+ND,North Dakota,2000,.3823
+OH,Ohio,2000,.5942
+OK,Oklahoma,2000,.9597
+OR,Oregon,2000,.6731
+PA,Pennsylvania,2000,.6121
+RI,Rhode Island,2000,.7121
+SC,South Carolina,2000,.8262
+SD,South Dakota,2000,.4927
+TN,Tennessee,2000,.6726
+TX,Texas,2000,1.1227
+UT,Utah,2000,.5898
+VT,Vermont,2000,.2231
+VA,Virginia,2000,.9232
+WA,Washington,2000,.8278
+WV,West Virginia,2000,.2800
+WI,Wisconsin,2000,.5517
+WY,Wyoming,2000,.4873
+AL,Alabama,2010,.8823
+AK,Alaska,2010,1.1844
+AZ,Arizona,2010,1.1067
+AR,Arkansas,2010,.8443
+CA,California,2010,1.2909
+CO,Colorado,2010,.9132
+CT,Connecticut,2010,.9471
+DE,Delaware,2010,1.0209
+DC,District of Columbia,2010,1.1506
+FL,Florida,2010,1.1155
+GA,Georgia,2010,1.0971
+HI,Hawaii,2010,1.3000
+ID,Idaho,2010,.6014
+IL,Illinois,2010,1.0720
+IN,Indiana,2010,.6994
+IA,Iowa,2010,.5068
+KS,Kansas,2010,.8104
+KY,Kentucky,2010,.5606
+LA,Louisiana,2010,.9605
+ME,Maine,2010,.3028
+MD,Maryland,2010,1.1570
+MA,Massachusetts,2010,.8680
+MI,Michigan,2010,.8149
+MN,Minnesota,2010,.7070
+MS,Mississippi,2010,.8956
+MO,Missouri,2010,.7038
+MT,Montana,2010,.5257
+NE,Nebraska,2010,.6987
+NV,Nevada,2010,1.2275
+NH,New Hampshire,2010,.3801
+NJ,New Jersey,2010,1.1675
+NM,New Mexico,2010,1.1272
+NY,New York,2010,1.1876
+NC,North Carolina,2010,1.0228
+ND,North Dakota,2010,.5036
+OH,Ohio,2010,.6869
+OK,Oklahoma,2010,1.0952
+OR,Oregon,2010,.7948
+PA,Pennsylvania,2010,.7530
+RI,Rhode Island,2010,.8431
+SC,South Carolina,2010,.9328
+SD,South Dakota,2010,.6220
+TN,Tennessee,2010,.7906
+TX,Texas,2010,1.1785
+UT,Utah,2010,.7058
+VT,Vermont,2010,.3035
+VA,Virginia,2010,1.0638
+WA,Washington,2010,.9732
+WV,West Virginia,2010,.3391
+WI,Wisconsin,2010,.6799
+WY,Wyoming,2010,.5690
+AL,Alabama,2017,.9111
+AK,Alaska,2017,1.2470
+AZ,Arizona,2017,1.1440
+AR,Arkansas,2017,.8887
+CA,California,2017,1.3026
+CO,Colorado,2017,.9429
+CT,Connecticut,2017,1.0106
+DE,Delaware,2017,1.0718
+DC,District of Columbia,2017,1.1893
+FL,Florida,2017,1.1538
+GA,Georgia,2017,1.1378
+HI,Hawaii,2017,1.3199
+ID,Idaho,2017,.6385
+IL,Illinois,2017,1.1099
+IN,Indiana,2017,.7520
+IA,Iowa,2017,.5797
+KS,Kansas,2017,.8527
+KY,Kentucky,2017,.6035
+LA,Louisiana,2017,.9953
+ME,Maine,2017,.3369
+MD,Maryland,2017,1.2125
+MA,Massachusetts,2017,.9379
+MI,Michigan,2017,.8531
+MN,Minnesota,2017,.7738
+MS,Mississippi,2017,.9132
+MO,Missouri,2017,.7435
+MT,Montana,2017,.5657
+NE,Nebraska,2017,.7600
+NV,Nevada,2017,1.2794
+NH,New Hampshire,2017,.4290
+NJ,New Jersey,2017,1.2157
+NM,New Mexico,2017,1.1354
+NY,New York,2017,1.2271
+NC,North Carolina,2017,1.0681
+ND,North Dakota,2017,.6267
+OH,Ohio,2017,.7374
+OK,Oklahoma,2017,1.1491
+OR,Oregon,2017,.8405
+PA,Pennsylvania,2017,.8160
+RI,Rhode Island,2017,.9076
+SC,South Carolina,2017,.9571
+SD,South Dakota,2017,.7000
+TN,Tennessee,2017,.8339
+TX,Texas,2017,1.2068
+UT,Utah,2017,.7428
+VT,Vermont,2017,.3483
+VA,Virginia,2017,1.1183
+WA,Washington,2017,1.0316
+WV,West Virginia,2017,.3749
+WI,Wisconsin,2017,.7268
+WY,Wyoming,2017,.6179
