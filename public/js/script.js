@@ -1,38 +1,30 @@
 var plots = document.querySelectorAll('.plots')
 
-Plotly.d3.csv("https://raw.githubusercontent.com/dongasr/DECO3100/main/beer.csv", function(err, rows){
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/diversity.csv", function(err, rows){
   
     var data = [{
-        type:'choropleth',
-        lon: unpack(rows, 'Longitude'),
-        lat: unpack(rows, 'Latitude'),
-        customdata: unpack(rows, 'City'),
-        text: unpack(rows, 'BeerPrice'),
-        hovertemplate:
-              "City: %{customdata}<br>" +
-              "Price: <b>%{text} dollarydoos</b><br><br>" +
-              "Longitude: %{lon:.2f}<br>" +
-              "Latitude: %{lat:.2f}<br>" +
-              "<extra></extra>", // Hides the trace number
-        mode: 'markers',
-        marker: {
-            size: 8,
-            opacity: 0.8,
-            reversescale: true,
-            autocolorscale: false,
-            symbol: 'square',
-            line: {
-                width: 1,
-                color: 'rgb(102,102,102)'
-            },
-            cmax: 12,
-            cmin: 0,
-            color: unpack(rows, 'BeerPrice'),
-            colorbar: {
-                title: 'Diversity Index',
-            },
-          colorscale: 'Picnic'
-        }
+      type: 'choropleth',
+      locationmode: 'USA-states',
+      locations: unpack(rows, 'code'),
+      z: unpack(rows, 'index'),
+      text: unpack(rows, 'state'),
+      zmin: 0,
+      zmax: 1.79,
+      colorscale: [
+          [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
+          [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
+          [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
+      ],
+      colorbar: {
+          title: 'Millions USD',
+          thickness: 0.2
+      },
+      marker: {
+          line:{
+              color: 'rgb(255,255,255)',
+              width: 2
+          }
+      }
     }];
   
   var layout = {
