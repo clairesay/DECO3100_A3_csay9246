@@ -151,7 +151,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 
 // PLOT OF TWITTER ACTIVITY FOR BOTH TRUMP AND OBAMA
 // MAP OF WHERE IN THE WORLD they tweeted about
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/tweet_activity.csv", function(err, rows){
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/tweet_values.csv", function(err, rows){
   var data = [{
     type: 'scatter',
     // x: [0.0000417336, 0.000109534],
