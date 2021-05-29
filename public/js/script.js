@@ -84,7 +84,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         plot_bgcolor:'transparent'
     };
   
-  Plotly.newPlot(plots[0], data, layout, {displayModeBar: false});
+  Plotly.newPlot('diversity-map', data, layout, {displayModeBar: false});
 
 })
 
@@ -103,7 +103,7 @@ var layout = {
       plot_bgcolor:'transparent'
   };
 
-Plotly.newPlot(plots[1], data, layout, {displayModeBar: false});
+Plotly.newPlot('america-mentioned-bar', data, layout, {displayModeBar: false});
 
 
 // MAP OF WHERE IN THE WORLD they tweeted about
@@ -146,6 +146,30 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         plot_bgcolor:'transparent'
     };
   
-  Plotly.newPlot(plots[2], data, layout, {displayModeBar: false});
+  Plotly.newPlot('countries-mentioned-map', data, layout, {displayModeBar: false});
+})
+
+// PLOT OF TWITTER ACTIVITY FOR BOTH TRUMP AND OBAMA
+// MAP OF WHERE IN THE WORLD they tweeted about
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/tweet_activity.csv", function(err, rows){
+  var data = [{
+    type: 'scatter',
+    // x: [0.0000417336, 0.000109534],
+    x: unpack(rows, 'date'),
+    y: unpack(rows, 'obama_tweet_count'),
+  },{
+    type: 'scatter',
+    x: unpack(rows, 'date'),
+    y: unpack(rows, 'trump_tweet_count')
+  }
+];
+    
+  var layout = {
+        // title: 'Diversity across the US,'
+        paper_bgcolor: 'transparent',
+        plot_bgcolor:'transparent'
+    };  
+  Plotly.newPlot('total-obama-line', [data[0]], layout, {displayModeBar: false});
+  Plotly.newPlot('total-trump-line', [data[1]], layout, {displayModeBar: false});
 })
 

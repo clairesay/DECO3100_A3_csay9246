@@ -130,8 +130,16 @@ section.contain.dark {
     background-color: var(--black);
 }
 
+section.contain.dark * {
+    color: var(--white);
+}
+
 section.contain.light {
     background-color: var(--dark-white);
+}
+
+section.contain.light * {
+    color: var(--black);
 }
 
 section.contain.left {
