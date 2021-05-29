@@ -51,7 +51,7 @@ window.addEventListener('scroll', function () {
     })
 
     // changing colour of nav if in a different section 
-    if (sections[indexInView].classList.contains('negative')) {
+    if (sections[indexInView].classList.contains('light')) {
         nav.classList.add('dark')
     } else {
         nav.classList.remove('dark')
