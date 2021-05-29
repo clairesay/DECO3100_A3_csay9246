@@ -124,7 +124,7 @@ section.contain {
     position: relative;
     display: grid;
     grid-template-columns: 1fr auto 3fr 1fr;
-    grid-template-rows: 200px auto 200px;
+    grid-template-rows: 100px auto 100px;
     grid-template-areas: '. . . .' '. Graphic Text .' '. . . .';
 
     background-color: var(--black);
@@ -235,4 +235,10 @@ article.split-visual img {
 
 .republican {
     background-color: var(--red)
+}
+
+
+/* MAP STYLE */
+.layer.bg rect {
+    fill: transparent !important;
 }
