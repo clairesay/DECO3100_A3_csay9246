@@ -155,11 +155,11 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
   var data = [{
     type: 'scatter',
     // x: [0.0000417336, 0.000109534],
-    x: unpack(rows, 'date'),
+    x: unpack(rows, 'year'),
     y: unpack(rows, 'obama_tweet_count'),
   },{
     type: 'scatter',
-    x: unpack(rows, 'date'),
+    x: unpack(rows, 'year'),
     y: unpack(rows, 'trump_tweet_count')
   }
 ];
