@@ -25,6 +25,9 @@ use opacity to bring text into focus
 }
 
 /* text */
+strong {
+    font-weight: 600;
+}
 
 h1, h2, h3, h4 {
     font-family: 'PT Sans';
@@ -61,7 +64,7 @@ p {
     text-align: left;
 }
 
-p:first-child::first-letter {
+section.text>article:first-of-type p:first-of-type::first-letter {
     font-size: 48px;
 }
 
@@ -252,4 +255,53 @@ article.split-visual img {
 /* MAP STYLE */
 .layer.bg rect {
     fill: transparent !important;
+}
+
+
+/* HOVER TOOLTIP */
+
+i {
+    text-decoration: underline dotted;
+}
+
+i>label.definition>strong {
+    font-weight: 700;
+    font-family:'PT Serif'
+}
+
+section.contain.dark i {
+    color: var(--white);
+}
+section.contain.dark i>label.definition, section.contain.dark i>label.definition>strong {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+section.contain.light i {
+    color: var(--black);
+}
+section.contain.light i>label.definition, section.contain.light i>label.definition>strong {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+i>label.definition {
+    z-index: 5;
+    font-size: 12px;
+    position: absolute;
+    left: calc(20% + 256px);
+    visibility: hidden;
+    border-radius: 4px;
+    width: 20%;
+    /* filter: drop-shadow(0 0 2px #909090); */
+    /* background-color: var(--white);
+    color: var(--black); */
+    padding: 18px;
+    transition: all 0.1s ease-out;
+    opacity: 0;
+}
+
+i:hover>label.definition {
+    visibility: visible;
+    opacity: 1;
 }
