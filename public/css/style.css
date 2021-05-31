@@ -127,6 +127,7 @@ section.contain {
     padding: 100px 20%;
     display: flex;
     max-width: 100vw;
+    min-height: 100vh;
 }
 
 section.contain.dark {
@@ -202,6 +203,12 @@ section.contain section.text{
     grid-area: Text;
 }
 
+section.contain section.text article.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 section.contain section.graphic ~ section.text {
     align-items: flex-start;
 }
@@ -214,11 +221,13 @@ section.contain section.graphic {
     /* height: max-content; */
     top: 10vh;
     height: 80vh;
-    display: flex;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
 }
 /* change this to suit plots too */
 section.contain section.graphic img, section.contain section.graphic div.plot {
     /* margin: auto; */
+    /* height: 40vh; */
 }
 
 /* TEXT */
