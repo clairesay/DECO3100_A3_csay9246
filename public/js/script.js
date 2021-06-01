@@ -175,11 +175,12 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 
 // ////////////////////
 // // Scatter plot demonstrating the topics discussed in the lead up to election y-axis: sentiment vertically, date horizontally
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/countries-mentioned.csv", function(err, rows){
-    var data = [
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/child_values.csv", function(err, rows){
+    console.log(unpack(rows, 'words'))    
+var data = [
         {
           "type": "sunburst",
-        //   "labels": [], all of the labels there
+          "labels": ["First person", "Second person", "Third person", "Collective"] + unpack(rows, 'words'), 
           "parents": ["", "Eve", "Eve", "Seth", "Seth", "Eve", "Eve", "Awan", "Eve" ],
         //   who is their parent: ["", "Personal", "Personal", "Personal", "Personal, "]
           "values":  [65, 14, 12, 10, 2, 6, 6, 4, 4],
