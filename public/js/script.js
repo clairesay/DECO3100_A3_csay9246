@@ -179,9 +179,9 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 console.log(unpack(rows, 'words'))
 console.log(unpack(rows, 'parent'))
 console.log(unpack(rows, 'trump_all_pcnt'))
-var words = unpack(rows, 'words').slice(0, 14),
-    parents = unpack(rows, 'parent').slice(0, 14),
-    values= unpack(rows, 'trump_all_pcnt').slice(0, 14);
+var words = unpack(rows, 'words').slice(0, 22),
+    parents = unpack(rows, 'parent').slice(0, 22),
+    values= unpack(rows, 'trump_all_pcnt').slice(0, 22);
 
 var data = [
         {
