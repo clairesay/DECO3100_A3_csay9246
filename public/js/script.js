@@ -175,47 +175,26 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 
 // ////////////////////
 // // Scatter plot demonstrating the topics discussed in the lead up to election y-axis: sentiment vertically, date horizontally
-// Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/countries-mentioned.csv", function(err, rows){
-  
-//     var data = [{
-//       type: 'scatter',
-//       locationmode: '',
-//       locations: unpack(rows, 'country'),
-//       z: unpack(rows, 'obama_frequency'),
-//       text: unpack(rows, 'country'),
-//       zmin: 0,
-//       zmax: 0.00001,
-//       colorscale: [
-//           [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
-//           [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
-//           [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
-//       ],
-//       colorbar: {
-//           title: 'Diversity Index',
-//           thickness: 0.2
-//       },
-//     }];
-    
-//   var layout = {
-//         title: 'Countries mentioned by Trump and Obama in their tweets',
-//         colorbar: true,
-//         geo: {
-//             scope: 'world',
-//             showland: true,
-//             showocean: true,
-//             oceancolor: '#303030',
-//             landcolor: 'rgb(250,250,250)',
-//             subunitcolor: 'transparent',
-//             countrycolor: 'transparent',
-//             countrywidth: 0.5,
-//             subunitwidth: 0.5
-//         },
-//         paper_bgcolor: 'transparent',
-//         plot_bgcolor:'transparent'
-//     };
-  
-//   Plotly.newPlot('countries-mentioned-map', data, layout, {displayModeBar: false});
-// })
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/countries-mentioned.csv", function(err, rows){
+    var data = [
+        {
+          "type": "sunburst",
+        //   "labels": [], all of the labels there
+          "parents": ["", "Eve", "Eve", "Seth", "Seth", "Eve", "Eve", "Awan", "Eve" ],
+        //   who is their parent: ["", "Personal", "Personal", "Personal", "Personal, "]
+          "values":  [65, 14, 12, 10, 2, 6, 6, 4, 4],
+          "leaf": {"opacity": 0.4},
+          "marker": {"line": {"width": 2}},
+          "branchvalues": 'total'
+        }];
+        
+        var layout = {
+          "margin": {"l": 0, "r": 0, "b": 0, "t": 0},
+        };
+        
+        
+        Plotly.newPlot('words', data, layout, {showSendToCloud: true})
+})
 
 ///// TWEETS IN CIRCLES BY TOPCI code borrowed from tutorial for packed bubble charts
 Highcharts.chart('special', {
@@ -261,88 +240,88 @@ Highcharts.chart('special', {
       name: 'Europe',
       data: [{
           name: 'Germany',
-          value: 767.1
+          value: 1
       }, {
           name: 'Croatia',
-          value: 20.7
+          value: 1
       },
       {
           name: "Belgium",
-          value: 97.2
+          value: 1
       },
       {
           name: "Czech Republic",
-          value: 111.7
+          value: 1
       },
       {
           name: "Netherlands",
-          value: 158.1
+          value: 1
       },
       {
           name: "Spain",
-          value: 241.6
+          value: 1
       },
       {
           name: "Ukraine",
-          value: 249.1
+          value: 1
       },
       {
           name: "Poland",
-          value: 298.1
+          value: 1
       },
       {
           name: "France",
-          value: 323.7
+          value: 1
       },
       {
           name: "Romania",
-          value: 78.3
+          value: 1
       },
       {
           name: "United Kingdom",
-          value: 415.4
+          value: 1
       }, {
           name: "Turkey",
-          value: 353.2
+          value: 1
       }, {
           name: "Italy",
-          value: 337.6
+          value: 1
       },
       {
           name: "Greece",
-          value: 71.1
+          value: 1
       },
       {
           name: "Austria",
-          value: 69.8
+          value: 1
       },
       {
           name: "Belarus",
-          value: 67.7
+          value: 1
       },
       {
           name: "Serbia",
-          value: 59.3
+          value: 1
       },
       {
           name: "Finland",
-          value: 54.8
+          value: 1
       },
       {
           name: "Bulgaria",
-          value: 51.2
+          value: 1
       },
       {
           name: "Portugal",
-          value: 48.3
+          value: 1
       },
       {
           name: "Norway",
-          value: 44.4
+          value: 1
       },
       {
           name: "Sweden",
-          value: 44.3
+          value: 1
       },
       {
           name: "Hungary",
