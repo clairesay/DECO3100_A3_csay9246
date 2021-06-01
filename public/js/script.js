@@ -206,8 +206,8 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 // should I make a separate file for each country?
 // every fourth [3]
 console.log(rows)
-for (let i = 0; i < rows.length; i ++) {
-
+for (let i = 0; i < 73; i += 1) {
+    console.log(unpack())
 }
 })
 
