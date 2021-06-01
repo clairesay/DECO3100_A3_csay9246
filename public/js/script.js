@@ -92,7 +92,8 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 var data = [{
   type: 'bar',
   // x: [0.0000417336, 0.000109534],
-  x: [0.004100622, 0.009529447],
+//   x: [0.004100622, 0.009529447],
+x:[0.006342344, 0.009898671],
   y: ['Trump', 'Obama'],
   orientation: 'h'
 }];
