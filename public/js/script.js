@@ -176,24 +176,32 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 // ////////////////////
 // // Scatter plot demonstrating the topics discussed in the lead up to election y-axis: sentiment vertically, date horizontally
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/child_values.csv", function(err, rows){
-    console.log(unpack(rows, 'words'))    
+console.log(["First person", "Second person", "Third person", "Collective"].concat(unpack(rows, 'words')))
+var numbers = [25, 25, 25, 25].concat(unpack(rows, 'trump_all_value'))
+// console.log([25, 25, 25, 25].concat(unpack(rows, 'trump_all')),)
+
+var result = numbers.map(function (x) { 
+  return parseInt(x, 10); 
+});
+console.log(result)
+// .concat(unpack(rows, 'words'))
 var data = [
         {
           "type": "sunburst",
-          "labels": ["First person", "Second person", "Third person", "Collective"] + unpack(rows, 'words'), 
-          "parents": ["", "Eve", "Eve", "Seth", "Seth", "Eve", "Eve", "Awan", "Eve" ],
+          "labels": ["First person", "Second person", "Third person", "Collective"].concat(unpack(rows, 'words')), 
+          "parents": ["", "", "", ""].concat(unpack(rows, 'parent')),
         //   who is their parent: ["", "Personal", "Personal", "Personal", "Personal, "]
-          "values":  [65, 14, 12, 10, 2, 6, 6, 4, 4],
+        //   "values":  [25, 25, 25, 25].concat(unpack(rows, 'trump_all')),
+            "values": result,
           "leaf": {"opacity": 0.4},
           "marker": {"line": {"width": 2}},
           "branchvalues": 'total'
         }];
-        
+
         var layout = {
           "margin": {"l": 0, "r": 0, "b": 0, "t": 0},
         };
-        
-        
+
         Plotly.newPlot('words', data, layout, {showSendToCloud: true})
 })
 
