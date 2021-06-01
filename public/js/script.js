@@ -175,13 +175,13 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 
 // ////////////////////
 // // Scatter plot demonstrating the topics discussed in the lead up to election y-axis: sentiment vertically, date horizontally
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/pronoun.csv", function(err, rows){
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/pronouns.csv", function(err, rows){
 console.log(unpack(rows, 'words'))
 console.log(unpack(rows, 'parent'))
 console.log(unpack(rows, 'trump_all_pcnt'))
-var words = unpack(rows, 'words').slice(0, 22),
-    parents = unpack(rows, 'parent').slice(0, 22),
-    values= unpack(rows, 'trump_all_pcnt').slice(0, 22);
+var words = unpack(rows, 'words'),
+    parents = unpack(rows, 'parent'),
+    values= unpack(rows, 'obama_all_pcnt');
 
 var data = [
         {
