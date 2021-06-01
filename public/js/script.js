@@ -202,6 +202,15 @@ var data = [
         Plotly.newPlot('words', data, layout, {showSendToCloud: true})
 })
 
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/trump_tweets_by_country.csv", function(err, rows){
+// should I make a separate file for each country?
+// every fourth [3]
+console.log(rows)
+for (let i = 0; i < rows.length; i ++) {
+
+}
+})
+
 ///// TWEETS IN CIRCLES BY TOPCI code borrowed from tutorial for packed bubble charts
 Highcharts.chart('special', {
   chart: {
