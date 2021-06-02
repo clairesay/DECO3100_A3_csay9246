@@ -238,7 +238,7 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     };
 
     var layout = {
-        title: 'Feb. 2011 American Airline flight paths',
+        title: 'Top 10 countries of origin Immigration',
         showlegend: false,
         geo:{
             scope: 'world',
