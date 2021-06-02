@@ -24,6 +24,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
+
+
 // calculating page height and checking whether element is at the top
 // x = every section's height before it
 // if greater than (x) and less than (x) + own-height
@@ -40,11 +42,22 @@ window.addEventListener('scroll', function () {
         if (section.querySelector('section.text').childElementCount > 1) {
             let children = section.querySelectorAll('article')
             children.forEach(function (child) {
+
                 if (isScrolledIntoView(child)) {
+                    if (child.id != '') {
+                        // detects the child
+   // Detecting on load of plots
+
+                            plotChange(child.id) // relayouts are in func
+                        
+                        // console.log(child.id)
+                    }
                     // corresponding child --> activate corresponding function
-                    plotChange(section, child, child.getAttribute('state'))
+                    // console.log(child)
+                    // plotChange(section, child, child.getAttribute('state'))
                 } else {
-                    resetChange(section, child, child.getAttribute('state'))
+                    // console.log(child)
+                    // resetChange(section, child, child.getAttribute('state'))
                 }
             })
         }

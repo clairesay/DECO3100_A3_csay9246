@@ -7,9 +7,9 @@ function unpack(rows, key) {
     return rows.map(function (row) { return row[key]; });
 }
 
-// CHOROPLETH MAP describing increasing diversity over time
+// // CHOROPLETH MAP describing increasing diversity over time
+// function updateImmigration() {
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/diversity.csv", function (err, rows) {
-    console.log(rows)
     var data = [{
         type: 'choropleth',
         locationmode: 'USA-states',
@@ -80,13 +80,15 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             countrywidth: 0.5,
             subunitwidth: 0.5
         },
+        "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
         paper_bgcolor: 'transparent',
         plot_bgcolor: 'transparent'
     };
 
-    Plotly.newPlot('diversity-map', data, layout, { displayModeBar: false });
+    Plotly.newPlot('diversity-plot', data, layout, { displayModeBar: false });
 
 })
+// }
 
 // frequency by which Obama or Trump mention the word America
 var data = [{
@@ -143,6 +145,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             countrywidth: 0.5,
             subunitwidth: 0.5
         },
+        "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
         paper_bgcolor: 'transparent',
         plot_bgcolor: 'transparent'
     };
@@ -170,8 +173,8 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         paper_bgcolor: 'transparent',
         plot_bgcolor: 'transparent'
     };
-    Plotly.newPlot('total-obama-line', [data[0]], layout, { displayModeBar: false });
-    Plotly.newPlot('total-trump-line', [data[1]], layout, { displayModeBar: false });
+    Plotly.newPlot('total-obama-line', data, layout, { displayModeBar: false });
+    // Plotly.newPlot('total-trump-line', [data[1]], layout, { displayModeBar: false });
 })
 
 // ////////////////////
@@ -199,10 +202,12 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
     };
 
-    Plotly.newPlot('words', data, layout, { showSendToCloud: true })
+    Plotly.newPlot('words', data, layout, { displayModeBar: false })
 })
 
-Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/immigration.csv', function(err, rows){
+
+// IMMIGRATIONS
+Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/country_of_origin.csv', function(err, rows){
     function unpack(rows, key) {
         return rows.map(function(row) { return row[key]; });
     }
@@ -212,7 +217,8 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     }
 
     var data = [];
-    var count = unpack(rows, 'cnt');
+    var count = unpack(rows, 'lines');
+    var country = unpack(rows, 'country');
     var startLongitude = unpack(rows, 'start_lon');
     var endLongitude = unpack(rows, 'end_lon');
     var startLat = unpack(rows, 'start_lat');
@@ -223,34 +229,80 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 
         var result = {
             type: 'scattergeo',
-            locationmode: 'USA-states',
+            locationmode: 'country names',
             lon: [ startLongitude[i] , endLongitude[i] ],
             lat: [ startLat[i] , endLat[i] ],
-            mode: 'lines',
+            mode: 'lines+markers',
             line: {
-                width: 1,
-                color: 'red'
+                width: 2,
+                color: 'salmon'
             },
             opacity: opacityValue
         };
 
         data.push(result);
     };
+    data.push({
+        type: 'choropleth',
+        locationmode: 'country names',
+        locations: country.concat(['united states']),
+        z: count.concat([20]),
+        zmin: 0,
+        zmax: 20,
+        colorscale: [
+            [0, '#FAFAFA'], [1, 'salmon']
+        ],
+        showscale: false,
+    })
 
     var layout = {
-        title: 'Top 10 countries of origin Immigration',
+        // title: 'Top 10 countries of origin Immigration',
         showlegend: false,
         geo:{
             scope: 'world',
+            // lonaxis: {range: [-200, -30]},
+            // lataxis: {range: [0, 90]},
             projection: {
-                // type: 'azimuthal equal area'
+                rotation: {
+                    lon: -180
+                }
+            },
+            center : {
+                
             },
             showland: true,
-            landcolor: 'rgb(243,243,243)',
+            landcolor: '#90909036',
             countrycolor: 'rgb(204,204,204)'
-        }
+        },
+        paper_bgcolor: 'transparent',
+        plot_bgcolor: 'transparent',
+        margin: { l: 0, r: 0, b: 0, t: 0 },
     };
 
-    Plotly.newPlot("immigration", data, layout, {showLink: false});
-
+    Plotly.newPlot("immigration", data, layout, { displayModeBar: false});
 });
+
+
+function zoom() {
+    var min = 100
+    var max = 200
+    Plotly.animate('immigration', {
+      layout: {
+        // lonaxis: { range: [-180, 180] },
+        // lataxis: { range: [-90, 90] },
+
+        geo:{
+            // scope: 'north america',
+            lonaxis: {range: [-180, -60]},
+            lataxis: {range: [15, 75]}
+        }
+      }
+    }, {
+      transition: {
+        duration: 500,
+        easing: 'linear'
+      }
+    })
+  }
+
+// /////////////////////////////////////////////////////////////

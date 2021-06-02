@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="public/css/reset.css">
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/animate.css">
+    <link rel="stylesheet" href="public/css/plot.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -80,7 +81,10 @@
                     <p>
                         Born of a white Kansas woman and black Kenyan man, Obama was raised in humble beginnings and
                         immersed in a ‘multiplicity’ of cultures, having lived in various countries from a very young
-                        age. (Nelson, 2021) On the other hand, Trump, a son of a New York real estate developer, was
+                        age. (Nelson, 2021)
+                    </p>
+                    <p>
+                        On the other hand, Trump, a son of a New York real estate developer, was
                         raised with rigour. He built an ambitious career that eventually led him to
                         tycoonify
                         his family’s business. (BBC, 2020)
@@ -153,28 +157,30 @@
                         <div>
                             <img src="public/images/bridge.png">
 
-                            <h3><strong>Unite and Build</strong></h3>
+                            <h3>Unite and Build</h3>
                             <p>
-                                A <strong>unifier</strong> aims to unite through a common cause,
+                                A <strong>unifier aims to unite through a common cause,</strong>
                                 by empowering people to achieve something "bigger than themselves in personally
                                 meaningful and socially beneficial ways". (Razzetti, 2018)
                             </p>
                             <p>
-                                It demonstrates selfless devotion towards a mission and the greater good, 
-                                although stringent reform and long term commitment is necessary.
+                                As a unifier in the public eye, <mark class="democrat">Obama</mark> was thought to demonstrate selfless devotion towards the greater good, 
+                                despite being criticised for his stringent reform and commitment to change.
                             </p>
                             
                         </div>
                         <div>
                             <img src="public/images/wall.png">
-                            <h3><strong>Divide and Conquer</strong></h3>
+                            <h3>Divide and Conquer</h3>
                             <p>
-                                By creating a common enemy through an 'us vs them' approach, a <strong>divider</strong> seeks to deceive,
-                                sparking anger and violence to "break groups into smaller, less powerful ones". (Razzetti, 2018) 
+                                <strong>A divider seeks to create a common enemy through an 'us vs them' approach.</strong> Through this deception, 
+                                they spark anger and violence to "break groups into smaller, less powerful ones".
+                                <!-- By creating a common enemy through an 'us vs them' approach, a <strong>divider seeks to deceive, -->
+                                <!-- sparking anger and violence to "break groups into smaller, less powerful ones". (Razzetti, 2018)  -->
                             </p>
                             <p>
-                                This approach is known to keep people on the same agenda in the short term, but eventually
-                                creates disillusion and disempowers people.
+                                <mark class="republican">Trump</mark> was unpopular for his divisive approach to leadership, blaming foreign influence to bond Americans together in the short term. 
+                                However, he was remembered for the way he disillusioned and disempowered people.
                             </p>
                         </div>
                     </article>
@@ -202,9 +208,11 @@
         </section>
 
         <!-- MAKING THIS ANIMATE WITH A SLIDER AND AUTO PLAY -->
-        <section id="diversity" class="contain left dark">
+        <section id="diversity" class="contain left dark  full-screen" >
+            <div id="immigration" class="plots"></div>
             <section class="text">
-                <article class="padded-text">
+                <!-- style="position: relative; left: 70%;" -->
+                <article style="justify-content: flex-end; min-height: calc(100vh - 200px)" class="padded-text">
                     <h3>On diversity</h3>
 
                     <p>
@@ -215,21 +223,22 @@
                         In what Frey (2018) calls a ‘diversity explosion’, the US has seen significant growth in
                         Hispanic, Asian and mixed ethnicity minorities.
 
-                        This is largely due to "youthful immigration from Latin America, and Asia" which has been crucial to a shift in the ethnic landscape and thus boost diversity. Lee (2020)
+                        This is largely due to "youthful immigration from Latin America, and Asia" which has been crucial to a shift in the ethnic landscape and thus a boost in diversity. Lee (2020)
 
                         <!-- Immigration from Latin America and Asia is a key driver of this trend, in part because the newly arrived immigrant groups tend to have youthful age structures and higher fertility. Intermarriage (and the resulting multiracial offspring) and shifts in racial-ethnic identity also play significant roles in boosting diversity. -->
                         
-
+                        <!-- <button id="randomize" onclick="javascript:zoom()">Zoom!</button> -->
                     </p>
                 </article>
-            </section>
-            <section class="graphic">
-                <div id="immigration" class="plots"></div>
-            </section>
-            </section>
-        <section class="contain left dark">
-            <section class="text">
-                <article class="padded-text">
+                
+            <!-- </section> -->
+            <!-- <section class="graphic">
+
+            </section> -->
+            <!-- </section>
+        <section class="contain left dark"> -->
+            <!-- <section class="text"> -->
+                <article id="ethnic" class="padded-text">
                     <p>
                         Observing transformations in ethnic origins amongst the American people from the past 17
                         years alone, shows that
@@ -245,9 +254,10 @@
                         The National Equity Atlas (2021) outlines that "diversity - in the context of inclusion - is a driver of 
                         innovation, business growth and economic progress."
                     </p>
-                    <p>  
+                    <p>  <mark>
                         Thus a president who can bring these
                         differing groups together continues to be more important than ever before, to help cultivate a prosperous future for the country.
+                    </mark>
                     </p>
                     <p>
                         In light of such a diverse makeup just how did Obama and Trump appeal to the voters, if at all?
@@ -281,12 +291,15 @@
                     <p>This all started in their race the White House.</p>
                 </article> -->
             </section>
-            <section class="graphic">
-                <div id="diversity-map" class="plots"></div>
+            <section style="margin-top: 100vh" class="graphic">
+
+                <!-- <div id="myDiv" class="plots"></div> -->
+                <!-- <div style="height: 100vh; width: 200px; background-color: blue;"></div> -->
+                <div id="diversity-plot" class="plots"></div>
             </section>
         </section>
 
-        <section id="twitter activity" class="contain left light full-screen">
+        <section id="twitter activity" class="contain left light">
             <!-- <section class="graphic">
                 <article>
                     <h1>hope</h1>
@@ -295,7 +308,7 @@
                 </article>
             </section> -->
             <section class="text">
-                <article>
+                <article class="padded-text">
                     <h3>
                         On twitter activity
                     </h3>
@@ -312,7 +325,8 @@
                         of extending
                         their nationwide reach and driving engagement - an advantage that presidents who preceded them, simply did not have.
                     </p>
-
+                </article>
+                <article class="padded-text">
 <!-- Adding a bubble chart here with the topics mapped vertically via sentiment and over time bubbles  -->
 
                     <!-- BIG NUMBERS? -->
@@ -352,6 +366,8 @@
                         bid for a second term. The majority of the tweets spoke of what he had already done, and what he
                         could do for the nation in the future.
                     </p>
+                </article>
+                <article class="padded-text">
                     <p>
                         Unlike Obama in his first election, Trump maintained a consistently high tweet rate in the lead up 
                         to voting season. Although he reassured the media, saying "Don’t worry, I’ll give it up after I’m president," he consistently tweeted upwards of 150 times a month throughout his first term. Seeking 
@@ -362,6 +378,7 @@
                         as they sought re-election.
                         <!-- this can be the two graphs merged into one to show relational similarities between their twitter activity. -->
                     </p>
+
                 </article>
                 <!-- <article>
                     <h1>Slogans</h1>
@@ -657,12 +674,18 @@
                     </p>
                 </article>
             </section>
+            <section class="graphic">
+                <div id="graph" class="plots"></div>
+ 
+            </section>
         </section>
     </main>
     <nav id="jump-links" class="hide"></nav>
+
     <script src="public/js/script.js"></script>
     <script src="public/js/toggle.js"></script>
     <script src="public/js/scroll.js"></script>
+    <!-- <script src="public/js/zoom.js"></script> -->
 </body>
 
 </html>

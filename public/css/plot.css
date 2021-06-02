@@ -1,0 +1,16 @@
+#immigration {
+    position: absolute;
+    top: 0;
+    left: 2vw;
+    max-width: 95vw;
+    max-height: 100vh;
+    z-index: 0;
+}
+
+#immigration ~ section.text {
+    z-index: 3;
+}
+
+#ethnic {
+
+}
