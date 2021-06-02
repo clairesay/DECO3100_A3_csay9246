@@ -202,86 +202,83 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     Plotly.newPlot('words', data, layout, { showSendToCloud: true })
 })
 
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/trump_tweets_by_country.csv", function (err, rows) {
+// Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/trump_countries.csv", function (err, rows) {
 
-    var countries = Object.keys(rows[0])
+//     var countries = Object.keys(rows[0])
 
-// get the top 10 largest countries
-    var allTweets = []
-    // for (let i = 0; i < countries.length; i += 1) {
-    for (let i = 0; i < countries.length; i += 1) {
-        let object = {}
-        object.name = countries[i]
-        object.data = []
-        let countryTweets = unpack(rows, countries[i])
-        // console.log(countryTweets.length)
-        // if (countryTweets.length > 10) {
-        // for (let j = 0; j < countryTweets.length; j++) {
-            for (let j = 0; j < 100; j++) {
-                // as long as the tweet exists, contine
-                if (countryTweets[j] != "") {
-                    let tweet = {}
-                    tweet.name = countryTweets[j]//tweet ehre
-                    tweet.value = 1
-                    object.data.push(tweet)
-                } else {
-                    break
-                }
+// // get the top 10 largest countries
+//     var allTweets = []
+//     for (let i = 0; i < countries.length; i += 1) {
+//         let object = {}
+//         object.name = countries[i]
+//         object.data = []
+//         let countryTweets = unpack(rows, countries[i])
+
+//             for (let j = 0; j < 10; j++) {
+//                 // as long as the tweet exists, contine
+//                 if (countryTweets[j] != "") {
+//                     let tweet = {}
+//                     tweet.name = countryTweets[j]//tweet ehre
+//                     tweet.value = 0.5
+//                     object.data.push(tweet)
+//                 } else {
+//                     break
+//                 }
     
-            }
-            allTweets.push(object)
-            console.log(object)
-        // }
+//             }
+//             allTweets.push(object)
+//             console.log(object)
+//         // }
 
-    }
+//     }
 
-    // Highcharts.chart('special', {
-    //     chart: {
-    //         type: 'packedbubble',
-    //         height: '100%',
-    //         animation: false
-    //     },
-    //     title: {
-    //         text: "Popular tweeted topics by Trump and Obama"
-    //     },
-    //     tooltip: {
-    //         useHTML: true,
-    //         pointFormat: '<b>{point.name}:</b> {point.value}m CO<sub>2</sub>'
-    //     },
-    //     plotOptions: {
-    //         packedbubble: {
-    //             minSize: '30%',
-    //             maxSize: '120%',
-    //             zMin: 0,
-    //             zMax: 1000,
-    //             layoutAlgorithm: {
-    //                 gravitationalConstant: 0.05,
-    //                 splitSeries: true,
-    //                 seriesInteraction: false,
-    //                 dragBetweenSeries: true,
-    //                 parentNodeLimit: true,
-    //                 enableSimulation: false
-    //             },
-    //             dataLabels: {
-    //                 enabled: true,
-    //                 format: '{point.name}',
-    //                 filter: {
-    //                     property: 'y',
-    //                     operator: '>',
-    //                     value: 250
-    //                 },
-    //                 style: {
-    //                     color: 'black',
-    //                     textOutline: 'none',
-    //                     fontWeight: 'normal'
-    //                 }
-    //             }
-    //         }
-    //     },
-    //     series: allTweets
-    // });
+//     Highcharts.chart('special', {
+//         chart: {
+//             type: 'packedbubble',
+//             height: '100%',
+//             animation: false
+//         },
+//         title: {
+//             text: "Popular tweeted topics by Trump and Obama"
+//         },
+//         tooltip: {
+//             useHTML: true,
+//             pointFormat: '<b>{point.name}:</b> {point.value}m CO<sub>2</sub>'
+//         },
+//         plotOptions: {
+//             packedbubble: {
+//                 minSize: '30%',
+//                 maxSize: '120%',
+//                 zMin: 0,
+//                 zMax: 1000,
+//                 layoutAlgorithm: {
+//                     gravitationalConstant: 0.05,
+//                     splitSeries: true,
+//                     seriesInteraction: false,
+//                     dragBetweenSeries: true,
+//                     parentNodeLimit: true,
+//                     enableSimulation: false
+//                 },
+//                 dataLabels: {
+//                     enabled: true,
+//                     format: '{point.name}',
+//                     filter: {
+//                         property: 'y',
+//                         operator: '>',
+//                         value: 250
+//                     },
+//                     style: {
+//                         color: 'black',
+//                         textOutline: 'none',
+//                         fontWeight: 'normal'
+//                     }
+//                 }
+//             }
+//         },
+//         series: allTweets
+//     });
 
-})
+// })
 
 ///// TWEETS IN CIRCLES BY TOPCI code borrowed from tutorial for packed bubble charts
 // Highcharts.chart('special', {
