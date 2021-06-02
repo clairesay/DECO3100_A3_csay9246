@@ -202,7 +202,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     Plotly.newPlot('words', data, layout, { showSendToCloud: true })
 })
 
-d3.csv('https://raw.githubusercontent.com/plotly/datasets/c34aaa0b1b3cddad335173cb7bc0181897201ee6/2011_february_aa_flight_paths.csv', function(err, rows){
+Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/immigration.csv', function(err, rows){
     function unpack(rows, key) {
         return rows.map(function(row) { return row[key]; });
     }
@@ -219,7 +219,7 @@ d3.csv('https://raw.githubusercontent.com/plotly/datasets/c34aaa0b1b3cddad335173
     var endLat = unpack(rows, 'end_lat');
 
     for ( var i = 0 ; i < count.length; i++ ) {
-        // var opacityValue = count[i]/getMaxOfArray(count);
+        var opacityValue = count[i]/getMaxOfArray(count);
 
         var result = {
             type: 'scattergeo',
@@ -241,9 +241,9 @@ d3.csv('https://raw.githubusercontent.com/plotly/datasets/c34aaa0b1b3cddad335173
         title: 'Feb. 2011 American Airline flight paths',
         showlegend: false,
         geo:{
-            scope: 'north america',
+            scope: 'world',
             projection: {
-                type: 'azimuthal equal area'
+                // type: 'azimuthal equal area'
             },
             showland: true,
             landcolor: 'rgb(243,243,243)',
