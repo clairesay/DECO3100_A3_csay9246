@@ -96,7 +96,7 @@
 
 // })
 
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/states.csv", function (err, rows) {
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/state-diversity.csv", function (err, rows) {
 
   function filter_and_unpack(rows, key, year) {
     return rows.filter(row => row['year'] == year).map(row => row[key])
@@ -111,7 +111,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     //   value of life expectancy
     var z = filter_and_unpack(rows, 'diversity', num)
     // location
-    var locations = filter_and_unpack(rows, 'state', num)
+    var locations = filter_and_unpack(rows, 'code', num)
     // set the frames[i]
     frames[i] = { data: [{ z: z, locations: locations, text: locations }], name: num }
     slider_steps.push({
@@ -125,12 +125,17 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       ]
     })
     //   increment by year
-    num = num + 10
+    if (num == 2010) {
+      num = num + 7
+    } else {
+      num = num + 10
+    }
+
   }
 
   var data = [{
     type: 'choropleth',
-    locationmode: 'US-states',
+    locationmode: 'USA-states',
     locations: frames[0].data[0].locations,
     z: frames[0].data[0].z,
     // text: frames[0].data[0].locations,
