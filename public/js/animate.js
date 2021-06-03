@@ -9,7 +9,7 @@ var allObama,
     obamaFake,
     trumpFake;
 
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/tweet_values.csv", function (err, rows) {
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/tweet_count_condensed.csv", function (err, rows) {
     allObama = unpack(rows, 'obama_tweet_count');
     allTrump = unpack(rows, 'trump_tweet_count');
 
@@ -79,6 +79,7 @@ function observe(id) {
 // Only run the function once, when the attribute == 1 otherwise, rest
 // When you scroll into a different article, the previous article gest reset to 0 and the one you scrolled into increments by one.
 
+// https://codepen.io/plotly/pen/ZpWPpj
 function animate(id) {
     let data;
 
