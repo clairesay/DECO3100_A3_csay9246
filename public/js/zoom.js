@@ -96,7 +96,7 @@
 
 // })
 
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/state-diversity.csv", function (err, rows) {
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/state-diversity-update.csv", function (err, rows) {
 
   function filter_and_unpack(rows, key, year) {
     return rows.filter(row => row['year'] == year).map(row => row[key])
@@ -141,13 +141,29 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     // text: frames[0].data[0].locations,
     zauto: false,
     zmin: 0,
-    zmax: 1.79
-
+    zmax: 1.79,
+    colorscale: [[0, 'rgb(242,240,247)'], [1, '#683962']],
+  // },{
+  //   type: 'choropleth',
+  //   locationmode: 'USA-states',
+  //   locations: unpack(rows, 'code'),
+  //   // z: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
+  //   z: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  //   // text: frames[0].data[0].locations,
+  //   zauto: false,
+  //   zmin: 0,
+  //   zmax: 1.79,
+  //   colorscale: [
+  //                 [0, 'blue'], [1, 'blue']
+  //             ],
   }];
   var layout = {
     title: 'Diversity Index across the US<br>1980 - 2017',
     geo: {
-      scope: 'world',
+      scope: 'usa',
+      // projection: {
+      //   type: 'equirectangular'
+      // },
       countrycolor: 'rgb(255, 255, 255)',
       showland: true,
       landcolor: 'rgb(217, 217, 217)',
@@ -215,17 +231,81 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         xanchor: "right",
         font: {
           size: 20,
-          color: "#666"
+          color: "#FAFAFA"
         }
+      },
+      font: {
+        color: "#FAFAFA"
       },
       transition: {
         duration: 300,
-        easing: "cubic-in-out"
+        easing: "cubic-in"
       }
     }]
   };
 
-  Plotly.newPlot('diversity-plot', data, layout, {displayModeBar: false}).then(function () {
+  Plotly.newPlot('diversity-plot', data, layout, {displayModeBar: false}).then(function (event) {
+
     Plotly.addFrames('diversity-plot', frames);
-  });
+
+    event.on('plotly_click', d => {
+      var pt = (d.points || [])[0]
+      // search all the states, if a match in state codes, create a line plot.
+      miniScatter(pt.location)  
+      // switch(pt.location) {
+      //   case 'CA':
+      //     console.log('you clicked on CALIFORNIA')
+      //     break
+      // }
+    })
+  })
+  // .then(gd => {
+  //   gd.on('plotly_click', d => {
+  //     var pt = (d.points || [])[0]
+      
+  //     switch(pt.location) {
+  //       case 'CA':
+  //         console.log('you clicked on CALIFORNIA')
+  //         break
+  //       case 'USA':
+  //         console.log('you clicked on USA')
+  //         break
+  //     }
+      
+  //   })
+  // })
+  function miniScatter(state) {
+    // alert('called')
+    let raw_states = unpack(rows, 'code'),
+    raw_dates = unpack(rows, 'year'),
+    dates = [],
+    raw_diversity = unpack(rows, 'diversity'),
+    diversity = [];
+    raw_states.forEach(function(thisState, index) {
+      if (thisState == state) {
+        dates.push(raw_dates[index])
+        diversity.push(raw_diversity[index])
+      }
+    })
+  
+      // Plotly.d3.csv("", function (err, rows) {
+        var data = [{
+            type: 'scatter',
+            x: dates,
+            y: diversity,
+        }
+        ];
+  
+        var layout = {
+            // title: 'Diversity across the US,'
+            paper_bgcolor: '#FAFAFA',
+            plot_bgcolor: '#FAFAFA',
+            "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
+        };
+        Plotly.react('state-diversity', data, layout, { displayModeBar: false });
+        // Plotly.newPlot('total-trump-line', [data[1]], layout, { displayModeBar: false });
+    // })
+  }
 })
+
+
