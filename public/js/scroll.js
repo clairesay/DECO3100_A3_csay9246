@@ -28,7 +28,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 
-var previousChild = null
+// var previousChild = null
 // calculating page height and checking whether element is at the top
 // x = every section's height before it
 // if greater than (x) and less than (x) + own-height
@@ -37,7 +37,7 @@ window.addEventListener('scroll', function () {
 
     // checking if each section is in view
     sections.forEach(function (section, index) {
-        if (isScrolledIntoView(section)) {
+        if (isScrolledIntoView(section, 'partial')) {
             indexInView = index
         }
 
@@ -46,14 +46,14 @@ window.addEventListener('scroll', function () {
             let children = section.querySelectorAll('article')
             children.forEach(function (child) {
 
-                if (isScrolledIntoView(child)) {
+                if (isScrolledIntoView(child, 'full')) {
                     
                     if (child.id != '') {
-                        if (child.id != previousChild) {
-                            previousChild = child.id
+                    //     if (child.id != previousChild) {
+                    //         previousChild = child.id
                             plotChange(child.id) // relayouts are in func
                             return
-                        }
+                        // }
                         // detects the child
    // Detecting on load of plots
 
@@ -97,14 +97,32 @@ window.addEventListener('scroll', function () {
 
 // checking whether an element is in window view 
 // function for checking if element is in view of the window https://stackoverflow.com/questions/487073/how-to-check-if-element-is-visible-after-scrolling
-function isScrolledIntoView(el) {
+function isScrolledIntoView(el, mode) {
     var rect = el.getBoundingClientRect(),
         elemTop = rect.top,
-        elemBottom = rect.bottom;
+        elemBottom = rect.bottom,
+        isVisible;
 
+    if (mode == 'full') {
+        isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+    } else if (mode == 'partial') {
+        isVisible = elemTop < window.innerHeight / 3 && elemBottom >= 0;
+    }
     // Only completely visible elements return true:
-    // var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+
     // Partially visible elements return true:
-    var isVisible = elemTop < window.innerHeight / 3 && elemBottom >= 0;
+    // var isVisible = elemTop < window.innerHeight / 3 && elemBottom >= 0;
     return isVisible;
 }
+
+// function isPartialIntoView(el) {
+//     var rect = el.getBoundingClientRect(),
+//         elemTop = rect.top,
+//         elemBottom = rect.bottom;
+
+//     // Only completely visible elements return true:
+//     // var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+//     // Partially visible elements return true:
+//     var isVisible = elemTop < window.innerHeight / 3 && elemBottom >= 0;
+//     return isVisible;
+// }
