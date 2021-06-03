@@ -8,6 +8,9 @@ sections.forEach(function (section, index) {
     let jumpLink = document.createElement('a')
     jumpLink.setAttribute('href', '#' + section.id)
     jumpLink.innerHTML = section.id.replace('-', ' ')
+    if (section.id == "") {
+        jumpLink.setAttribute('style', 'display: none')
+    }
     nav.appendChild(jumpLink)
 })
 

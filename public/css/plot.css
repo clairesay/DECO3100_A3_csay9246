@@ -12,5 +12,16 @@
 }
 
 #ethnic {
+    width: 100%;
+    align-items: center;
+}
+#ethnic section.text {
+    width: 100%;
+}
 
+div.plot-container {
+    /* transform: scale(0.9); */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
 }

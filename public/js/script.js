@@ -249,8 +249,8 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         z: count.concat([20]),
         zmin: 0,
         zmax: 20,
-        colorscale: [
-            [0, '#FAFAFA'], [1, 'salmon']
+    colorscale: [
+            [0, '#FAFAFA'], [0.9, '#FAFAFA'], [1, '#683962']
         ],
         showscale: false,
     })
@@ -258,13 +258,15 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     var layout = {
         // title: 'Top 10 countries of origin Immigration',
         showlegend: false,
+        dragmode: false, 
+        scrollzoom: false,
         geo:{
             scope: 'world',
             // lonaxis: {range: [-200, -30]},
             // lataxis: {range: [0, 90]},
             projection: {
                 rotation: {
-                    lon: -180
+                    lon: 120
                 }
             },
             center : {

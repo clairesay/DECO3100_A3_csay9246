@@ -141,8 +141,23 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     // text: frames[0].data[0].locations,
     zauto: false,
     zmin: 0,
-    zmax: 1.79,
-    colorscale: [[0, 'rgb(242,240,247)'], [1, '#683962']],
+    zmax: 1.8,
+    colorscale: [[0, '#FAFAFA'], [0.7, '#824e7b' ], [1, '#683962']],
+    colorbar: {
+ thickness: 16,
+ len: 0.9,
+ tick0: 1.4,
+ tickcolor: '#fafafa',
+ outlinecolor: 'transparent',
+      nticks: 2,
+      tickmode: 'array',
+      // tickvals: ['More Diverse', 'Less Diverse'],
+      ticktext: ['More Diverse', 'Less Diverse'],
+ tickfont: {
+   family: 'PT Sans',
+   color: '#fafafa'
+ }
+    },
   // },{
   //   type: 'choropleth',
   //   locationmode: 'USA-states',
@@ -158,7 +173,10 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
   //             ],
   }];
   var layout = {
-    title: 'Diversity Index across the US<br>1980 - 2017',
+    
+    dragmode: false, 
+    scrollzoom: false,
+    // title: 'Diversity Index across the US<br>1980 - 2017',
     geo: {
       scope: 'usa',
       // projection: {
@@ -173,7 +191,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       lonaxis: {},
       lataxis: {}
     },
-    "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
+    "margin": { "l": 0, "r": 0, "b": 0, "t": 50 },
     paper_bgcolor: 'transparent',
     plot_bgcolor: 'transparent',
 
@@ -219,6 +237,9 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     sliders: [{
       active: 0,
       steps: slider_steps,
+      bgcolor: '#FAFAFA',
+      bordercolor: '#eeeeee',
+      tickcolor: '#FAFAFA',
       x: 0.1,
       len: 0.9,
       xanchor: "left",
@@ -226,15 +247,20 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       yanchor: "top",
       pad: { t: 50, b: 10 },
       currentvalue: {
+        x: 0,
+        xanchor: 'left',
+        offset: 20,
         visible: true,
-        prefix: "Year:",
+        prefix: "YEAR: ",
         xanchor: "right",
         font: {
-          size: 20,
+          family: 'PT Sans',
+          size: 24,
           color: "#FAFAFA"
         }
       },
       font: {
+        family: 'PT Sans',
         color: "#FAFAFA"
       },
       transition: {
@@ -257,6 +283,17 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       //     console.log('you clicked on CALIFORNIA')
       //     break
       // }
+    })
+
+    event.on('plotly_hover', d=> {
+      var pt = (d.points || [])[0]
+      event.style.cursor = "pointer"
+      console.log(pt.location)
+    })
+    event.on('plotly_unhover', d=> {
+      var pt = (d.points || [])[0]
+      event.style.cursor = "initial"
+      console.log(pt.location)
     })
   })
   // .then(gd => {
@@ -298,7 +335,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
   
         var layout = {
             // title: 'Diversity across the US,'
-            paper_bgcolor: '#FAFAFA',
+            paper_bgcolor: 'transparent',
             plot_bgcolor: '#FAFAFA',
             "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
         };
@@ -306,6 +343,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         // Plotly.newPlot('total-trump-line', [data[1]], layout, { displayModeBar: false });
     // })
   }
+  miniScatter('US')
 })
 
 

@@ -88,6 +88,8 @@ nav#jump-links {
     flex-direction: column;
     gap: 4px;
     justify-content: flex-start;
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
 }
 nav#jump-links a {
     color: var(--white);
@@ -124,7 +126,7 @@ nav#jump-links.dark a::before {
 
 /* hidden nav */
 nav#jump-links.hide {
-    display: none;
+    /* display: none; */
     opacity: 0;
 }
 
@@ -175,7 +177,7 @@ section.contain#intro img {
     position: sticky;
     top: 20vh;
     height: 80vh;
-    max-width: 28%;
+    max-width: 25%;
     object-fit: cover;
     opacity: 0.8;
 }
