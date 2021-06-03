@@ -71,7 +71,7 @@ p {
     text-align: left;
 }
 
-section.text>article:first-of-type p:first-of-type::first-letter {
+section.text>article:first-of-type:not(#ethnic) p:first-of-type::first-letter {
     font-size: 48px;
 }
 

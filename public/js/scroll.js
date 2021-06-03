@@ -28,7 +28,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 
-
+var previousChild = null
 // calculating page height and checking whether element is at the top
 // x = every section's height before it
 // if greater than (x) and less than (x) + own-height
@@ -47,11 +47,17 @@ window.addEventListener('scroll', function () {
             children.forEach(function (child) {
 
                 if (isScrolledIntoView(child)) {
+                    
                     if (child.id != '') {
+                        if (child.id != previousChild) {
+                            previousChild = child.id
+                            plotChange(child.id) // relayouts are in func
+                            return
+                        }
                         // detects the child
    // Detecting on load of plots
 
-                            plotChange(child.id) // relayouts are in func
+                            
                         
                         // console.log(child.id)
                     }

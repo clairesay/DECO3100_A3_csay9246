@@ -1,5 +1,10 @@
 var plots = document.querySelectorAll('.plots')
-
+const obamaColor = '#224193'
+const trumpColor = '#AE3131'
+const purple = '#683962'
+const white = '#FAFAFA'
+const black = '#303030'
+const grey = '#eeeeee'
 // code structure borrwed from https://slides.com/robdongas/deco3100-plotly-js?token=033oWhr3#/1/4
 
 // unpack function unpacks all the data from the relevant row
@@ -73,7 +78,7 @@ function unpack(rows, key) {
 //             },
 //             showland: true,
 //             showocean: true,
-//             oceancolor: '#303030',
+//             oceancolor: black,
 //             landcolor: 'rgb(250,250,250)',
 //             subunitcolor: 'transparent',
 //             countrycolor: 'transparent',
@@ -97,10 +102,23 @@ var data = [{
     //   x: [0.004100622, 0.009529447],
     x: [0.006342344, 0.009898671],
     y: ['Trump', 'Obama'],
+    marker: {
+        color: [trumpColor, obamaColor],
+    },
     orientation: 'h'
 }];
 
 var layout = {
+    xaxis: {
+        title: {
+            text: 'Use frequency of the word "America"'
+        }
+    },
+    yaxis: {
+        size: 18
+    },
+    height: 300,
+    margin: { r: 0, t: 50 },
     // title: 'Diversity across the US,'
     paper_bgcolor: 'transparent',
     plot_bgcolor: 'transparent'
@@ -108,81 +126,132 @@ var layout = {
 
 Plotly.newPlot('america-mentioned-bar', data, layout, { displayModeBar: false });
 
-
-// MAP OF WHERE IN THE WORLD they tweeted about
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/countries-mentioned.csv", function (err, rows) {
-
-    var data = [{
-        type: 'choropleth',
-        locationmode: 'country names',
-        locations: unpack(rows, 'country'),
-        z: unpack(rows, 'obama_frequency'),
-        text: unpack(rows, 'country'),
-        zmin: 0,
-        zmax: 0.00001,
-        colorscale: [
-            [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
-            [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
-            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
-        ],
-        colorbar: {
-            title: 'Diversity Index',
-            thickness: 0.2
-        },
-    }];
-
-    var layout = {
-        title: 'Countries mentioned by Trump and Obama in their tweets',
-        colorbar: true,
-        geo: {
-            scope: 'world',
-            showland: true,
-            showocean: true,
-            oceancolor: '#303030',
-            landcolor: 'rgb(250,250,250)',
-            subunitcolor: 'transparent',
-            countrycolor: 'transparent',
-            countrywidth: 0.5,
-            subunitwidth: 0.5
-        },
-        "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
-        paper_bgcolor: 'transparent',
-        plot_bgcolor: 'transparent'
-    };
-
-    Plotly.newPlot('countries-mentioned-map', data, layout, { displayModeBar: false });
-})
-
-// PLOT OF TWITTER ACTIVITY FOR BOTH TRUMP AND OBAMA
-// MAP OF WHERE IN THE WORLD they tweeted about
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/tweet_values.csv", function (err, rows) {
-    var data = [{
-        type: 'scatter',
-        // x: [0.0000417336, 0.000109534],
-        x: unpack(rows, 'date'),
-        y: unpack(rows, 'obama_tweet_count'),
-    }, {
-        type: 'scatter',
-        x: unpack(rows, 'date'),
-        y: unpack(rows, 'trump_tweet_count')
+const dropDown = document.querySelector('div.dropdown');
+var dropDownToggle = false;
+dropDown.addEventListener('click', function(event) {
+    event.stopPropagation()
+    if (dropDownToggle == false) {
+        dropDown.classList.add('active')
+        dropDownToggle = true
+    } else {
+        dropDown.classList.remove('active')
+        dropDownToggle = false
     }
-    ];
-
-    var layout = {
-        // title: 'Diversity across the US,'
-        paper_bgcolor: 'transparent',
-        plot_bgcolor: 'transparent'
-    };
-    Plotly.newPlot('total-obama-line', data, layout, { displayModeBar: false });
-    // Plotly.newPlot('total-trump-line', [data[1]], layout, { displayModeBar: false });
 })
+const dropdownLinks = dropDown.querySelectorAll('a')
+dropdownLinks.forEach(function(link, index) {
+    link.addEventListener('click', function(event) {
+        if (dropDown.classList.contains('active')) {
+            if (index == 0) {
+                dropDown.append(dropdownLinks[1])
+            } else if (index == 1) {
+                dropDown.append(dropdownLinks[0])
+            }
+        }
+        changePresident()
+    })
+})
+// MAP OF WHERE IN THE WORLD they tweeted about
+function changePresident() {
+    Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/countries-mentioned.csv", function (err, rows) {
+        // let president = dropdownLinks[0].classList;
+        let president = dropDown.querySelector('a').classList,
+            presidentColor,
+            presidentMax;
+        if (president == 'obama' ) {
+            presidentColor = obamaColor
+            // presidentMax = 0.00005
+        } else {
+            presidentColor = trumpColor
+            // presidentMax = 0.0015
+        }
+        presidentMax = 0.0015
+        // alert(president)
+        // let data;
+        // if (dropdownLinks[0].classList.contains('obama')) {
+        //     data = 'obama_frequency'
+        // } else {
+
+        // }
+
+        let prez_frequency = unpack(rows, president + '_frequency'),
+            prez_locations = unpack(rows, 'country')
+    
+        let frequency = [],
+            locations = [];
+
+        prez_frequency.forEach(function(times_used, index) {
+            if (times_used > 0) {
+                frequency.push(prez_frequency[index])
+                locations.push(prez_locations[index])
+                // text.push(obama_text[index])
+            }
+        })
+    
+    
+        var data = [{
+            type: 'choropleth',
+            locationmode: 'country names',
+            locations: locations,
+            z: frequency,
+            text: locations,
+            zmin: 0,
+            zmax: presidentMax,
+            colorscale: [
+                [0, grey], [0.3, presidentColor], [1, black],
+                // [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
+                // [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
+                // [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
+            ],
+            colorbar: {
+                title: 'Frequency',
+                thickness: 16,
+                outlinecolor: 'transparent',
+                len: 0.75,
+            },
+            // markerlinecolor: 'transparent',
+            marker: {
+                line: {
+                    color: black,
+    
+                },
+                // opacity: 0.5,
+            },
+    
+        }];
+    
+        var layout = {
+            // title: 'Countries mentioned by Obama and Trump in their tweets',
+            dragmode: false, 
+            scrollzoom: false,
+            colorbar: true,
+            geo: {
+                scope: 'world',
+                showland: true,
+                showocean: true,
+                oceancolor: white,
+                landcolor: white,
+                countrycolor: 'transparent',
+                countrywidth: 0.5,
+                subunitwidth: 0.5
+            },
+            margin: {l: 0, r: 0, b: 0, t: 0},
+            // "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
+            paper_bgcolor: 'transparent',
+            plot_bgcolor: 'transparent'
+        };
+    
+        Plotly.react('countries-mentioned-map', data, layout, { displayModeBar: false });
+    })    
+}
+changePresident()
 
 // ////////////////////
 // // Scatter plot demonstrating the topics discussed in the lead up to election y-axis: sentiment vertically, date horizontally
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/pronouns.csv", function (err, rows) {
-    console.log(unpack(rows, 'words'))
-    console.log(unpack(rows, 'parent'))
-    console.log(unpack(rows, 'trump_all_pcnt'))
+    // console.log(unpack(rows, 'words'))
+    // console.log(unpack(rows, 'parent'))
+    // console.log(unpack(rows, 'trump_all_pcnt'))
     var words = unpack(rows, 'words'),
         parents = unpack(rows, 'parent'),
         values = unpack(rows, 'obama_all_pcnt');
@@ -235,7 +304,7 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             mode: 'lines+markers',
             line: {
                 width: 2,
-                color: '#FAFAFA'
+                color: white
             },
             opacity: opacityValue
         };
@@ -250,7 +319,7 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         zmin: 0,
         zmax: 20,
     colorscale: [
-            [0, '#FAFAFA'], [0.9, '#FAFAFA'], [1, '#683962']
+            [0, white], [0.9, white], [1, purple]
         ],
         showscale: false,
     })

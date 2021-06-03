@@ -213,7 +213,7 @@
         </section>
 
         <!-- MAKING THIS ANIMATE WITH A SLIDER AND AUTO PLAY -->
-        <section id="diversity" class="contain left dark  full-screen" >
+        <section id="diversity"  style="padding-bottom: 0;" class="contain left dark  full-screen" >
             <div id="immigration" class="plots"></div>
             <section class="text">
                 <!-- style="position: relative; left: 70%;" -->
@@ -228,7 +228,7 @@
                         In what Frey (2018) calls a ‘diversity explosion’, the US has seen significant growth in
                         Hispanic, Asian and mixed ethnicity minorities.
 
-                        This is largely due to "youthful immigration from Latin America, and Asia" which has been crucial to a shift in the ethnic landscape and thus a boost in diversity. Lee (2020)
+                        This is largely due to "youthful immigration from Latin America, and Asia" which has been crucial to a shift in the ethnic landscape. Lee (2020)
 
                         <!-- Immigration from Latin America and Asia is a key driver of this trend, in part because the newly arrived immigrant groups tend to have youthful age structures and higher fertility. Intermarriage (and the resulting multiracial offspring) and shifts in racial-ethnic identity also play significant roles in boosting diversity. -->
                         
@@ -241,7 +241,7 @@
 
             </section> -->
             </section>
-        <section class="contain left dark full-screen">
+        <section style="padding-top: 0;" class="contain left dark full-screen">
             <section style="width: 80%;" class="text">
                 <article id="ethnic" class="padded-text">
                     <p>
@@ -252,15 +252,18 @@
                             based on six major racial/ethnic groups (White, Black, Latino, Asian or Pacific Islander, Native American, and Mixed/other race). 
                             The maximum diversity score (1.79) would occur if each group were evenly represented in the region. (National Equity Atlas, 2021)</label></i>. 
                             <!-- The more densely populated, coastal states such as California and New York continue to record faster diversification than regional inland states. -->
-                    </p>
+                    
+                        </p>
+                        <h3>Diversity Index across the US</h3>
                     <div class="plot-container">
-                        <div id="diversity-plot" class="plots"></div>
+
                         <!-- style="position: fixed; top: 10vh; right: 10vh; max-width: 150px; max-height: 150px;" -->
-                        <div  id="state-diversity" class="plots"></div>
+                        <div id="state-diversity" class="plots"></div>
+                        <div id="diversity-plot" class="plots"></div>
                     </div>
 
                 </article>
-                <article class="padded-text">
+                <article >
                     <p>
                         The National Equity Atlas (2021) outlines that "diversity - in the context of inclusion - is a driver of 
                         innovation, business growth and economic progress."
@@ -335,7 +338,7 @@
                         their nationwide reach and driving engagement - an advantage that presidents who preceded them, simply did not have.
                     </p>
                 </article>
-                <article class="padded-text">
+                <article id="obama-tweet" class="padded-text">
 <!-- Adding a bubble chart here with the topics mapped vertically via sentiment and over time bubbles  -->
 
                     <!-- BIG NUMBERS? -->
@@ -368,20 +371,26 @@
                         common enemy, ‘foreign’ powers who were supposedly meddling in the great American dream and
                         future.
                     </p> -->
-                    <p>Interestingly, Obama tweeted sparsely in his first presidential campaign. However, as an
-                        incumbent in his campaign for re-election, Obama began to tweet in record amounts.</p>
+                    <p>Although Obama was known to be the first 'social media president', he tweeted sparsely in his first presidential campaign, when compared to the leadup to his second election, as an incumbent. </p>
+                </article>
+                <article id="obama-tweet-reelect" class="padded-text">
                     <p>
+                        <!-- During this second election phase, Obama began to tweet in record amounts. -->
                         At the very most, Obama tweeted 500 times in September of 2012, rallying online followers in his
-                        bid for a second term. The majority of the tweets spoke of what he had already done, and what he
-                        could do for the nation in the future.
+                        bid for a second term. 
+                        <!-- The majority of the tweets spoke of what he had already done, and what he
+                        could do for the nation in the future. -->
+                    </p>
+                </article>
+                <article id="trump-tweet" class="padded-text">
+                    <p>
+                        Unlike Obama in his first election, Trump maintained a consistently high tweet rate in the lead up 
+                        to voting season.  
                     </p>
                 </article>
                 <article class="padded-text">
-                    <p>
-                        Unlike Obama in his first election, Trump maintained a consistently high tweet rate in the lead up 
-                        to voting season. Although he reassured the media, saying "Don’t worry, I’ll give it up after I’m president," he consistently tweeted upwards of 150 times a month throughout his first term. Seeking 
-                        re-election, the number of tweets he made climbed to over 800 on a monthly basis. 
-                    </p>
+                    <p>Although he reassured the media, saying "Don’t worry, I’ll give it up after I’m president," he consistently tweeted upwards of 150 times a month throughout his first term. Seeking 
+                        re-election, the number of tweets he made climbed to over 800 on a monthly basis.</p>
                     <p>
                         Although Twitter seemed to play a bigger role in Trump's first election campaign than in Obama's, the platform was undeniably pivotal
                         as they sought re-election.
@@ -576,8 +585,11 @@
 
                     <!-- <p>Now lets take a step back and see how these leaders perform on a global scope.</p> -->
                     <p>As presidents of the US, one might assume that both Obama and Trump are focused on discussing and raising problems
-                        that have to do with internal policies.</p>
-                    <p>The data tells us otherwise, however.</p>
+                        that have to do with internal policies.
+                    </br></br>
+                    The data tells us otherwise, however.
+                    </p>
+           
                     <!-- <p>As presidents of the US, it's an assumption that Obama and Trump seemingly spoke on the topic of America against the
                         world, so it is no surprise that both appear to be inwardly focused.
                         Comparing the frequency by which either of them said the same word, Obama says words like
@@ -587,7 +599,7 @@
                     
                         <!-- we want a bar graph here -->
                         <!-- ==  === -->
-                    <p>Interestingly, President Obama tweeted about the US more frequently than Trump.</p>
+                    <p>Interestingly, President Obama tweeted about the US almost twice as frequently than Trump.</p>
                     <div id="america-mentioned-bar" class="plots"></div>
                     <!-- <p>Looking at the tweets specifically, </p> -->
                     <!-- these were the countries that these tweets were associated with (choropleth map)-->
@@ -601,7 +613,17 @@
                         thrown at foreign entities were on the side of hostile rather than kind.</p> -->
 
                     <p>Mapping out the countries mentioned in their tweets, it continues to show that Trump had a greater international focus as opposed to Obama.</p>
-                        <div id="countries-mentioned-map" class="plots"></div>
+                    <h3>Tweets by: <div class="dropdown"><a class="obama">Obama</a><a class="trump">Trump</a></div>
+                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            </h3>
+                    <!-- <div class="button-container">
+                        <button name="obama" type="button">Obama</button>
+                        <button name="trump" type="button">Trump</button>  
+                    </div> -->
+                     
+                    <div id="countries-mentioned-map" class="plots"></div>
                         <p>
                             Obama tweeted about American topics over 10 times as much as he acknowledged his foreign counterparts. 
                             However, Trump tweeted near equal amounts about both American and international topics. He also made 200 tweets more regarding foreign affairs than internal affairs.
@@ -690,8 +712,11 @@
         </section>
     </main>
     <nav id="jump-links" class="hide"></nav>
+    <script>
 
+    </script>
     <script src="public/js/script.js"></script>
+    <script src="public/js/animate.js"></script>
     <script src="public/js/toggle.js"></script>
     <script src="public/js/scroll.js"></script>
     <script src="public/js/zoom.js"></script>

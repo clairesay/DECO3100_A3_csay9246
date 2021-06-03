@@ -14,9 +14,16 @@ function plotChange(id) {
         case 'ethnic':
             // updateImmigration()
             break;
-        case 'y':
+        case 'obama-tweet':
+        case 'obama-tweet-reelect':
+        case 'trump-tweet':
             // code block
+            // console.log(id)
+            animate(id)
             break;
+        // case 'obama-tweet-reelect':
+        //     animate('obama-tweet-reelect')
+        //     break;
         default:
         // code block
     }
