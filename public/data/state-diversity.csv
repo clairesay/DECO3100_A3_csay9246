@@ -1,0 +1,256 @@
+﻿code,state,year,diversity
+AL,Alabama,1980,0.6463
+AL,Alabama,1990,0.6589
+AL,Alabama,2000,0.773
+AL,Alabama,2010,0.8823
+AL,Alabama,2017,0.9111
+AK,Alaska,1980,0.7583
+AK,Alaska,1990,0.8675
+AK,Alaska,2000,1.0907
+AK,Alaska,2010,1.1844
+AK,Alaska,2017,1.247
+AZ,Arizona,1980,0.8078
+AZ,Arizona,1990,0.874
+AZ,Arizona,2000,1.0204
+AZ,Arizona,2010,1.1067
+AZ,Arizona,2017,1.144
+AR,Arkansas,1980,0.5384
+AR,Arkansas,1990,0.5511
+AR,Arkansas,2000,0.7147
+AR,Arkansas,2010,0.8443
+AR,Arkansas,2017,0.8887
+CA,California,1980,0.9899
+CA,California,1990,1.1187
+CA,California,2000,1.2756
+CA,California,2010,1.2909
+CA,California,2017,1.3026
+CO,Colorado,1980,0.6177
+CO,Colorado,1990,0.6706
+CO,Colorado,2000,0.8376
+CO,Colorado,2010,0.9132
+CO,Colorado,2017,0.9429
+CT,Connecticut,1980,0.4816
+CT,Connecticut,1990,0.6024
+CT,Connecticut,2000,0.8108
+CT,Connecticut,2010,0.9471
+CT,Connecticut,2017,1.0106
+DE,Delaware,1980,
+DE,Delaware,1990,
+DE,Delaware,2000,0.8551
+DE,Delaware,2010,1.0209
+DE,Delaware,2017,1.0718
+DC,District of Columbia,1980,0.7829
+DC,District of Columbia,1990,0.8801
+DC,District of Columbia,2000,1.0566
+DC,District of Columbia,2010,1.1506
+DC,District of Columbia,2017,1.1893
+FL,Florida,1980,0.735
+FL,Florida,1990,0.8209
+FL,Florida,2000,1.01
+FL,Florida,2010,1.1155
+FL,Florida,2017,1.1538
+GA,Georgia,1980,0.68
+GA,Georgia,1990,0.7329
+GA,Georgia,2000,0.9581
+GA,Georgia,2010,1.0971
+GA,Georgia,2017,1.1378
+HI,Hawaii,1980,1.0398
+HI,Hawaii,1990,0.9901
+HI,Hawaii,2000,1.2666
+HI,Hawaii,2010,1.3
+HI,Hawaii,2017,1.3199
+ID,Idaho,1980,0.2875
+ID,Idaho,1990,0.3476
+ID,Idaho,2000,0.4981
+ID,Idaho,2010,0.6014
+ID,Idaho,2017,0.6385
+IL,Illinois,1980,0.7197
+IL,Illinois,1990,0.8012
+IL,Illinois,2000,0.9909
+IL,Illinois,2010,1.072
+IL,Illinois,2017,1.1099
+IN,Indiana,1980,0.391
+IN,Indiana,1990,0.4168
+IN,Indiana,2000,0.5666
+IN,Indiana,2010,0.6994
+IN,Indiana,2017,0.752
+IA,Iowa,1980,0.1585
+IA,Iowa,1990,0.2162
+IA,Iowa,2000,0.3645
+IA,Iowa,2010,0.5068
+IA,Iowa,2017,0.5797
+KS,Kansas,1980,0.408
+KS,Kansas,1990,0.4904
+KS,Kansas,2000,0.6832
+KS,Kansas,2010,0.8104
+KS,Kansas,2017,0.8527
+KY,Kentucky,1980,0.3347
+KY,Kentucky,1990,0.334
+KY,Kentucky,2000,0.4496
+KY,Kentucky,2010,0.5606
+KY,Kentucky,2017,0.6035
+LA,Louisiana,1980,0.7641
+LA,Louisiana,1990,0.7924
+LA,Louisiana,2000,0.8813
+LA,Louisiana,2010,0.9605
+LA,Louisiana,2017,0.9953
+ME,Maine,1980,0.1036
+ME,Maine,1990,0.1308
+ME,Maine,2000,0.2053
+ME,Maine,2010,0.3028
+ME,Maine,2017,0.3369
+MD,Maryland,1980,0.7121
+MD,Maryland,1990,0.8128
+MD,Maryland,2000,1.0052
+MD,Maryland,2010,1.157
+MD,Maryland,2017,1.2125
+MA,Massachusetts,1980,0.3612
+MA,Massachusetts,1990,0.5158
+MA,Massachusetts,2000,0.7221
+MA,Massachusetts,2010,0.868
+MA,Massachusetts,2017,0.9379
+MI,Michigan,1980,0.5441
+MI,Michigan,1990,0.5966
+MI,Michigan,2000,0.7517
+MI,Michigan,2010,0.8149
+MI,Michigan,2017,0.8531
+MN,Minnesota,1980,0.2107
+MN,Minnesota,1990,0.3161
+MN,Minnesota,2000,0.5428
+MN,Minnesota,2010,0.707
+MN,Minnesota,2017,0.7738
+MS,Mississippi,1980,0.7329
+MS,Mississippi,1990,0.7337
+MS,Mississippi,2000,0.817
+MS,Mississippi,2010,0.8956
+MS,Mississippi,2017,0.9132
+MO,Missouri,1980,0.4517
+MO,Missouri,1990,0.4755
+MO,Missouri,2000,0.6101
+MO,Missouri,2010,0.7038
+MO,Missouri,2017,0.7435
+MT,Montana,1980,0.2946
+MT,Montana,1990,0.3508
+MT,Montana,2000,0.4586
+MT,Montana,2010,0.5257
+MT,Montana,2017,0.5657
+NE,Nebraska,1980,0.2645
+NE,Nebraska,1990,0.3538
+NE,Nebraska,2000,0.5492
+NE,Nebraska,2010,0.6987
+NE,Nebraska,2017,0.76
+NV,Nevada,1980,
+NV,Nevada,1990,
+NV,Nevada,2000,1.0719
+NV,Nevada,2010,1.2275
+NV,Nevada,2017,1.2794
+NH,New Hampshire,1980,0.1039
+NH,New Hampshire,1990,0.1599
+NH,New Hampshire,2000,0.2676
+NH,New Hampshire,2010,0.3801
+NH,New Hampshire,2017,0.429
+NJ,New Jersey,1980,0.709
+NJ,New Jersey,1990,0.8399
+NJ,New Jersey,2000,1.0565
+NJ,New Jersey,2010,1.1675
+NJ,New Jersey,2017,1.2157
+NM,New Mexico,1980,1.0082
+NM,New Mexico,1990,1.0492
+NM,New Mexico,2000,1.1213
+NM,New Mexico,2010,1.1272
+NM,New Mexico,2017,1.1354
+NY,New York,1980,0.8092
+NY,New York,1990,0.936
+NY,New York,2000,1.1303
+NY,New York,2010,1.1876
+NY,New York,2017,1.2271
+NC,North Carolina,1980,0.6631
+NC,North Carolina,1990,0.6882
+NC,North Carolina,2000,0.8871
+NC,North Carolina,2010,1.0228
+NC,North Carolina,2017,1.0681
+ND,North Dakota,1980,0.205
+ND,North Dakota,1990,0.274
+ND,North Dakota,2000,0.3823
+ND,North Dakota,2010,0.5036
+ND,North Dakota,2017,0.6267
+OH,Ohio,1980,0.43
+OH,Ohio,1990,0.4675
+OH,Ohio,2000,0.5942
+OH,Ohio,2010,0.6869
+OH,Ohio,2017,0.7374
+OK,Oklahoma,1980,0.5863
+OK,Oklahoma,1990,0.7073
+OK,Oklahoma,2000,0.9597
+OK,Oklahoma,2010,1.0952
+OK,Oklahoma,2017,1.1491
+OR,Oregon,1980,0.332
+OR,Oregon,1990,0.4296
+OR,Oregon,2000,0.6731
+OR,Oregon,2010,0.7948
+OR,Oregon,2017,0.8405
+PA,Pennsylvania,1980,0.4141
+PA,Pennsylvania,1990,0.4689
+PA,Pennsylvania,2000,0.6121
+PA,Pennsylvania,2010,0.753
+PA,Pennsylvania,2017,0.816
+RI,Rhode Island,1980,0.3245
+RI,Rhode Island,1990,0.4744
+RI,Rhode Island,2000,0.7121
+RI,Rhode Island,2010,0.8431
+RI,Rhode Island,2017,0.9076
+SC,South Carolina,1980,0.7057
+SC,South Carolina,1990,0.7052
+SC,South Carolina,2000,0.8262
+SC,South Carolina,2010,0.9328
+SC,South Carolina,2017,0.9571
+SD,South Dakota,1980,0.3072
+SD,South Dakota,1990,0.3612
+SD,South Dakota,2000,0.4927
+SD,South Dakota,2010,0.622
+SD,South Dakota,2017,0.7
+TN,Tennessee,1980,0.5135
+TN,Tennessee,1990,0.5308
+TN,Tennessee,2000,0.6726
+TN,Tennessee,2010,0.7906
+TN,Tennessee,2017,0.8339
+TX,Texas,1980,0.9259
+TX,Texas,1990,1.0008
+TX,Texas,2000,1.1227
+TX,Texas,2010,1.1785
+TX,Texas,2017,1.2068
+UT,Utah,1980,0.3501
+UT,Utah,1990,0.396
+UT,Utah,2000,0.5898
+UT,Utah,2010,0.7058
+UT,Utah,2017,0.7428
+VT,Vermont,1980,0.095
+VT,Vermont,1990,0.1268
+VT,Vermont,2000,0.2231
+VT,Vermont,2010,0.3035
+VT,Vermont,2017,0.3483
+VA,Virginia,1980,0.6442
+VA,Virgina,1990,0.7262
+VA,Virginia,2000,0.9232
+VA,Virginia,2010,1.0638
+VA,Virginia,2017,1.1183
+WA,Washington,1980,0.444
+WA,Washington,1990,0.5659
+WA,Washington,2000,0.8278
+WA,Washington,2010,0.9732
+WA,Washington,2017,1.0316
+WV,West Virginia,1980,0.2165
+WV,West Virginia,1990,0.2061
+WV,West Virginia,2000,0.28
+WV,West Virginia,2010,0.3391
+WV,West Virginia,2017,0.3749
+WI,Wisconsin,1980,0.3014
+WI,Wisconsin,1990,0.3932
+WI,Wisconsin,2000,0.5517
+WI,Wisconsin,2010,0.6799
+WI,Wisconsin,2017,0.7268
+WY,Wyoming,1980,0.3437
+WY,Wyoming,1990,0.391
+WY,Wyoming,2000,0.4873
+WY,Wyoming,2010,0.569
+WY,Wyoming,2017,0.6179
