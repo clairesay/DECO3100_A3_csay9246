@@ -9,85 +9,85 @@ function unpack(rows, key) {
 
 // // CHOROPLETH MAP describing increasing diversity over time
 // function updateImmigration() {
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/diversity.csv", function (err, rows) {
-    var data = [{
-        type: 'choropleth',
-        locationmode: 'USA-states',
-        locations: unpack(rows, 'code'),
-        z: unpack(rows, '2000'),
-        text: unpack(rows, 'state'),
-        zmin: 0,
-        zmax: 1.79,
-        colorscale: [
-            [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
-            [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
-            [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
-        ],
-        colorbar: {
-            title: 'Diversity Index',
-            thickness: 0.2
-        },
-        marker: {
-            line: {
-                color: 'rgb(255,255,255)',
-                width: 1
-            }
-        }
-    },
-    {
-        type: 'choropleth',
-        locationmode: 'USA-states',
-        locations: unpack(rows, 'code'),
-        z: unpack(rows, '2010'),
-        text: unpack(rows, 'state'),
-        marker: {
-            line: {
-                color: 'rgb(255,255,255)',
-                width: 1
-            }
-        }
-    },
-    {
-        type: 'choropleth',
-        locationmode: 'USA-states',
-        locations: unpack(rows, '2017'),
-        z: unpack(rows, 'index'),
-        text: unpack(rows, 'state'),
-        marker: {
-            line: {
-                color: 'rgb(255,255,255)',
-                width: 1
-            }
-        }
-    }
-    ];
+// Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/diversity.csv", function (err, rows) {
+//     var data = [{
+//         type: 'choropleth',
+//         locationmode: 'USA-states',
+//         locations: unpack(rows, 'code'),
+//         z: unpack(rows, '2000'),
+//         text: unpack(rows, 'state'),
+//         zmin: 0,
+//         zmax: 1.79,
+//         colorscale: [
+//             [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
+//             [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
+//             [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
+//         ],
+//         colorbar: {
+//             title: 'Diversity Index',
+//             thickness: 0.2
+//         },
+//         marker: {
+//             line: {
+//                 color: 'rgb(255,255,255)',
+//                 width: 1
+//             }
+//         }
+//     },
+//     {
+//         type: 'choropleth',
+//         locationmode: 'USA-states',
+//         locations: unpack(rows, 'code'),
+//         z: unpack(rows, '2010'),
+//         text: unpack(rows, 'state'),
+//         marker: {
+//             line: {
+//                 color: 'rgb(255,255,255)',
+//                 width: 1
+//             }
+//         }
+//     },
+//     {
+//         type: 'choropleth',
+//         locationmode: 'USA-states',
+//         locations: unpack(rows, '2017'),
+//         z: unpack(rows, 'index'),
+//         text: unpack(rows, 'state'),
+//         marker: {
+//             line: {
+//                 color: 'rgb(255,255,255)',
+//                 width: 1
+//             }
+//         }
+//     }
+//     ];
 
 
-    var layout = {
-        title: 'Countries mentioned by Trump and Obama in their tweets',
-        colorbar: true,
-        geo: {
-            scope: 'north america',
-            projection: {
-                type: 'equirectangular'
-            },
-            showland: true,
-            showocean: true,
-            oceancolor: '#303030',
-            landcolor: 'rgb(250,250,250)',
-            subunitcolor: 'transparent',
-            countrycolor: 'transparent',
-            countrywidth: 0.5,
-            subunitwidth: 0.5
-        },
-        "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
-        paper_bgcolor: 'transparent',
-        plot_bgcolor: 'transparent'
-    };
+//     var layout = {
+//         title: 'Countries mentioned by Trump and Obama in their tweets',
+//         colorbar: true,
+//         geo: {
+//             scope: 'north america',
+//             projection: {
+//                 type: 'equirectangular'
+//             },
+//             showland: true,
+//             showocean: true,
+//             oceancolor: '#303030',
+//             landcolor: 'rgb(250,250,250)',
+//             subunitcolor: 'transparent',
+//             countrycolor: 'transparent',
+//             countrywidth: 0.5,
+//             subunitwidth: 0.5
+//         },
+//         "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
+//         paper_bgcolor: 'transparent',
+//         plot_bgcolor: 'transparent'
+//     };
 
-    Plotly.newPlot('diversity-plot', data, layout, { displayModeBar: false });
+//     Plotly.newPlot('diversity-plot', data, layout, { displayModeBar: false });
 
-})
+// })
 // }
 
 // frequency by which Obama or Trump mention the word America
@@ -235,7 +235,7 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             mode: 'lines+markers',
             line: {
                 width: 2,
-                color: 'salmon'
+                color: '#FAFAFA'
             },
             opacity: opacityValue
         };
