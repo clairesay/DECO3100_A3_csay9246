@@ -96,7 +96,7 @@
 
 // })
 
-Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/gapminder_with_codes.csv", function (err, rows) {
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/states.csv", function (err, rows) {
 
   function filter_and_unpack(rows, key, year) {
     return rows.filter(row => row['year'] == year).map(row => row[key])
@@ -105,13 +105,13 @@ Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/gapminde
   var frames = []
   var slider_steps = []
 
-  var n = 3;
-  var num = 1952;
+  var n = 4;
+  var num = 1980;
   for (var i = 0; i <= n; i++) {
     //   value of life expectancy
-    var z = filter_and_unpack(rows, 'lifeExp', num)
+    var z = filter_and_unpack(rows, 'diversity', num)
     // location
-    var locations = filter_and_unpack(rows, 'iso_alpha', num)
+    var locations = filter_and_unpack(rows, 'state', num)
     // set the frames[i]
     frames[i] = { data: [{ z: z, locations: locations, text: locations }], name: num }
     slider_steps.push({
@@ -125,7 +125,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/gapminde
       ]
     })
     //   increment by year
-    num = num + 5
+    num = num + 10
   }
 
   var data = [{
