@@ -25,6 +25,7 @@ function plotChange(id) {
         case 'obama-tweet':
         case 'trump-tweet':
         case 'obama-tweet-reelect':
+        case 'trump-tweet-reelect':
         case 'both':
             // code block
             // console.log(id)

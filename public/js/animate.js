@@ -82,6 +82,7 @@ function observe(id) {
 // https://codepen.io/plotly/pen/ZpWPpj
 function animate(id) {
     let data, layout;
+
     if (id == 'neither') {
         data = [{
             x: obamaDates,
@@ -90,6 +91,11 @@ function animate(id) {
             x: trumpDates,
             y: trumpFake,
         }]
+
+        layout = {
+            shapes: [null],
+            annotations: [null]
+        }
     } else if (id == 'obama-tweet') {
         data = [{
             x: obamaDates,
@@ -101,24 +107,41 @@ function animate(id) {
 
         layout = {
             shapes: [
-                // 1st highlight during Feb 4 - Feb 6
                 {
                     type: 'rect',
                     // x-reference is assigned to the x-values
                     xref: 'x',
                     // y-reference is assigned to the plot paper [0,1]
                     yref: 'paper',
-                    x0: '1/07/2007',
+                    x0: '1/04/2007',
                     y0: 0,
                     x1: '1/11/2007',
                     y1: 1,
-                    fillcolor: black,
-                    opacity: 2,
+                    fillcolor: obamaColor,
+                    opacity: 0.2,
                     line: {
                         width: 0
                     }
                 },
-            ]
+                {
+                    type: 'rect',
+                    // x-reference is assigned to the x-values
+                    xref: 'x',
+                    // y-reference is assigned to the plot paper [0,1]
+                    yref: 'paper',
+                    x0: '1/01/2012',
+                    y0: 0,
+                    x1: '1/11/2012',
+                    y1: 1,
+                    fillcolor: obamaColor,
+                    opacity: 0.2,
+                    line: {
+                        width: 0
+                    }
+                },
+            ],
+
+            annotations: [null]
         }
     } else if (id == 'trump-tweet') {
         data = [{
@@ -128,8 +151,75 @@ function animate(id) {
             x: trumpDates,
             y: trumpData,
         }]
+        layout = {
+            shapes: [
+                {
+                    type: 'rect',
+                    // x-reference is assigned to the x-values
+                    xref: 'x',
+                    // y-reference is assigned to the plot paper [0,1]
+                    yref: 'paper',
+                    x0: '1/01/2016',
+                    y0: 0,
+                    x1: '1/11/2016',
+                    y1: 1,
+                    fillcolor: trumpColor,
+                    opacity: 0.2,
+                    line: {
+                        width: 0
+                    }
+                },
+                {
+                    type: 'rect',
+                    // x-reference is assigned to the x-values
+                    xref: 'x',
+                    // y-reference is assigned to the plot paper [0,1]
+                    yref: 'paper',
+                    x0: '1/04/2020',
+                    y0: 0,
+                    x1: '1/12/2020',
+                    y1: 1,
+                    fillcolor: trumpColor,
+                    opacity: 0.2,
+                    line: {
+                        width: 0
+                    }
+                },
+            ],
+            annotations: [null]
+        }
     } else if (id == 'obama-tweet-reelect') {
-
+        layout = {
+            annotations: [
+                {
+                    x: obamaDates[obamaData.indexOf((Math.max(...obamaData)).toString())],
+                    y: Math.max(...obamaData),
+                    xref: 'x',
+                    yref: 'y',
+                    text: '499 Tweets',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: 0,
+                    ay: -40
+                  }
+            ]
+        }
+    } else if (id == 'trump-tweet-reelect') {
+        layout = {
+            annotations: [
+                {
+                    x: trumpDates[trumpData.indexOf((Math.max(...trumpData)).toString())],
+                    y: Math.max(...trumpData),
+                    xref: 'x',
+                    yref: 'y',
+                    text: '1415 Tweets',
+                    showarrow: true,
+                    arrowhead: 7,
+                    ax: 0,
+                    ay: -40
+                  }
+            ]
+        }
     } else if (id == 'both') {
         data = [{
             x: obamaDates,
