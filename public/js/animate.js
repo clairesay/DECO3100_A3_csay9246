@@ -1,6 +1,8 @@
 // PLOT OF TWITTER ACTIVITY FOR BOTH TRUMP AND OBAMA
 var allObama,
-    allTrump,    
+    allTrump,
+    allObamaSentiment,
+    allTrumpSentiment,    
     obamaData = [],
     trumpData = [],
     obamaDates = [],
@@ -10,8 +12,11 @@ var allObama,
     trumpFake;
 
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/sentiment_averages.csv", function (err, rows) {
-    allObama = unpack(rows, 'obama_sentiment');
-    allTrump = unpack(rows, 'trump_sentiment');
+    allObama = unpack(rows, 'obama_frequency');
+    allTrump = unpack(rows, 'trump_frequency');
+
+    allObamaSentiment = unpack(rows, 'obama_sentiment')
+    allTrumpSentiment = unpack(rows, 'trump_sentiment')
 
     allDates = unpack(rows, 'date');
 

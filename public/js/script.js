@@ -271,6 +271,8 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
                 size: 14,
             },
             outsidetextfont: {color: white, size: 12},
+            // textposition: 'outside',
+            insidetextorientation: 'horizontal'
         }];
 
     var layout = {
