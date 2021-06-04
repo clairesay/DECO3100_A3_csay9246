@@ -9,9 +9,9 @@ var allObama,
     obamaFake,
     trumpFake;
 
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/tweet_count_condensed.csv", function (err, rows) {
-    allObama = unpack(rows, 'obama_tweet_count');
-    allTrump = unpack(rows, 'trump_tweet_count');
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/sentiment_averages.csv", function (err, rows) {
+    allObama = unpack(rows, 'obama_sentiment');
+    allTrump = unpack(rows, 'trump_sentiment');
 
     allDates = unpack(rows, 'date');
 
@@ -28,6 +28,12 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             trumpDates.push(allDates[index])
         }
     })
+
+
+    console.log(allObama)
+    console.log(allTrump)
+    console.log(obamaData)
+    console.log(trumpData)
 
     obamaFake = Array(obamaData.length).fill(0);
     trumpFake = Array(trumpData.length).fill(0);
@@ -66,7 +72,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     var layout = {
         // title: 'Diversity across the US,'
         yaxis: {
-            range: [0, 1500]
+            // range: [0, 1500]
         },
         paper_bgcolor: 'transparent',
         plot_bgcolor: 'transparent'
@@ -172,7 +178,7 @@ function animate(id) {
                     yref: 'paper',
                     x0: '2016-01-01',
                     y0: 0,
-                    x1: '2016-01-01',
+                    x1: '2016-12-01',
                     y1: 1,
                     fillcolor: trumpColor,
                     opacity: 0.2,
@@ -200,7 +206,48 @@ function animate(id) {
             annotations: [null]
         }
     } else if (id == 'obama-tweet-reelect') {
+        data = [{
+            x: obamaDates,
+            y: obamaData,
+        }, {
+            x: trumpDates,
+            y: trumpFake,
+        }]
         layout = {
+            shapes: [
+                {
+                    type: 'rect',
+                    // x-reference is assigned to the x-values
+                    xref: 'x',
+                    // y-reference is assigned to the plot paper [0,1]
+                    yref: 'paper',
+                    x0: '2007-04-01',
+                    y0: 0,
+                    x1: '2007-11-01',
+                    y1: 1,
+                    fillcolor: obamaColor,
+                    opacity: 0.2,
+                    line: {
+                        width: 0
+                    }
+                },
+                {
+                    type: 'rect',
+                    // x-reference is assigned to the x-values
+                    xref: 'x',
+                    // y-reference is assigned to the plot paper [0,1]
+                    yref: 'paper',
+                    x0: '2012-01-01',
+                    y0: 0,
+                    x1: '2012-11-01',
+                    y1: 1,
+                    fillcolor: obamaColor,
+                    opacity: 0.2,
+                    line: {
+                        width: 0
+                    }
+                },
+            ],
             annotations: [
                 {
                     x: obamaDates[obamaData.indexOf((Math.max(...obamaData)).toString())],

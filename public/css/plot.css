@@ -16,6 +16,11 @@
     align-items: center;
 }
 
+#words * {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 #ethnic h3 {
     padding-top: 100px;
 }
