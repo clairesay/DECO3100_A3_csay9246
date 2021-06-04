@@ -42,13 +42,24 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         // mode: 'markers',
         x: obamaDates,
         y: obamaFake,
-        line: {simplify: false},
+        name: 'Obama',
+        line: {
+            width: 3,
+            simplify: false,
+            color: obamaColor
+        },
+        
     }, {
         // type: 'scatter',
         // mode: 'markers',
         x: trumpDates,
         y: trumpFake,
-        line: {simplify: false},
+        name: 'Trump',
+        line: {
+            width: 3,
+            simplify: false,
+            color: trumpColor
+        },
     }
     ];
 
@@ -196,11 +207,16 @@ function animate(id) {
                     y: Math.max(...obamaData),
                     xref: 'x',
                     yref: 'y',
-                    text: '499 Tweets',
+                    text: '499 TWEETS',
                     showarrow: true,
-                    arrowhead: 7,
+                    arrowhead: 6,
                     ax: 0,
-                    ay: -40
+                    ay: -40,
+                    font: {
+                        family: 'PT Sans',
+                        size: 14,
+                        color: black
+                    },
                   }
             ]
         }
@@ -212,11 +228,16 @@ function animate(id) {
                     y: Math.max(...trumpData),
                     xref: 'x',
                     yref: 'y',
-                    text: '1415 Tweets',
+                    text: '1415 TWEETS',
                     showarrow: true,
-                    arrowhead: 7,
+                    arrowhead: 6,
                     ax: 0,
-                    ay: -40
+                    ay: -40,
+                    font: {
+                        family: 'PT Sans',
+                        size: 14,
+                        color: black
+                    },
                   }
             ]
         }
