@@ -81,9 +81,16 @@ function observe(id) {
 
 // https://codepen.io/plotly/pen/ZpWPpj
 function animate(id) {
-    let data;
-
-    if (id == 'obama-tweet') {
+    let data, layout;
+    if (id == 'neither') {
+        data = [{
+            x: obamaDates,
+            y: obamaFake,
+        }, {
+            x: trumpDates,
+            y: trumpFake,
+        }]
+    } else if (id == 'obama-tweet') {
         data = [{
             x: obamaDates,
             y: obamaData,
@@ -91,6 +98,28 @@ function animate(id) {
             x: trumpDates,
             y: trumpFake,
         }]
+
+        layout = {
+            shapes: [
+                // 1st highlight during Feb 4 - Feb 6
+                {
+                    type: 'rect',
+                    // x-reference is assigned to the x-values
+                    xref: 'x',
+                    // y-reference is assigned to the plot paper [0,1]
+                    yref: 'paper',
+                    x0: '1/07/2007',
+                    y0: 0,
+                    x1: '1/11/2007',
+                    y1: 1,
+                    fillcolor: black,
+                    opacity: 2,
+                    line: {
+                        width: 0
+                    }
+                },
+            ]
+        }
     } else if (id == 'trump-tweet') {
         data = [{
             x: obamaDates,
@@ -114,6 +143,7 @@ function animate(id) {
     // console.log(data)
     Plotly.animate('total-obama-line', {
         data,
+        layout
     }, {
       transition: {
         duration: 500,

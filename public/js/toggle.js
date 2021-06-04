@@ -21,6 +21,7 @@ function plotChange(id) {
         case 'ethnic':
             // updateImmigration()
             break;
+        case 'neither':
         case 'obama-tweet':
         case 'trump-tweet':
         case 'obama-tweet-reelect':
