@@ -1,17 +1,3 @@
-function convertToParagraph(sentence, maxLineLength){
-  let lineLength = 0;
-  sentence = sentence.split(" ")
-  return sentence.reduce((result, word) => {
-    if (lineLength + word.length >= maxLineLength) {
-      lineLength = word.length;
-      return result + `<br>${word}`;
-    } else {
-      lineLength += word.length + (result ? 1 : 0);
-      return result ? result + ` ${word}` : `${word}`;
-    }
-  }, '');
-}
-
 // // generating random dots
 // var n = 500;
 // var x = [], y = [];
@@ -454,6 +440,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       x: dates,
       y: diversity,
       line: {
+        simplify: false,
         // color: '#683962',
         color: white,
         shape: 'spline'
@@ -489,6 +476,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
           // text: 'DIVERSITY INDEX',
           family: 'PT Sans'
         },
+        range: [0, 1.79],
         visible: true,
         color: '#909090',
         gridcolor: '#90909048'
@@ -500,7 +488,24 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       margin: { t: 75, r: 0 }
       // "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
     };
-    Plotly.react('state-diversity', data, layout, { displayModeBar: false });
+
+    if (state == 'US') {
+      Plotly.react('state-diversity', data, layout, { displayModeBar: false });
+    } else {
+      Plotly.animate('state-diversity', {
+        data,
+        layout
+    }, {
+      transition: {
+        duration: 500,
+        easing: 'cubic-in-out',
+      },
+      frame: {
+        duration: 500,
+      }
+    });
+    }
+
     // Plotly.newPlot('total-trump-line', [data[1]], layout, { displayModeBar: false });
     // })
   }

@@ -38,6 +38,8 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         }
     })
 
+    let cmin = 'auto',
+        cmax = 'auto'
 
     // console.log(allObama)
     // console.log(allTrump)
@@ -52,6 +54,17 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     // middle period
     // one year before re-election (until January of the next term)
 
+    var heatmapData = [{
+        z: [obamaSentiment],
+        type: 'heatmap',
+        colorscale: 'Bluered',
+        showscale: false
+    }]
+    var heatmapLayout = {
+        margin: {l: 0, r: 0, t: 0, b: 0}
+    }
+    Plotly.newPlot('total-trump-line', heatmapData, heatmapLayout, {displayModeBar: false});
+
     var data = [{
         // type: 'scatter',
         // mode: 'markers',
@@ -60,6 +73,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         x: obamaDates,
         y: obamaFake,
         name: 'Obama',
+        opacity: 0,
         line: {
             width: 3,
             simplify: false,
@@ -68,21 +82,16 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         },
         marker: {
             size: 12,
-            // size: obamaSentiment,
-            // sizeref: 10,
-            // showscale: true,
+            cmin: cmin,
+            cmax: cmax,
+            showscale: false,
+            colorbar: {
+                outlinecolor: 'transparent',
+                thickness: 5,
+            },
             colorscale: 'Bluered',
-            // [
-            //     Picnic
-            //     // [0, black], [1, white]
-            //     // [0, black], [0.5, obamaColor], [1, grey]
-            // ],
-            // colorbar: {
-            //     thickness: 5,
-            //     x: -2,
-            // },
             color: obamaSentiment
-            // size: (obamaSentiment + 1)*5
+
         }
         
     }, {
@@ -93,6 +102,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         x: trumpDates,
         y: trumpFake,
         name: 'Trump',
+        opacity: 0,
         line: {
 
             width: 3,
@@ -102,22 +112,22 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         },
         marker: {
             size: 12,
-            // showscale: true,
+            showscale: false,
+            cmin: cmin,
+            cmax: cmax,
+            colorbar: {
+                outlinecolor: 'transparent',
+                thickness: 5,
+            },
             colorscale: 'Bluered',
-            // [
-            //     [0, black], [1, white],
-            //     // [0, black], [0.5, trumpColor], [1, grey]
-            // ],
-            // colorbar: {
-            //     thickness: 5,
-            // },
             color: trumpSentiment
-            // size: (trumpSentiment + 1)*5
+
         }
     }
     ];
 
     var layout = {
+        showlegend: false,
         // title: 'Diversity across the US,'
         font: {
             family: 'PT Sans',
@@ -166,9 +176,17 @@ function animate(id) {
         data = [{
             x: obamaDates,
             y: obamaFake,
+            opacity: 0,
+            marker: {
+                showscale: false
+            }
         }, {
             x: trumpDates,
             y: trumpFake,
+            opacity: 0,
+            marker: {
+                showscale: false
+            }
         }]
 
         layout = {
@@ -179,13 +197,21 @@ function animate(id) {
         data = [{
             x: obamaDates,
             y: obamaData,
+            opacity: 1,
+            marker: {
+                showscale: true
+            }
         }, {
             x: trumpDates,
             y: trumpFake,
+            opacity: 0,
+            marker: {
+                showscale: false
+            }
         }]
 
         layout = {
-            shapes: [
+            shapes: [null
                 // {
                 //     type: 'rect',
                 //     layer: 'below',
@@ -203,34 +229,59 @@ function animate(id) {
                 //         width: 0
                 //     }
                 // },
-                {
-                    type: 'rect',
-                    layer: 'below',
-                    // x-reference is assigned to the x-values
-                    xref: 'x',
-                    // y-reference is assigned to the plot paper [0,1]
-                    yref: 'paper',
-                    x0: '2012-01-01',
-                    y0: 0,
-                    x1: '2012-11-01',
-                    y1: 1,
-                    fillcolor: grey,
-                    opacity: 0.2,
-                    line: {
-                        width: 0
-                    }
-                },
+                // {
+                //     type: 'rect',
+                //     layer: 'below',
+                //     // x-reference is assigned to the x-values
+                //     xref: 'x',
+                //     // y-reference is assigned to the plot paper [0,1]
+                //     yref: 'paper',
+                //     x0: '2012-01-01',
+                //     y0: 0,
+                //     x1: '2012-12-01',
+                //     y1: 1,
+                //     fillcolor: grey,
+                //     opacity: 0.2,
+                //     line: {
+                //         width: 0
+                //     }
+                // },
             ],
 
-            annotations: [null]
+            annotations: [
+                {
+                    x: obamaDates[obamaData.indexOf((Math.max(...obamaData)).toString())],
+                    y: Math.max(...obamaData),
+                    xref: 'x',
+                    yref: 'y',
+                    text: '499 TWEETS',
+                    showarrow: true,
+                    arrowhead: 0,
+                    ax: 0,
+                    ay: -40,
+                    font: {
+                        family: 'PT Sans',
+                        size: 14,
+                        color: black
+                    },
+                  }
+            ]
         }
     } else if (id == 'trump-tweet') {
         data = [{
             x: obamaDates,
             y: obamaFake,
+            opacity: 0,
+            marker: {
+                showscale: false
+            }
         }, {
             x: trumpDates,
             y: trumpData,
+            opacity: 1,
+            marker: {
+                showscale: true
+            }
         }]
         layout = {
             shapes: [
@@ -269,15 +320,34 @@ function animate(id) {
                     }
                 },
             ],
-            annotations: [null]
+            annotations: [
+                {
+                    x: trumpDates[trumpData.indexOf((Math.max(...trumpData)).toString())],
+                    y: Math.max(...trumpData),
+                    xref: 'x',
+                    yref: 'y',
+                    text: '1415 TWEETS',
+                    showarrow: true,
+                    arrowhead: 0,
+                    ax: 0,
+                    ay: -40,
+                    font: {
+                        family: 'PT Sans',
+                        size: 14,
+                        color: black
+                    },
+                  }
+            ]
         }
     } else if (id == 'obama-tweet-reelect') {
         data = [{
             x: obamaDates,
             y: obamaData,
+            opacity: 1,
         }, {
             x: trumpDates,
             y: trumpFake,
+            opacity: 0,
         }]
         layout = {
             shapes: [
@@ -307,53 +377,21 @@ function animate(id) {
                     yref: 'paper',
                     x0: '2012-01-01',
                     y0: 0,
-                    x1: '2012-11-01',
+                    x1: '2012-12-01',
                     y1: 1,
-                    fillcolor: 'blue',
-                    opacity: 0.2,
+                    fillcolor: 'darkgrey',
+                    opacity: 0.6,
                     line: {
                         width: 0
                     }
                 },
             ],
-            annotations: [
-                {
-                    x: obamaDates[obamaData.indexOf((Math.max(...obamaData)).toString())],
-                    y: Math.max(...obamaData),
-                    xref: 'x',
-                    yref: 'y',
-                    text: '499 TWEETS',
-                    showarrow: true,
-                    arrowhead: 0,
-                    ax: 0,
-                    ay: -40,
-                    font: {
-                        family: 'PT Sans',
-                        size: 14,
-                        color: black
-                    },
-                  }
-            ]
+            annotations: [null],
         }
     } else if (id == 'trump-tweet-reelect') {
         layout = {
             annotations: [
-                {
-                    x: trumpDates[trumpData.indexOf((Math.max(...trumpData)).toString())],
-                    y: Math.max(...trumpData),
-                    xref: 'x',
-                    yref: 'y',
-                    text: '1415 TWEETS',
-                    showarrow: true,
-                    arrowhead: 0,
-                    ax: 0,
-                    ay: -40,
-                    font: {
-                        family: 'PT Sans',
-                        size: 14,
-                        color: black
-                    },
-                  }
+                null
             ]
         }
     } else if (id == 'both') {

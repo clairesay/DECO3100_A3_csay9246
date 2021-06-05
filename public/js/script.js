@@ -109,6 +109,11 @@ var data = [{
 }];
 
 var layout = {
+    font: {
+        family: 'PT Sans',
+        size: 12,
+        color: black
+    },
     xaxis: {
         title: {
             text: 'Use frequency of the word "America"'
@@ -221,6 +226,11 @@ function changePresident() {
         }];
     
         var layout = {
+            font: {
+                family: 'PT Sans',
+                size: 12,
+                color: black
+            },
             // title: 'Countries mentioned by Obama and Trump in their tweets',
             dragmode: false, 
             scrollzoom: false,
@@ -277,6 +287,11 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         }];
 
     var layout = {
+        font: {
+            family: 'PT Sans',
+            size: 12,
+            color: black
+        },
         plot_bgcolor: white,
         paper_bgcolor: 'transparent',
         "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
@@ -346,7 +361,7 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             // lataxis: {range: [0, 90]},
             projection: {
                 rotation: {
-                    lon: 120
+                    lon: -20
                 }
             },
             center : {

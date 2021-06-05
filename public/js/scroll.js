@@ -38,7 +38,11 @@ window.addEventListener('scroll', function () {
     // checking if each section is in view
     sections.forEach(function (section, index) {
         if (isScrolledIntoView(section, 'partial')) {
-            indexInView = index
+            if (section.id != "") {
+                indexInView = index
+            } else {
+                indexInView = index - 1
+            }
         }
 
         // checking subsections

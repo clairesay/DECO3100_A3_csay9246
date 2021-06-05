@@ -159,3 +159,22 @@ button[name=trump] {
     /* font-family: 'PT Sans'; */
     text-transform: uppercase;
 }
+
+mark.indented {
+    max-width: 332px;
+    line-height: 21px;
+    text-align: left;
+    font-style: italic;
+    background-color: transparent;
+    margin-top: 12px;
+    margin-left: 24px;
+    padding-left: 12px;
+    border-left: 2px solid var(--grey);
+}
+
+p.instruction {
+    margin-top: 100px;
+    font-weight: 700;
+    font-family: 'PT Sans';
+    color: var(--dark-grey) !important;
+}
