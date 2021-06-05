@@ -251,7 +251,49 @@ function changePresident() {
             plot_bgcolor: 'transparent'
         };
     
-        Plotly.react('countries-mentioned-map', data, layout, { displayModeBar: false });
+        Plotly.react('countries-mentioned-map', data, layout, { displayModeBar: false }).then(function (event) {
+            event.on('plotly_click', d=> {
+                var pt = (d.points || [])[0]
+                let location = pt.location.toLowerCase()
+
+                showRandomTweet(location)
+                
+
+                // console.log(pt.location)
+            })
+        })
+
+        function showRandomTweet(location) {
+            let url, allTweets, 
+                theTweet = null;
+            let randomTweetBox = document.querySelector('div#random-tweet-box'),
+                author = randomTweetBox.querySelector('h3'),
+                tweetText = randomTweetBox.querySelector('p');
+
+            if (president == 'obama') {
+                url = "https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/obama_tweets_by_country.csv"
+            } else if (president == 'trump') {
+                url = "https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/trump_tweets_by_country.csv"
+            }
+
+            Plotly.d3.csv(url, function (err, rows) {
+                allTweets = unpack(rows, location.toString())
+
+            // Pickiing a random array https://www.kirupa.com/html5/picking_random_item_from_array.htm
+            // myArray[Math.floor(Math.random() * myArray.length)];
+            while (theTweet == null) {
+                let randomTweet = allTweets[Math.floor(Math.random() * allTweets.length)];
+                if (randomTweet != "") {
+                    theTweet = randomTweet
+                }
+            }
+
+            // display the tweet
+            author.textContent = president
+            tweetText.textContent = theTweet
+        })
+
+        }
     })    
 }
 changePresident()
