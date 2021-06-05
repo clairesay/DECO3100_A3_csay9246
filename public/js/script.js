@@ -263,7 +263,8 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             "parents": parents,
             "values": values,
             "leaf": { opacity: 0.6 },
-            "marker": { line: { width: 2, color: black }, colors: [purple, obamaColor, trumpColor, white]   },
+            // '#B564AA', 
+            "marker": { line: { width: 2, color: black }, colors: [ '#826E7F', '#B59AB1', '#683962', '#F587E6']   },
             "branchvalues": 'total',
             textfont: {
                 family: 'PT Sans',

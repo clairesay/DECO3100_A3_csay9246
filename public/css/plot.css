@@ -154,3 +154,8 @@ button[name=obama] {
 button[name=trump] {
     background-color: var(--red)
 } */
+
+#total-obama-line {
+    /* font-family: 'PT Sans'; */
+    text-transform: uppercase;
+}

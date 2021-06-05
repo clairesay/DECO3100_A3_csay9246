@@ -7,16 +7,18 @@ var allObama,
     trumpData = [],
     obamaDates = [],
     trumpDates = [],
+    obamaSentiment = [],
+    trumpSentiment = [],
     allDates,
     obamaFake,
     trumpFake;
 
-Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/sentiment_averages.csv", function (err, rows) {
+Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/monthly_sentiment.csv", function (err, rows) {
     allObama = unpack(rows, 'obama_frequency');
     allTrump = unpack(rows, 'trump_frequency');
 
-    allObamaSentiment = unpack(rows, 'obama_sentiment')
-    allTrumpSentiment = unpack(rows, 'trump_sentiment')
+    allObamaSentiment = unpack(rows, 'obama_sentiment_average')
+    allTrumpSentiment = unpack(rows, 'trump_sentiment_average')
 
     allDates = unpack(rows, 'date');
 
@@ -24,6 +26,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         if (data != "") {
             obamaData.push(allObama[index])
             obamaDates.push(allDates[index])
+            obamaSentiment.push(allObamaSentiment[index])
         }
     })
 
@@ -31,14 +34,15 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         if (data != "") {
             trumpData.push(allTrump[index])
             trumpDates.push(allDates[index])
+            trumpSentiment.push(allTrumpSentiment[index])
         }
     })
 
 
-    console.log(allObama)
-    console.log(allTrump)
-    console.log(obamaData)
-    console.log(trumpData)
+    // console.log(allObama)
+    // console.log(allTrump)
+    console.log(obamaSentiment)
+    console.log(trumpSentiment)
 
     obamaFake = Array(obamaData.length).fill(0);
     trumpFake = Array(trumpData.length).fill(0);
@@ -51,36 +55,86 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     var data = [{
         // type: 'scatter',
         // mode: 'markers',
+        // mode: 'lines',
+        mode: 'markers+lines',
         x: obamaDates,
         y: obamaFake,
         name: 'Obama',
         line: {
             width: 3,
             simplify: false,
-            color: obamaColor
+            color: grey
+            // color: obamaSentiment
         },
         marker: {
-            // size: obamasentiment
+            size: 12,
+            // size: obamaSentiment,
+            // sizeref: 10,
+            // showscale: true,
+            colorscale: 'Bluered',
+            // [
+            //     Picnic
+            //     // [0, black], [1, white]
+            //     // [0, black], [0.5, obamaColor], [1, grey]
+            // ],
+            // colorbar: {
+            //     thickness: 5,
+            //     x: -2,
+            // },
+            color: obamaSentiment
+            // size: (obamaSentiment + 1)*5
         }
         
     }, {
         // type: 'scatter',
         // mode: 'markers',
+        // mode: 'lines',
+        mode: 'markers+lines',
         x: trumpDates,
         y: trumpFake,
         name: 'Trump',
         line: {
+
             width: 3,
             simplify: false,
-            color: trumpColor
+            color: grey
+            // color: trumpSentiment
         },
+        marker: {
+            size: 12,
+            // showscale: true,
+            colorscale: 'Bluered',
+            // [
+            //     [0, black], [1, white],
+            //     // [0, black], [0.5, trumpColor], [1, grey]
+            // ],
+            // colorbar: {
+            //     thickness: 5,
+            // },
+            color: trumpSentiment
+            // size: (trumpSentiment + 1)*5
+        }
     }
     ];
 
     var layout = {
         // title: 'Diversity across the US,'
+        font: {
+            family: 'PT Sans',
+            size: 12,
+            color: black
+        },
+        xaxis: {
+            range: ['2009-01-01', '2021-03-01']
+        },
         yaxis: {
-            // range: [0, 1500]
+            title: {
+                text: 'Monthly Tweet Count',
+                // family: 'PT Sans',
+                // size: 14,
+                // color: obamaColor,
+            },
+            range: [0, 1000]
         },
         paper_bgcolor: 'transparent',
         plot_bgcolor: 'transparent'
@@ -132,24 +186,26 @@ function animate(id) {
 
         layout = {
             shapes: [
+                // {
+                //     type: 'rect',
+                //     layer: 'below',
+                //     // x-reference is assigned to the x-values
+                //     xref: 'x',
+                //     // y-reference is assigned to the plot paper [0,1]
+                //     yref: 'paper',
+                //     x0: '2007-04-01',
+                //     y0: 0,
+                //     x1: '2007-11-01',
+                //     y1: 1,
+                //     fillcolor: grey,
+                //     opacity: 0.2,
+                //     line: {
+                //         width: 0
+                //     }
+                // },
                 {
                     type: 'rect',
-                    // x-reference is assigned to the x-values
-                    xref: 'x',
-                    // y-reference is assigned to the plot paper [0,1]
-                    yref: 'paper',
-                    x0: '2007-04-01',
-                    y0: 0,
-                    x1: '2007-11-01',
-                    y1: 1,
-                    fillcolor: obamaColor,
-                    opacity: 0.2,
-                    line: {
-                        width: 0
-                    }
-                },
-                {
-                    type: 'rect',
+                    layer: 'below',
                     // x-reference is assigned to the x-values
                     xref: 'x',
                     // y-reference is assigned to the plot paper [0,1]
@@ -158,7 +214,7 @@ function animate(id) {
                     y0: 0,
                     x1: '2012-11-01',
                     y1: 1,
-                    fillcolor: obamaColor,
+                    fillcolor: grey,
                     opacity: 0.2,
                     line: {
                         width: 0
@@ -180,6 +236,7 @@ function animate(id) {
             shapes: [
                 {
                     type: 'rect',
+                    layer: 'below',
                     // x-reference is assigned to the x-values
                     xref: 'x',
                     // y-reference is assigned to the plot paper [0,1]
@@ -188,7 +245,7 @@ function animate(id) {
                     y0: 0,
                     x1: '2016-12-01',
                     y1: 1,
-                    fillcolor: trumpColor,
+                    fillcolor: grey,
                     opacity: 0.2,
                     line: {
                         width: 0
@@ -196,15 +253,16 @@ function animate(id) {
                 },
                 {
                     type: 'rect',
+                    layer: 'below',
                     // x-reference is assigned to the x-values
                     xref: 'x',
                     // y-reference is assigned to the plot paper [0,1]
                     yref: 'paper',
                     x0: '2020-04-01',
                     y0: 0,
-                    x1: '2020-12-01',
+                    x1: '2021-01-01',
                     y1: 1,
-                    fillcolor: trumpColor,
+                    fillcolor: grey,
                     opacity: 0.2,
                     line: {
                         width: 0
@@ -223,24 +281,26 @@ function animate(id) {
         }]
         layout = {
             shapes: [
+                // {
+                //     type: 'rect',
+                //     layer: 'below',
+                //     // x-reference is assigned to the x-values
+                //     xref: 'x',
+                //     // y-reference is assigned to the plot paper [0,1]
+                //     yref: 'paper',
+                //     x0: '2007-04-01',
+                //     y0: 0,
+                //     x1: '2007-11-01',
+                //     y1: 1,
+                //     fillcolor: grey,
+                //     opacity: 0.2,
+                //     line: {
+                //         width: 0
+                //     }
+                // },
                 {
                     type: 'rect',
-                    // x-reference is assigned to the x-values
-                    xref: 'x',
-                    // y-reference is assigned to the plot paper [0,1]
-                    yref: 'paper',
-                    x0: '2007-04-01',
-                    y0: 0,
-                    x1: '2007-11-01',
-                    y1: 1,
-                    fillcolor: obamaColor,
-                    opacity: 0.2,
-                    line: {
-                        width: 0
-                    }
-                },
-                {
-                    type: 'rect',
+                    layer: 'below',
                     // x-reference is assigned to the x-values
                     xref: 'x',
                     // y-reference is assigned to the plot paper [0,1]
@@ -249,7 +309,7 @@ function animate(id) {
                     y0: 0,
                     x1: '2012-11-01',
                     y1: 1,
-                    fillcolor: obamaColor,
+                    fillcolor: 'blue',
                     opacity: 0.2,
                     line: {
                         width: 0
@@ -264,7 +324,7 @@ function animate(id) {
                     yref: 'y',
                     text: '499 TWEETS',
                     showarrow: true,
-                    arrowhead: 6,
+                    arrowhead: 0,
                     ax: 0,
                     ay: -40,
                     font: {
@@ -285,7 +345,7 @@ function animate(id) {
                     yref: 'y',
                     text: '1415 TWEETS',
                     showarrow: true,
-                    arrowhead: 6,
+                    arrowhead: 0,
                     ax: 0,
                     ay: -40,
                     font: {
