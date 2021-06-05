@@ -59,6 +59,9 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             simplify: false,
             color: obamaColor
         },
+        marker: {
+            // size: obamasentiment
+        }
         
     }, {
         // type: 'scatter',
