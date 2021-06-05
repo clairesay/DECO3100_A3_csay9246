@@ -1,8 +1,9 @@
 #immigration {
     position: absolute;
     top: 0;
-    left: 2vw;
-    max-width: 95vw;
+    /* left: 1vw; */
+    left: 8vw;
+    max-width: 100vw;
     max-height: 100vh;
     z-index: 0;
 }
@@ -174,7 +175,62 @@ mark.indented {
 
 p.instruction {
     margin-top: 100px;
-    font-weight: 700;
+    font-weight: 600;
     font-family: 'PT Sans';
     color: var(--dark-grey) !important;
+}
+
+div#countries-mentioned {
+    position: relative;
+    left: -10%;
+    position: relative;
+}
+
+div#random-tweet-box {
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    right: calc(-30% - 36px);
+    width: 25%;
+    max-width: 25%;
+    top: 72px;
+    padding: 18px;
+    /* border-left: 2px solid var(--grey); */
+    background-color: var(--white);
+    filter: drop-shadow(0 0 2px var(--dark-grey));
+
+    transition: all 0.4s ease-out;
+}
+
+div#random-tweet-box::after {
+    content: " ";
+    position: absolute;
+    top: 24px;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent var(--white) transparent transparent;
+  }
+
+div#random-tweet-box p {
+    font-style: italic;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+div#random-tweet-box h3 {
+    top: 0;
+    /* margin-bottom: 24px; */
+    font-size: 16px;
+    /* text-transform: capitalize; */
+    /* font-weight: 500; */
+}
+
+div#random-tweet-box p::first-letter {
+    font-size: 14px;
 }

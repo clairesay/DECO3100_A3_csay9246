@@ -199,9 +199,10 @@ function changePresident() {
             locationmode: 'country names',
             locations: locations,
             z: frequency,
-            text: locations,
+            // text: locations,
             zmin: 0,
             zmax: presidentMax,
+            hoverinfo: 'location',
             colorscale: [
                 [0, grey], [0.3, presidentColor], [1, black],
                 // [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
@@ -210,9 +211,11 @@ function changePresident() {
             ],
             colorbar: {
                 title: 'Frequency',
-                thickness: 16,
+                thickness: 8,
                 outlinecolor: 'transparent',
-                len: 0.75,
+                len: 0.7,
+                x: -0.15,
+                xref: 'left'
             },
             // markerlinecolor: 'transparent',
             marker: {
@@ -261,9 +264,16 @@ function changePresident() {
 
                 // console.log(pt.location)
             })
+            event.on('plotly_hover', d=> {
+                event.style.cursor = "pointer"
+            })
+            event.on('plotly_unhover', d=> {
+                event.style.cursor = "initial"
+            })
         })
 
         function showRandomTweet(location) {
+            let president = dropDown.querySelector('a').classList;
             let url, allTweets, 
                 theTweet = null;
             let randomTweetBox = document.querySelector('div#random-tweet-box'),
@@ -288,9 +298,22 @@ function changePresident() {
                 }
             }
 
-            // display the tweet
+            randomTweetBox.style.opacity = 1;
+
             author.textContent = president
-            tweetText.textContent = theTweet
+
+            // https://safi.me.uk/typewriterjs/
+            let nextTypewriter = new Typewriter(tweetText, {
+                    loop: false,
+                    delay: 5,
+                });
+    
+                nextTypewriter
+                    .typeString(theTweet.toString())
+                    .start();
+
+           
+
         })
 
         }

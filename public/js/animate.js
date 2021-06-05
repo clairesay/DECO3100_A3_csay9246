@@ -87,7 +87,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             showscale: false,
             colorbar: {
                 outlinecolor: 'transparent',
-                thickness: 5,
+                thickness: 8,
             },
             colorscale: 'Bluered',
             color: obamaSentiment
@@ -117,7 +117,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             cmax: cmax,
             colorbar: {
                 outlinecolor: 'transparent',
-                thickness: 5,
+                thickness: 8,
             },
             colorscale: 'Bluered',
             color: trumpSentiment

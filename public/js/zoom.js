@@ -153,7 +153,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         font: 'PT Sans',
 
       },
-      thickness: 16,
+      thickness: 8,
       len: 0.9,
       tick0: 1.4,
       tickcolor: white,

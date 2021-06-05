@@ -71,7 +71,7 @@ p {
     text-align: left;
 }
 
-section.text>article:first-of-type:not(#ethnic) p:first-of-type::first-letter {
+section.text>article:first-of-type:not(#ethnic) > p:first-of-type::first-letter {
     font-size: 48px;
 }
 
@@ -138,6 +138,23 @@ section.contain {
     max-width: 100vw;
     min-height: 100vh;
     position: relative;
+}
+
+section.contain.isolated {
+    display: flex;
+    justify-content: center;
+    margin-left: -6.5%;
+}
+
+section.contain.isolated section.text {
+    width: 80%;
+}
+
+section.contain.isolated section.text article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 section.contain.dark {
