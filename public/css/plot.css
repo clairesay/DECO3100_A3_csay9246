@@ -1,9 +1,10 @@
 #immigration {
     position: absolute;
     top: 0;
-    /* left: 1vw; */
-    left: 8vw;
-    max-width: 100vw;
+    left: 1vw;
+    max-width: 97vw;
+    /* left: 8vw; */
+    /* max-width: 100vw; */
     max-height: 100vh;
     z-index: 0;
 }

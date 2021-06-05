@@ -115,9 +115,6 @@ var layout = {
         color: black
     },
     xaxis: {
-        title: {
-            text: 'Use frequency of the word "America"'
-        }
     },
     yaxis: {
         size: 18

@@ -140,7 +140,13 @@ section.contain {
     position: relative;
 }
 
-section.contain.isolated {
+section.contain.isolated section.text {
+    width: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+/* section.contain.isolated {
     display: flex;
     justify-content: center;
     margin-left: -6.5%;
@@ -155,7 +161,7 @@ section.contain.isolated section.text article {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 section.contain.dark {
     background-color: var(--black);
