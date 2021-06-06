@@ -47,7 +47,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             textfont: {
                 family: 'PT Sans',
                 color: white,
-                size: 10,
+                size: 12,
             },
             // hoverinfo: 'skip',
             hovertemplate: '%{value:.2f}<extra></extra>',
