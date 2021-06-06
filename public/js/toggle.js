@@ -18,10 +18,11 @@ function plotChange(id) {
     // article.setAttribute('status', 0)
     switch (id) {
 
-        case 'obama-blank':
+        // case 'obama-blank':
         case 'obama-we': 
         case 'obama-you':
-        case 'trump-blank':
+        case 'trump-they':
+        case 'trump-i':
             if (triggerArticle.getAttribute('status') == 1) {
                 animateSunburst(id)
             }
