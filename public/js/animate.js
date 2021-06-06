@@ -2,7 +2,7 @@
 var allObama,
     allTrump,
     allObamaSentiment,
-    allTrumpSentiment,    
+    allTrumpSentiment,
     obamaData = [],
     trumpData = [],
     obamaDates = [],
@@ -16,6 +16,7 @@ var allObama,
     trump500Fake;
 
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/monthly_sentiment.csv", function (err, rows) {
+    // unpacking all of the data needed
     allObama = unpack(rows, 'obama_frequency');
     allTrump = unpack(rows, 'trump_frequency');
 
@@ -24,7 +25,8 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 
     allDates = unpack(rows, 'date');
 
-    allObama.forEach(function(data, index) {
+    // filtering based on relevancy to each president i.e. as long as there is tweets on a certain date, push to array
+    allObama.forEach(function (data, index) {
         if (data != "") {
             obamaData.push(allObama[index])
             obamaDates.push(allDates[index])
@@ -32,7 +34,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         }
     })
 
-    allTrump.forEach(function(data, index) {
+    allTrump.forEach(function (data, index) {
         if (data != "") {
             trumpData.push(allTrump[index])
             trumpDates.push(allDates[index])
@@ -43,11 +45,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     let cmin = 'auto',
         cmax = 'auto'
 
-    // console.log(allObama)
-    // console.log(allTrump)
-    console.log(obamaSentiment)
-    console.log(trumpSentiment)
-
+    // generating placeholder arrays
     obamaFake = Array(obamaData.length).fill(0);
     obama500Fake = Array(obamaData.length).fill(500);
     trumpFake = Array(trumpData.length).fill(0);
@@ -58,21 +56,8 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     // middle period
     // one year before re-election (until January of the next term)
 
-    var heatmapData = [{
-        z: [obamaSentiment],
-        type: 'heatmap',
-        colorscale: 'Bluered',
-        showscale: false
-    }]
-    var heatmapLayout = {
-        margin: {l: 0, r: 0, t: 0, b: 0}
-    }
-    Plotly.newPlot('total-trump-line', heatmapData, heatmapLayout, {displayModeBar: false});
-
+    // initialising data - this transforms significantly as the user progresses
     var data = [{
-        // type: 'scatter',
-        // mode: 'markers',
-        // mode: 'lines',
         mode: 'markers+lines',
         x: obamaDates,
         y: obamaFake,
@@ -82,7 +67,6 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             width: 3,
             simplify: false,
             color: '#909090'
-            // color: obamaSentiment
         },
         marker: {
             size: 24,
@@ -99,22 +83,17 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             color: obamaFake
 
         }
-        
+
     }, {
-        // type: 'scatter',
-        // mode: 'markers',
-        // mode: 'lines',
         mode: 'markers+lines',
         x: trumpDates,
         y: trumpFake,
         name: 'Trump',
         opacity: 0,
         line: {
-
             width: 3,
             simplify: false,
             color: '#909090'
-            // color: trumpSentiment
         },
         marker: {
             size: 24,
@@ -129,7 +108,6 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             },
             colorscale: 'Bluered',
             color: obamaFake
-
         }
     }
     ];
@@ -137,7 +115,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     var layout = {
         showlegend: false,
         title: {
-            text:  '<b>TWEET SENTIMENT: MONTHLY AVERAGE</b>',
+            text: '<b>TWEET SENTIMENT: MONTHLY AVERAGE</b>',
             font: {
                 size: 16
             }
@@ -148,16 +126,11 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             color: black
         },
         xaxis: {
-            // range: ['2009-01-01', '2021-03-01']
-            // range: ['2008-10-01', '2013-03-01']
             range: ['2008-01-01', '2013-12-01']
         },
         yaxis: {
             title: {
                 text: 'Monthly Tweet Count',
-                // family: 'PT Sans',
-                // size: 14,
-                // color: obamaColor,
             },
             range: [-100, 1000]
         },
@@ -165,28 +138,18 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         plot_bgcolor: 'transparent',
     };
     Plotly.react('total-obama-line', data, layout, { displayModeBar: false });
-    // Plotly.newPlot('total-trump-line', [data[1]], layout, { displayModeBar: false });
 })
-
-
-function observe(id) {
-
-}
-
-    // let article = document.querySelector('#' + id)
-    // if (article.getAttribute('status') != 1) {
-    //     return
-    // }
 
 
 // When you scroll into an article, you increment its attribute by 1, all other articles have attribute 0
 // Only run the function once, when the attribute == 1 otherwise, rest
 // When you scroll into a different article, the previous article gest reset to 0 and the one you scrolled into increments by one.
 
-// https://codepen.io/plotly/pen/ZpWPpj
+// animating scatter plot https://codepen.io/plotly/pen/ZpWPpj
 function animate(id) {
     let data, layout;
 
+    // neutral
     if (id == 'neither') {
         data = [{
             x: obamaDates,
@@ -208,6 +171,8 @@ function animate(id) {
             shapes: [null],
             annotations: [null]
         }
+
+        // first section
     } else if (id == 'obama-tweet') {
         data = [{
             x: obamaDates,
@@ -230,15 +195,18 @@ function animate(id) {
         }]
 
         layout = {
+            // crop date range to obama's term
             xaxis: {
                 range: ['2008-01-01', '2013-12-01']
             },
             yaxis: {
                 range: [-100, 1000],
-                // https://stackoverflow.com/questions/54826436/how-to-remove-axes-and-numbers-from-plotly
+                // hide/show axis values https://stackoverflow.com/questions/54826436/how-to-remove-axes-and-numbers-from-plotly
                 zeroline: true, // thick line at x=0
                 visible: true,  // numbers below
             },
+
+            // shading lead up to reelection
             shapes: [
                 {
                     type: 'rect',
@@ -257,42 +225,8 @@ function animate(id) {
                         width: 0
                     }
                 }, null, null],
-                // {
-                //     type: 'rect',
-                //     layer: 'below',
-                //     // x-reference is assigned to the x-values
-                //     xref: 'x',
-                //     // y-reference is assigned to the plot paper [0,1]
-                //     yref: 'paper',
-                //     x0: '2007-04-01',
-                //     y0: 0,
-                //     x1: '2007-11-01',
-                //     y1: 1,
-                //     fillcolor: grey,
-                //     opacity: 0.2,
-                //     line: {
-                //         width: 0
-                //     }
-                // },
-                // {
-                //     type: 'rect',
-                //     layer: 'below',
-                //     // x-reference is assigned to the x-values
-                //     xref: 'x',
-                //     // y-reference is assigned to the plot paper [0,1]
-                //     yref: 'paper',
-                //     x0: '2012-01-01',
-                //     y0: 0,
-                //     x1: '2012-12-01',
-                //     y1: 1,
-                //     fillcolor: grey,
-                //     opacity: 0.2,
-                //     line: {
-                //         width: 0
-                //     }
-                // },
 
-
+            // annotating high point
             annotations: [
                 {
                     x: obamaDates[obamaData.indexOf((Math.max(...obamaData)).toString())],
@@ -309,9 +243,10 @@ function animate(id) {
                         size: 14,
                         color: black
                     },
-                  }
+                }
             ]
         }
+        // third section
     } else if (id == 'trump-tweet') {
         data = [{
             x: obamaDates,
@@ -333,16 +268,16 @@ function animate(id) {
             hoverinfo: 'auto'
         }]
         layout = {
+            // date range
             xaxis: {
-                // range: ['2009-01-01', '2021-03-01']
                 range: ['2016-01-01', '2021-12-01']
             },
             yaxis: {
                 range: [-100, 1000],
-                // https://stackoverflow.com/questions/54826436/how-to-remove-axes-and-numbers-from-plotly
-                zeroline: true, // thick line at x=0
-                visible: true,  // numbers below
+                zeroline: true,
+                visible: true,
             },
+            // shading time in lead up to election
             shapes: [
                 {
                     type: 'rect',
@@ -361,6 +296,7 @@ function animate(id) {
                         width: 0
                     }
                 }, null, null, null, null, null],
+            // setting annotations for high point
             annotations: [
                 {
                     x: trumpDates[trumpData.indexOf((Math.max(...trumpData)).toString())],
@@ -381,12 +317,15 @@ function animate(id) {
                 null
             ]
         }
+        // second section
     } else if (id == 'obama-tweet-reelect') {
         data = [{
             x: obamaDates,
+            // clusters all markers to center
             y: obama500Fake,
             opacity: 1,
             marker: {
+                // make marker larger to view sentiment rainbow better
                 size: 36,
                 showscale: true,
                 color: obamaSentiment
@@ -403,46 +342,23 @@ function animate(id) {
         }]
         layout = {
             xaxis: {
-            // range: ['2009-01-01', '2021-03-01']
-            range: ['2008-01-01', '2013-12-01']
+                range: ['2008-01-01', '2013-12-01']
             },
             yaxis: {
-                // range: [-100, 100],
-                // https://stackoverflow.com/questions/54826436/how-to-remove-axes-and-numbers-from-plotly
-                zeroline: false, // thick line at x=0
-                visible: false,  // numbers below
+                zeroline: false,
+                visible: false,
             },
+            // bracket to annotate range of bubbles
             shapes: [
-                // {
-                //     type: 'rect',
-                //     layer: 'below',
-                //     // x-reference is assigned to the x-values
-                //     xref: 'x',
-                //     // y-reference is assigned to the plot paper [0,1]
-                //     yref: 'paper',
-                //     x0: '2007-04-01',
-                //     y0: 0,
-                //     x1: '2007-11-01',
-                //     y1: 1,
-                //     fillcolor: grey,
-                //     opacity: 0.2,
-                //     line: {
-                //         width: 0
-                //     }
-                // },
                 {
                     type: 'rect',
-                    // layer: 'below',
-                    // x-reference is assigned to the x-values
                     xref: 'x',
-                    // y-reference is assigned to the plot paper [0,1]
                     yref: 'y',
                     x0: '2009-01-01',
                     y0: 700,
                     x1: '2012-12-01',
                     y1: 705,
                     fillcolor: black,
-                    // opacity: 0.6,
                     line: {
                         width: 0
                     }
@@ -466,23 +382,22 @@ function animate(id) {
                     y1: 705,
                 }
             ],
+            // actual text annotations
             annotations: [{
                 x: 0.5,
-                    y: 0.85,
-                    xref: 'paper',
-                    yref: 'paper',
-                    text: 'consistency in sentiment',
-                    showarrow: false,
-                    // arrowhead: 0,
-                    // ax: 0,
-                    // ay: -40,
-                    font: {
-                        family: 'PT Sans',
-                        size: 14,
-                        color: black
+                y: 0.85,
+                xref: 'paper',
+                yref: 'paper',
+                text: 'consistency in sentiment',
+                showarrow: false,
+                font: {
+                    family: 'PT Sans',
+                    size: 14,
+                    color: black
                 },
             }],
         }
+        // fourth section
     } else if (id == 'trump-tweet-reelect') {
         data = [{
             x: obamaDates,
@@ -493,8 +408,10 @@ function animate(id) {
             }
         }, {
             x: trumpDates,
+            // aligning in middle
             y: trump500Fake,
             opacity: 1,
+            // markers are made bigger like previously mentioned
             marker: {
                 size: 36,
                 color: trumpSentiment,
@@ -507,25 +424,20 @@ function animate(id) {
                 range: ['2016-01-01', '2021-12-01']
             },
             yaxis: {
-                // range: [-100, 100],
-                // https://stackoverflow.com/questions/54826436/how-to-remove-axes-and-numbers-from-plotly
-                zeroline: false, // thick line at x=0
-                visible: false,  // numbers below
+                zeroline: false,
+                visible: false,
             },
+            // annotations to demonstrate the early high sentiment VS later low sentiment
             shapes: [
                 {
                     type: 'rect',
-                    // layer: 'below',
-                    // x-reference is assigned to the x-values
                     xref: 'x',
-                    // y-reference is assigned to the plot paper [0,1]
                     yref: 'y',
                     x0: '2017-01-01',
                     y0: 700,
                     x1: '2018-12-01',
                     y1: 705,
                     fillcolor: black,
-                    // opacity: 0.6,
                     line: {
                         width: 0
                     }
@@ -548,20 +460,15 @@ function animate(id) {
                     x1: '2018-12-01',
                     y1: 705,
                 },
-                // ///
                 {
                     type: 'rect',
-                    // layer: 'below',
-                    // x-reference is assigned to the x-values
                     xref: 'x',
-                    // y-reference is assigned to the plot paper [0,1]
                     yref: 'y',
                     x0: '2019-03-01',
                     y0: 700,
                     x1: '2020-12-01',
                     y1: 705,
                     fillcolor: black,
-                    // opacity: 0.6,
                     line: {
                         width: 0
                     }
@@ -585,6 +492,7 @@ function animate(id) {
                     y1: 705,
                 }
             ],
+            // annotated text
             annotations: [
                 {
                     x: 0.25,
@@ -593,9 +501,6 @@ function animate(id) {
                     yref: 'paper',
                     text: 'mostly positive',
                     showarrow: false,
-                    // arrowhead: 0,
-                    // ax: 0,
-                    // ay: -40,
                     font: {
                         family: 'PT Sans',
                         size: 14,
@@ -609,9 +514,6 @@ function animate(id) {
                     yref: 'paper',
                     text: 'mostly negative',
                     showarrow: false,
-                    // arrowhead: 0,
-                    // ax: 0,
-                    // ay: -40,
                     font: {
                         family: 'PT Sans',
                         size: 14,
@@ -630,17 +532,17 @@ function animate(id) {
         }]
     }
 
-    // console.log(data)
+    // taking the data and animating it
     Plotly.animate('total-obama-line', {
         data,
         layout
     }, {
-      transition: {
-        duration: 500,
-        easing: 'cubic-in-out',
-      },
-      frame: {
-        duration: 500,
-      }
+        transition: {
+            duration: 500,
+            easing: 'cubic-in-out',
+        },
+        frame: {
+            duration: 500,
+        }
     });
 }

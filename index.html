@@ -4,85 +4,31 @@
 
 <head>
     <meta charset="utf-8">
-    <title>The United/Divided States of America: An interactive visualisation on the tweets of America's social media presidents.</title>
+    <title>The United/Divided States of America: An interactive visualisation on the tweets of America's social media
+        presidents.</title>
     <meta name="description" content="">
     <meta name="author" content="Claire Say">
+    <!-- css stylesheets -->
     <link rel="stylesheet" href="public/css/reset.css">
     <link rel="stylesheet" href="public/css/style.css">
-    <!-- <link rel="stylesheet" href="public/css/animate.css"> -->
     <link rel="stylesheet" href="public/css/plot.css">
+    <!-- js libraries -->
+    <!-- Plotly.js https://plotly.com/javascript/ -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <!-- <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script> -->
+    <!-- Typewriter.js https://safi.me.uk/typewriterjs/ -->
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script> -->
-    <!-- <script src="https://unpkg.com/tiny-typewriter@1.0.4/dist/tinyTypewriter.min.js"></script> -->
-    <style>
-        /* .highcharts-figure, .highcharts-data-table table {
-    min-width: 320px; 
-    max-width: 800px;
-    margin: 1em auto;
-}
-
-.highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
-}
-.highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-}
-.highcharts-data-table th {
-	font-weight: 600;
-    padding: 0.5em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-    padding: 0.5em;
-}
-.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-    background: #f1f7ff;
-} */
-
-    </style>
 </head>
 
 <body>
     <main>
-        <!-- TOMORROW: slider for the entire diversity map over time, clicking on a state brings up a tooltip with that country's individual plot on it to show its individual number and trend -->
-        <!-- immigration map tidy up -->
-        <!-- animate scatter/line plot for the NUMBER of tweets -->
-        <!-- toggle between trump and obama's line graphs -->
-        <!-- hover on each of the phases of their presidency (pre-election, first 100 days, settled in office, lead up to election) to show how many tweets happened during that phase-->
-        
-        <!-- INCLUDE AMERICA AND NORTH KOREA IN THE PLOT -->
-        <!-- all hover interactions need refining -->
-        <!-- FIX SCROLL INTERACTION ( IF THERE IS NO ID, HIGHLIGHT THE ID[-1]) -->
-
-        <!-- FOCUS ON LANGUAGE AND THEIR LEADERSHIP STRATEGY -->
         <!-- Introduction -->
         <section id="intro" class="contain dark full-screen">
             <img src="public/images/obama-profile.png">
             <section class="text">
                 <article>
                     <h3>The</h3>
-                    <h1>
-                        <!-- <span class="type-container">
-                            <span class="type">United</span>
-                            <span class="type">Divided</span>
-                        </span> -->
-                    </h1>
-
+                    <!-- United/Divided to be autopopulated with typewriter.js -->
+                    <h1></h1>
                     <h3>States of America</h3>
                     <h4>What the tweets of America's most iconic presidents reveal about their leadership</h4>
                 </article>
@@ -102,28 +48,13 @@
                     </p>
                     <p>
                         Despite having walked such divergent paths to the White House, and led their nation in distinct
-                        ways, they share the title of 'Social Media president' due in large part to, their presence on Twitter.
-
-                        <!-- Both presidents have walked such divergent paths to the White House and in turn, America has followed
-                        under two vastly different leadership methods. However,  -->
-                        
-                        <!-- The advent of Twitter is just platform that has somewhat levelled the playing field.  -->
-
-
-                        <!-- There continues to be debate on which of these
-                        leaders has done a ‘better’ job at leading the world’s richest, and most powerful nation. Just
-                        10 years ago, presidents would only have the chance to plead their case through well prepared
-                        speeches broadcast on mainstream media, and even then, it would have been hard to know what they
-                        were thinking.
-                    </p>
-                    <p> -->
-                        <!-- But the advent of Twitter has somewhat levelled the playing field. It is one platform that has
-                        redefined the volumes of American politics, enabling asynchronous conversations that give the
-                        president and the people equal voice. -->
+                        ways, they share the title of 'Social Media president' due in large part to, their presence on
+                        Twitter.
                     </p>
                     <p>
-                        In fact, Twitter has helped redefine the volumes of American politics, with both presidents using it as mouthpiece
-                        to engage with the greater American public. 
+                        In fact, Twitter has helped redefine the volumes of American politics, with both presidents
+                        using it as mouthpiece
+                        to engage with the greater American public.
                     </p>
                     <p>
                         <strong>
@@ -131,47 +62,20 @@
                             accurately reflect their reputations respectively, as the Unifier and Divider?
                         </strong>
                     </p>
-                    <!-- <p>Obama and trump are very different leaders of the same nation.</p>
-                    <p>Obama has long been said to be a unifier of the American people, while Trump became the infamous divisive president.</p>
-                    <p>But unlike the presidents who preceded them, President Obama and Trump both used Twitter as a mouthpiece by which they could share their thoughts and conversations at all hours of the day.</p> -->
-                    <!-- <p>Throughout history, the mediums by which American presidents addressed their nation continued to change over time.</p>
-                    <p>Newspaper publications, radio broadcasts and television programmes were some of the ways that national messages were communicated over space and time.</p>
-                    <p>In social media, powerful leaders, particularly in politics have found a new platform to keep the people up to date with their policies and at all hours of the day.</p>
-                    <p>In his innovative use of social media, Obama earned the title of the first social media president, but during his time in office, Trump surely earned the title of the social media president.</p> -->
-                    <!-- WHAT DID TRUMP TWEET VS WHAT DID OBAMA TWEET -->
-                    <!-- <p>Despite their similarities in using social media, both could not be any more different.</p>
-                    <p>Born of a white Kansas mother and black African American father, Obama became a symbol of unity when he entered office in 2008. It wasn't just his background, but also 
-                        his policies and unifying approach to leading a diversifying nation that drove his identity.
-                    </p>
-                    <p>
-                        On the other hand, Trump entered the race to the White House as an unpopular contender, largely for his divisive rhetoric wielded against the Hispanic and Muslim communities.
-                        Carrying out unpopular policies such as 'Building the Wall' to keep illegal immigrants out and withdrawing from global climate agreements were thought to isolate the US from the world, and the people within it, from each toher. 
-                    </p> -->
-
-                    <!-- <p>How does Twitter come into this? Obama and Trump were the first presidents to utilise social media not only to communicate ongoing policies, but also to comment on happening events.</p>
-                    <p>It is a mouthpiece by which people have been able to communicate their thoughts about current events within 140 characters or less.</p> -->
-                    <!-- preceded by the likes of President Kennedy (the TV president) and President Roosevelt (frequently broadcasted via radio).</p> -->
-                    <!-- <p>With the advent of social media, presidents have also been able to access social media. </p> -->
-                    <!-- the American public accessed the messages shared by their chief of state.</p> -->
-                    <!-- <p>It is also through these messages that the people learn who their president is - are they down to earth, do they take national security seriously, what is their stance on hot button issues and perhaps, if they like mustard on their hot dogs?</p> -->
-                    <!-- <p>This visualisation seeks to explore how their language, with a focus on their social media
-                        activity on Twitter, can be an indication of what kind of leader they are.</p> -->
                 </article>
             </section>
             <img src="public/images/trump-profile.png">
         </section>
 
+        <!-- explanation of leadership -->
         <section id="leadership" class="contain center light">
             <section class="text">
                 <article>
                     <h3>A note on leadership</h3>
-                    <!-- <p>President Obama and President Trump were different leaders of the same powerful nation.</p> -->
-                    <!-- <p>In their book, a 'Better way to evaluate leadership potential', Cohn and Wiley identify seven key qualities, which research time and time again have demonstrated what makes a good leader.</p> -->
-                    <!-- <p>A good leader does not only exemplify the key qualities of a good leader, but are also aware of their weaknesses and strive to constantly improve.</p> -->
                     <p>
-                        Not all shows of leadership are identical. 
-                        According to Razzetti (2018), one's approach to leadership demonstrates much about their priorities for the people.
-                        <!-- a leader can lead in two ways - tells that a leader can lead in one of two ways: -->
+                        Not all shows of leadership are identical.
+                        According to Razzetti (2018), one's approach to leadership demonstrates much about their
+                        priorities for the people.
                     </p>
                 </article>
                 <article>
@@ -183,633 +87,308 @@
                             <p>
                                 A <strong>unifier aims to unite through a common cause,</strong>
                                 by empowering people to achieve something "bigger than themselves in personally
-                                meaningful and socially beneficial ways". 
+                                meaningful and socially beneficial ways".
                             </p>
                             <p>
-                                As a unifier in the public eye, <mark class="democrat">Obama</mark> was thought to demonstrate selfless devotion towards the greater good, 
-                                despite being criticised for his stringent reform and commitment to change. (Scotti, 2016)
+                                As a unifier in the public eye, <mark class="democrat">Obama</mark> was thought to
+                                demonstrate selfless devotion towards the greater good,
+                                despite being criticised for his stringent reform and commitment to change. (Scotti,
+                                2016)
                             </p>
-                            
+
                         </div>
                         <div>
                             <img src="public/images/wall.png">
                             <h3>Divide and Conquer</h3>
                             <p>
-                                <strong>A divider seeks to create a common enemy through an 'us vs them' approach.</strong> Through this deception, 
+                                <strong>A divider seeks to create a common enemy through an 'us vs them'
+                                    approach.</strong> Through this deception,
                                 they spark anger and violence to "break groups into smaller, less powerful ones".
-                                <!-- By creating a common enemy through an 'us vs them' approach, a <strong>divider seeks to deceive, -->
-                                <!-- sparking anger and violence to "break groups into smaller, less powerful ones". (Razzetti, 2018)  -->
                             </p>
                             <p>
-                                <mark class="republican">Trump</mark> was unpopular for his divisive approach to leadership, blaming foreign influence to bond Americans together in the short term. 
-                                However, he was remembered for the way he disillusioned and disempowered people. (Smith, 2020)
+                                <mark class="republican">Trump</mark> was unpopular for his divisive approach to
+                                leadership, blaming foreign influence to bond Americans together in the short term.
+                                However, he was remembered for the way he disillusioned and disempowered people. (Smith,
+                                2020)
                             </p>
                         </div>
                     </article>
                 </article>
                 <article>
                     <p>
-                        These attitudes towards leadership have been defined historically, but continue to be as true today as ever. So why
+                        These attitudes towards leadership have been defined historically, but continue to be as true
+                        today as ever. So why
                         would a leadership stance be so important for a powerhouse nation as the US?
                     </p>
-
-                    <!-- split window -->
-                    <!-- side by side -->
-                    <!-- <p>According to Razzetti (2018), there are 'only two ways to lead'.
-                        The first is to divide and conquer, the second is to unite and build.
-                        We've all heard of Divide and Conquer - former President Trump's policies have been constantly
-                        compared to such a method.
-                        However, Obama's approach to leadership couldn't be any more different than Trump. With a Unite
-                        and Build approach, Obama sought to bring diverse groups together to build a united nation. </p> -->
-                    <!-- <p>Why is the stance of the leader so important for a country such as <i
-                        >America, the land of the free, home of the brave?</i></p> -->
-                    <!-- The first being 'Unite and Build' -> We can liken this to Obama's method of leadership. On the other hand, Trump's methods and policies have been likened to the term 'Divide and Conquer'. </p> -->
                 </article>
             </section>
-
         </section>
 
-        <!-- MAKING THIS ANIMATE WITH A SLIDER AND AUTO PLAY -->
-        <section id="diversity"  style="padding-bottom: 0;" class="contain dark isolated" >
+        <!-- diversity and immigration over time in the US -->
+        <section id="diversity" style="padding-bottom: 0;" class="contain dark isolated">
             <div id="immigration" class="plots"></div>
             <section style="pointer-events : none;" class="text">
-                <!-- style="position: relative; left: 70%;" -->
                 <article style="height: 100vh;" class="padded-text">
                     <h3>On diversity</h3>
-
-                    <!-- <p>
-                        Observing the demographic landscape of America in modern history, demonstrates just how much the
-                        racial makeup of the country has changed.
-                    </p> -->
                     <p>
-                        In what Frey (2018) calls a ‘diversity explosion’, the US has seen significant growth in mixed ethnicity minorities
-                         due to "youthful immigration from Latin America, and Asia" which has been crucial to a shift in the ethnic landscape. (Lee, 2020)
-                        <!-- This is largely due to "youthful immigration from Latin America, and Asia" which has been crucial to a shift in the ethnic landscape. (Lee, 2020) -->
-
-                        <!-- Immigration from Latin America and Asia is a key driver of this trend, in part because the newly arrived immigrant groups tend to have youthful age structures and higher fertility. Intermarriage (and the resulting multiracial offspring) and shifts in racial-ethnic identity also play significant roles in boosting diversity. -->
-                        
-                        <!-- <button id="randomize" onclick="javascript:zoom()">Zoom!</button> -->
+                        In what Frey (2018) calls a ‘diversity explosion’, the US has seen significant growth in mixed
+                        ethnicity minorities
+                        due to "youthful immigration from Latin America, and Asia" which has been crucial to a shift in
+                        the ethnic landscape. (Lee, 2020)
                     </p>
                 </article>
 
             </section>
-            <!-- <section class="graphic">
-
-            </section> -->
-            </section>
+        </section>
         <section style="padding-top: 0;" class="contain dark full-screen">
             <section style="width: 700px;" class="text">
                 <article id="ethnic" class="padded-text">
                     <p>
-                        <!-- Observing transformations in ethnic origins amongst the American people from the past 17
-                        years alone, shows that -->
                         In the past four decades,
                         all of the United States (some states albeit slower than others), have seen positive growth in
-                        their <i>diversity index<label class="definition"><strong>Diversity Index:</strong> A measure of the racial/ethnic diversity of residents 
-                            based on six major racial/ethnic groups (White, Black, Latino, Asian or Pacific Islander, Native American, and Mixed/other race). 
-                            The maximum diversity score (1.79) would occur if each group were evenly represented in the region. (National Equity Atlas, 2021)</label></i>. 
-                            <!-- The more densely populated, coastal states such as California and New York continue to record faster diversification than regional inland states. -->
-                    
-                        </p>
-                        <label class="title">Changes in the Diversity Index across the United States</label>
-                        <p class="instruction">Tap a state to see its progress on diversity. Change the year depicted on the map by using the slider.</p>
-                        <!-- <h3>Diversity Index across the US</h3> -->
+                        their <i>diversity index<label class="definition"><strong>Diversity Index:</strong> A measure of
+                                the racial/ethnic diversity of residents
+                                based on six major racial/ethnic groups (White, Black, Latino, Asian or Pacific
+                                Islander, Native American, and Mixed/other race).
+                                The maximum diversity score (1.79) would occur if each group were evenly represented in
+                                the region. (National Equity Atlas, 2021)</label></i>.
+                    </p>
+                    <label class="title">Changes in the Diversity Index across the United States</label>
+                    <p class="instruction">Tap a state to see its progress on diversity. Change the year depicted on the
+                        map by using the slider.</p>
                     <div class="plot-container">
-
-                        <!-- style="position: fixed; top: 10vh; right: 10vh; max-width: 150px; max-height: 150px;" -->
                         <div id="state-diversity" class="plots"></div>
                         <div id="diversity-plot" class="plots"></div>
                     </div>
 
                 </article>
-                <article >
+                <article>
                     <p>
-                        The National Equity Atlas (2021) outlines that "diversity - in the context of inclusion - is a driver of 
+                        The National Equity Atlas (2021) outlines that "diversity - in the context of inclusion - is a
+                        driver of
                         innovation, business growth and economic progress."
                     </p>
-                    <p>  <mark>
-                        Thus a president who can bring these
-                        differing groups together continues to be more important than ever before, to help cultivate a prosperous future for the country.
-                    </mark>
+                    <p> <mark>
+                            Thus a president who can bring these
+                            differing groups together continues to be more important than ever before, to help cultivate
+                            a prosperous future for the country.
+                        </mark>
                     </p>
                     <p>
-                        In light of such a diversity, how did Obama and Trump communicate to appeal to voters, if at all?
-                        <!-- To appeal to an increasingly diverse nation, Obama and Trump adopted two different political stances.  -->
-                        <!-- Let’s see how as president, Obama and Trump spoke
-                        to empower their country on a united, or a divided front. -->
+                        In light of such a diversity, how did Obama and Trump communicate to appeal to voters, if at
+                        all?
                     </p>
-                    <!-- CHOROPLETH MAP THAT SHOWS OVER TIME THE change in the diversity index -->
-                    <!-- CHOROPLETH MAP THAT SHOWS CHANGE IN NATIVITY + ANCESTRY (MORE AMERICANS HAVE BEEN BORN OVERSEAS, OR 
-                        ARE PEOPLE OF COLOUR) -->
-
-
-                    <!-- <h3>Diverse America</h3>
-                    <p>The US is one of the most diverse nations in the world. If we map some of these key statistics
-                        across the map of the US, we can catch a glimpse of just how diverse
-                        the demographic make up of the nation is.
-
-                        And to each of these groups of people, they will be driven by a problem that matters much more
-                        than to others.
-                    </p>
-                    <p>The United States is one of the most diverse nations in the world - in gender, race, income, etc.
-                        These are what make the US a very unique/powerful country, but at the same time, it is what is
-                        causing present day challenges and rifts/social divides. </p> -->
-                        
                 </article>
-                <!-- these graphs are over time -->
-                <!-- option 1 - map changing colour over time or option 2 - grid of charts -->
-                <!-- click through the different demographics -->
-                <!-- <article>
-                    <p>Let’s see specifically how either President Obama or Trump spoke to empower their country on a
-                        united or a divided front.</p>
-                    <p>This all started in their race the White House.</p>
-                </article> -->
             </section>
-            <!-- <section style="margin-top: calc(100vh - 100px)" class="graphic">
-
-            </section> -->
         </section>
+        <!-- Tweet analysis 1: Sentiment -->
         <section style="min-height: initial; padding-bottom: 0" id="sentiment" class="contain light isolated">
             <section class="text">
                 <article id="neither">
                     <h3>
                         On sentiment
                     </h3>
-                    <!-- <p>
-                        In their bid to appeal to voters as presidential candidates, Obama and Trump diverged in their
-                        approaches to
-                        marketing their envisioned plan as leader, to the people.
-                    </p> -->
                     <p>
-                        <!-- On the campaign trail, both candidates participated in traditional campaign rallies to drive
-                        engagement in states
-                        across the nation.  -->
-<!-- 
-                        In addition to traditional, live political rallies, both 
-                        To further their reach across their ever diversifying nation,  -->
-                        The way a president aligns with the people starts with their choice of language. 
+                        The way a president aligns with the people starts with their choice of language.
                         President Obama and President Trump utilised social media as a means
                         of extending
-                        their nationwide reach and driving engagement - an advantage that presidents who preceded them, simply did not have. 
+                        their nationwide reach and driving engagement - an advantage that presidents who preceded them,
+                        simply did not have.
                     </p>
                     <p>
-                        Applying a sentiment analysis to their Twitter activity over time 
-                        <!-- Learning about their twitter activity over time through a sentiment analysis  -->
+                        Applying a sentiment analysis to their Twitter activity over time
                         generates some interesting insights about their diverging approaches to leadership.
-                         <!-- as a job, as opposed to a role. -->
                     </p>
                 </article>
             </section>
             <section class="graphic">
-
             </section>
         </section>
         <section class="contain left light">
-            <!-- <section class="graphic">
-                <article>
-                    <h1>hope</h1>
-                    <h1>Change we can believe in</h1>
-                    <h1>Yes We Can</h1>
-                </article>
-            </section> -->
             <section class="text">
 
                 <article id="obama-tweet" class="padded-text">
-<!-- Adding a bubble chart here with the topics mapped vertically via sentiment and over time bubbles  -->
-
-                    <!-- BIG NUMBERS? -->
-                    <!-- <p>
-                        Obama’s 2008 presidential campaign employed 100 people to help manage his digital presence
-                        alone. As the first
-                        presidential candidate to ‘go viral’, another factor that contributed to his success was the way
-                        he shaped his
-                        communications to be around his personality and family. As an incumbent four years later, Obama
-                        continued to
-                        engage with his audience, launching a Q&A on Twitter, and Reddit.
+                    <p>
+                        Obama tweeted sparsely throughout his presidency, when compared to the leadup to his
+                        re-election, as an incumbent.
                     </p>
                     <p>
-                        Kiss (2008) notes that “our subconscious is hard-wired to assume that faces we see regularly are
-                        our own friends”.
-                        With a consistent, friendly online presence coupled with constant televised appearances, Obama
-                        quickly became a
-                        popular figure who could bring together ‘all Americans’.
-                    </p>
-                    <p>
-                        While Obama humanised his campaign, Trump ‘dehumanised’ through his social media presence. Trump
-                        ‘boosted his reach’
-                        as a wildcard candidate by leveraging controversial topics and adopting unpopular stances at the
-                        expense of racial
-                        minorities such as the Hispanic and Muslim communities.
-                    </p>
-                    <p>
-                        By ‘sparking debate’ and generating anger, negativity and hate, Trump sought a leadership that
-                        blamed a ‘shared’
-                        common enemy, ‘foreign’ powers who were supposedly meddling in the great American dream and
-                        future.
-                    </p> -->
-                    <p>
-                        <!-- Although Obama was known to be the first 'social media president', he  -->
-                        Obama tweeted sparsely throughout his presidency, when compared to the leadup to his re-election, as an incumbent. 
-                    </p>
-                    <p>
-                        At the very most, Obama tweeted just shy of 500 times in October 2012, rallying online followers in his
-                        bid for a second term. 
+                        At the very most, Obama tweeted just shy of 500 times in October 2012, rallying online followers
+                        in his
+                        bid for a second term.
                     </p>
                 </article>
                 <article id="obama-tweet-reelect" class="padded-text">
-                    
-                        <!-- During this second election phase, Obama began to tweet in record amounts. -->
-
-                        <!-- <p> However, comparing between pre-election and non-eventful times, there is very little variation in the sentiment of his tweets. </p> -->
-                        
-                        <!-- It can be said that he tweets with a 'consistent sentiment' throughout, unwavering in his leadership.  -->
-
-                        <!-- The majority of the tweets spoke of what he had already done, and what he
-                        could do for the nation in the future. -->
-                    
-                    <p>Despite tweeting more to generate traction though, Obama maintained a neutral sentiment and therefore <strong>sought consistency in his messaging to the public even when his title as a leader was on the line.</strong></p>
+                    <p>Despite tweeting more to generate traction though, Obama maintained a neutral sentiment and
+                        therefore <strong>sought consistency in his messaging to the public even when his title as a
+                            leader was on the line.</strong></p>
                 </article>
                 <article id="trump-tweet" class="padded-text">
-                    <p>Fast forward 4 years later, and Trump reassures, "I’ll give [Twitter] up after I’m president," yet tweeted over 150 times a month throughout his first term. 
+                    <p>Fast forward 4 years later, and Trump reassures, "I’ll give [Twitter] up after I’m president,"
+                        yet tweeted over 150 times a month throughout his first term.
                     </p>
                     <p>
-                        In the lead up to 
+                        In the lead up to
                         re-election, the number of tweets climbed to over 400 on a monthly basis.</p>
-                    <p>
-                        <!-- Unlike Obama in his first election, Trump maintained a consistently high tweet rate in the lead up 
-                        to voting season.   -->
-                        <!-- In similar trends, Trump's twitter activity grew sharply prior to his second election as an incumbent.  -->
-                    </p>
                 </article>
                 <article id="trump-tweet-reelect" class="padded-text">
-                    <!-- <p>Observing the sentiment, it also becomes clear how Trump manipulated his messaging when his twitter activity grew sharply prior to his second election as an incumbent.</p> -->
-                    <!-- <p></p> -->
-                    <p>While in office, Trump tended to tweet about the 'good news' of his government's doing, but the tail end of his increasingly frequent Twitter activity became noticeably aggressive. 
-                        <!-- but at the tail end of his first, and only term, his language grew in aggression. -->
+                    <p>While in office, Trump tended to tweet about the 'good news' of his government's doing, but the
+                        tail end of his increasingly frequent Twitter activity became noticeably aggressive.
                     </p>
-                    <p>Following his defeat by then president-elect Joe Biden, <strong>Trump was accused of inciting an insurrection, dividing the American people between the 'Patriots' who voted for him, and those who didn't, just by the language he had used.</strong> (Twitter inc., 2021)</p>
+                    <p>Following his defeat by then president-elect Joe Biden, <strong>Trump was accused of inciting an
+                            insurrection, dividing the American people between the 'Patriots' who voted for him, and
+                            those who didn't, just by the language he had used.</strong> (Twitter inc., 2021)</p>
                 </article>
-                <!-- <article id="both" class="padded-text">
-                    <p>
-                        
-                       
-                    </p>
-                    <p>Obama was successfully re-elected for a second term, while Trump was not. The rest, is history.</p>
-                </article> -->
-
-                 <!-- Although Twitter seemed to play a bigger role in Trump's first election campaign than in Obama's, the platform was undeniably pivotal
-                        as they sought re-election. -->
-                        <!-- this can be the two graphs merged into one to show relational similarities between their twitter activity. -->
-
-
-                <!-- <article>
-                    <h1>Slogans</h1>
-                    <h4>How did the presidents position themselves in their race to the White House?</h4>
-                </article>
-                <article>
-                    <p>Obama suggests togetherness and collective change.</p>
-                    <p>Trump on the other hand is more adamant on making America great again, and he made enemies of
-                        foreign nations right off the bat.</p>
-                    <p></p>
-                    <img src="public/images/meme.png">
-                </article> -->
             </section>
-    
             <section class="graphic">
-                <!-- <label class="title">Monthly frequency and sentiment of tweets</label> -->
+                <!-- sentiment and frequency line chart -->
                 <div id="total-obama-line" class="plots"></div>
-                <div style="display: none;max-height: 20px" id="total-trump-line" class="plots"></div>
-            <!-- USE THESE SLOGANS AS A COLLAGE -->
-            <!-- <div class="plots"></div> -->
-            <!-- 
-"Keep America Great" – used by Donald Trump's campaign
-"Make America Great Again Again" – used by Donald Trump's campaign
-"Promises Made, Promises Kept" – used by Donald Trump's campaign
-"Buy American, Hire American" – used by Donald Trump's campaign
-"Make Our Farmers Great Again" – used by Donald Trump's campaign
-"Build the Wall and Crime Will Fall" – used by Donald Trump's campaign
-"Jobs not Mobs" – used by Donald Trump's campaign -->
-            <!-- <article>
-                    <h1>Make America Great Again!</h1>
-                    <h1>Buy American, Hire American</h1>
-                    <h1>Build the Wall and Crime Will Fall</h1>
-                    <h1>Jobs not Mobs</h1>
-                </article> -->
-                <!-- WHAT WERE THEIR TWITTER HABITS -->
-                <!-- HOW DID THEIR TWITTER ACTIVITY REFLECT THEIR  -->
             </section>
         </section>
         <section style="min-height: initial; padding-top: 0" class="contain light isolated">
             <section class="text">
-                <article >
-                    <p>Interestingly, their sentiments on Twitter reflect the outcomes of their re-elections, and more importantly, their actions as leaders.</p>
+                <article>
+                    <p>Interestingly, their sentiments on Twitter reflect the outcomes of their re-elections, and more
+                        importantly, their actions as leaders.</p>
                 </article>
             </section>
             <section class="graphic">
-
             </section>
         </section>
+        <!-- Tweet analysis 2: Use of pronouns -->
         <section style="min-height: initial; padding-bottom: 0" id="pronouns" class="contain dark isolated">
             <section class="text">
-                <article >
-                    <h3>On pronouns</h3>                <!--     /    -->
-                    <!-- WE LOOK AT THE TWITTER BEFORE THE BIG _/ SPIKE! -->
-                    <!-- What kinds of tweets did they make in the lead up to their votes for second term in office? -->
-                    <!-- Trump's voters consisted of 90% white americans -->
-                    <!-- Obama's voter population was somewhat more diverse. Although white people made up the majority of the voter population, there was a record turnout amongst people of colour. -->
-                    <!-- Following the  -->
-<!-- 
-                    he first-person singular (“I will make this country great again”) is authoritative and agenda-setting, whereas
-                     the first-person plural (“We will make this country great again”) acts more as a collective call-to-arms. The
-                      second person (“You will make this country great again”) works as an imperative that imbues the listener with a 
-                      feeling of power, but the third-person plural (“They will make this country great again”) takes that same power
-                       away and gives it to an unseen entity. -->
+                <article>
+                    <h3>On pronouns</h3>
                     <p>
-                        <!-- finds that politicians leverage pronouns -->
-                        In additiion to sentiment, the deliberate use of pronouns in these presidents' rhetoric such as "I, you we or they" can either "show affiliation or 
+                        In addition to sentiment, the deliberate use of pronouns in these presidents' rhetoric such as
+                        "I, you we or they" can either "show affiliation or
                         create distance". (Bramley, 2001)
-                        <!-- Throughout their presidencies, the use of pronouns helped to establish the tone they wished to  -->
                     </p>
-                        <!-- Throughout their presidencies, the use of pronouns helped to establish their tone in a message.    -->
-                        <!-- This reduced form of language plays a pivotal role in 
-                        constructing the rhetoric the speaker wishes to convey to their audience.  -->
-                        <!-- , pending the topic they are speaking of.  -->
-                        <!-- position the context of the topic from the speaker's point of view. The use of -->
-                        <!-- and often suggests no external influence. -->
-                        <!-- , implying a lot of  -->
-                        <!-- EVIDENCE HERE ABOUT HOW PRESIDENTS USE PRONOUNS TO POSITION THEMSELVES -->
-                        <!-- 's use of pronouns offer a hint to their priorities between themselves as a person, to their stance as a leader of the nation. -->
-                    </p>
-                    <!-- <p>
-                        Even in Obama and Trump's Twitter language, their use of pronouns accentuate their leadership styles. 
-                        
-                    </p> -->
                 </article>
             </section>
         </section>
         <section class="contain left dark">
             <section class="text">
-                <!-- <article id="obama-blank" class="padded-text">
-
-                    
-                </article> -->
                 <article id="obama-we" class="padded-text">
                     <p>
-                        President Obama lived up to his 'unified' approach to leadership through inclusive language. 
+                        President Obama lived up to his 'unified' approach to leadership through inclusive language.
                     </p>
                     <p>
-                        His use of 'we' and other collective pronouns in more than a third of the time he used a pronoun implies a push for "shared identity and responsibilities".
-                        <!-- suggesting all Americans are in it together.  -->
+                        His use of 'we' and other collective pronouns in more than a third of the time he used a pronoun
+                        implies a push for "shared identity and responsibilities".
                     </p>
                 </article>
                 <article id="obama-you" class="padded-text">
                     <p>
-                        In a similar manner, President Obama used second person pronouns like 'you' and 'yours', to bring the audience closer to his message, 
+                        In a similar manner, President Obama used second person pronouns like 'you' and 'yours', to
+                        bring the audience closer to his message,
                         asserting inclusion.
                     </p>
-                    <!-- Who was the audience -->
-                    <!-- <p>In the lead up to re-elections, the topics of the tweets and the way Obama and Trump handled timely issues
-                        reveal key focuses regarding their promises to voters.
-                    </p>
-                    <p>Observing the topics that Obama and Trump engaged in during their time before election, there are some clear standouts which 
-                        reveal their priorities as leaders. 
-                    </p> -->
-
-                    <!-- <p>Obama tweeted mostly about ... in the lead up to the election. The way in which he tweeted positioned himself as a 
-                        ... In fact, his tweets accurately reflected the 
-                    </p>
-
-                    <p>On the other hand, Trump appeared to place greater focus on...</p>
-                    <p>This was not received well by the public, </p> -->
-
-                    <!-- HIGHER SENTIMENT DURING THE TIME PERIOD? -->
-                    <!--  -->
-                    
-                    <!-- <p>
-
-                        Trump, having already been an active user on social media was freely spoken on Twitter. As a wildcard entry 
-                        onto the presidential scene, Trump proclaimed “I don’t frankly have time for total political correctness,” 
-                        reiterating, “I refuse to be politically correct.” 
-                    </p>
-                    <p>
-                        In turn, his disregard for political correctness and divisive approach towards the internal challenges of America 
-                        was made apparent in his pre-election promises:
-                    </p>
-                    <p>
-                        Trump promised to put Americans first through his keynote (although borrowed) slogan 'Make America Great Again'. 
-                        Amongst the promises he had made through the rallies, he tweeted about
-                    </p>
-                    <p>
-                        On the other hand, Obama acknowledges the importance of political correctness - not as a hot button topic to call 
-                        out imperfect language, but to ensure discriminatory language is avoided in modern day speech.
-                    </p> -->
-                    <!-- <h3>On political corrrectness</h3>
-                    <p>After being inducted into the Oval office, both Obama and Trump continued to take vastly
-                        different stances,
-                        particularly on the hot button topic of political correctness.
-
-                        The term political correctness began with an intention to avoid language that has been used
-                        historically to
-                        discriminate, belittle or offend minorities, in particular. (Mora, 2021) This kind of language
-                        has grown to be
-                        a hot button issue in the US, and both presidents have taken divergent stances on the topic.
-                    </p>
-                    <p>
-                        On racial epithets and derogatory comments, Obama (2016) acknowledges that <q>“when you use
-                            words like that,
-                            you're reinforcing people feeling like they're outsiders, and less than other
-                            Americans.”</q> (Obama, 2016).
-                        If we look directly at his tweets, obama's use of common politically 'incorrect' terms (deemed
-                        politically incorrect by XX),
-                        is relatively low.
-                    </p>
-                    <p>
-                        Trump however, cites political correctness as an impediment to the First Amendment’s guarantee
-                        of ‘freedom
-                        of speech’, claiming time and time again that “I don’t frankly have time for total political
-                        correctness,”
-                        stating “I refuse to be politically correct.”
-                        Amongst his tweets, over X % contained language that could be seen as offensive to certain
-                        minority groups.
-                    </p>
-                    <p>
-                        Over time, the tweets in which president Obama and Trump have made about minority groups
-                        including Women,
-                        African Americans, Hispanics and Asians are ...
-                    </p> -->
-                    
                 </article>
                 <article id="trump-they" class="padded-text">
                     <p>
-                        This polar to President Trump whose most used pronouns were 'third person' terms like 'they' and 'them', 
+                        This polar to President Trump whose most used pronouns were 'third person' terms like 'they' and
+                        'them',
                         which place the greatest distance between a speaker and the party in question. (Bramley, 2001)
                     </p>
                 </article>
                 <article id="trump-i" class="padded-text">
                     <p>
-                        Unlike his predecessor who tweeted with 'first person' pronouns just 10% of the time, 
-                        President Trump tweeted the words 'I' 'me' and 'my' in about a quarter of all his tweets. 
-                        <!-- Trump tweeted with a personal perspective, almost as much as he used collective pronouns in his language.  -->
-                    </p>
-                </article>
-            </section>
-            <section class="graphic"> 
-                <!-- <label class="title">Frequency use of a pronoun, as a % of all pronoun use</label> -->
-                <div style="margin-bottom: 10vh" id="words" class="plots"></div>
-                <p class="instruction">Tap a segment of the sunburst chart to expand it, and its leaves to contract it.</p>
-            </section>
-            <!-- <h3>OBAMA</h3>
-            <h3>TRUMP</h3> -->
-        </section>
-        <section style="min-height: initial; padding-top: 0" class="contain dark isolated">
-            <section class="text">
-                <article >
-                    <p>And it's not just subtle traits in their rhetoric that expose their focus. Observing what they talk about further reveals their 
-                        nature as leaders. 
+                        Unlike his predecessor who tweeted with 'first person' pronouns just 10% of the time,
+                        President Trump tweeted the words 'I' 'me' and 'my' in about a quarter of all his tweets.
                     </p>
                 </article>
             </section>
             <section class="graphic">
-
+                <div style="margin-bottom: 10vh" id="words" class="plots"></div>
+                <p class="instruction">Tap a segment of the sunburst chart to expand it, and its leaves to contract it.
+                </p>
             </section>
         </section>
-        <!-- dropdowns allow users to change the line graph -->
-        <!-- line graph of the use of that term throughout their presidential campaign -->
-        <!-- two sunburst charts directly comparing the different language used by them both -->
-        <!-- <section id="gender" class="contain">
+        <section style="min-height: initial; padding-top: 0" class="contain dark isolated">
             <section class="text">
-
+                <article>
+                    <p>And it's not just subtle traits in their rhetoric that expose their focus. Observing what they
+                        talk about further reveals their
+                        nature as leaders.
+                    </p>
+                </article>
             </section>
-        </section> -->
+            <section class="graphic">
+            </section>
+        </section>
+        <!-- Tweet Analysis 3: Topic discussion of US vs internationally -->
         <section id="Countries" class="contain light">
             <section class="text">
                 <article class="centered">
-                    <!-- If you were to spin a wheel to pick a country that Trump or Obama were speaking about, you'd probably land in China or Russia -->
                     <h3>On Countries</h3>
-                    <!-- <h4>How do the presidents talk about and treat foreign powers?</h4> -->
-                    <!-- Carrying on from their initial presidential campaign, it’s interesting to observe how these both men 
-                        have followed through with their method of leadership throughout their time in office.  -->
-
-                    <!-- <p>Now lets take a step back and see how these leaders perform on a global scope.</p> -->
-                    <p>As presidents of the US, one might assume that both Obama and Trump are focused on addressing internal problems and pursuits.
-                    </br></br>
-                    The data tells us otherwise, however.
+                    <p>As presidents of the US, one might assume that both Obama and Trump are focused on addressing
+                        internal problems and pursuits.
+                        </br></br>
+                        The data tells us otherwise, however.
                     </p>
-           
-                    <!-- <p>As presidents of the US, it's an assumption that Obama and Trump seemingly spoke on the topic of America against the
-                        world, so it is no surprise that both appear to be inwardly focused.
-                        Comparing the frequency by which either of them said the same word, Obama says words like
-                        America and American much more than Trump while in office.
-
-                    </p> -->
-                    
-                        <!-- we want a bar graph here -->
-                        <!-- ==  === -->
-                    <p><strong>Interestingly, President Obama tweeted about America almost twice as frequently than Trump.</strong></p>
+                    <!-- a bar graph here on mentions of 'America' -->
+                    <!-- ==  === -->
+                    <p><strong>Interestingly, President Obama tweeted about America almost twice as frequently than
+                            Trump.</strong></p>
                     <label class="title">'America' and 'Americans': Frequency of usage in tweets</label>
                     <div id="america-mentioned-bar" class="plots"></div>
-                    <!-- <p>Looking at the tweets specifically, </p> -->
-                    <!-- these were the countries that these tweets were associated with (choropleth map)-->
-                    <!-- and these are where their policies were respectively included -->
-                    <!-- <p>In fact, looking at the individual tweets by President Obama, we can see how he spoke about other
-                        nations. Although he mentioned the US, any words used to describe foreign nations
-                        were pleasant and kind.</p> -->
-                    <!-- probably should resort to a bar chart -->
-                    <!-- this should be a vector scatter plot with all of the tweets categorised into countries-->
-                    <!-- <p>Comparing these with President Trump, we can see a significant shift in focus. All the words
-                        thrown at foreign entities were on the side of hostile rather than kind.</p> -->
-                        <p>
-                            In fact, Obama tweeted about American topics over 10 times as much as he acknowledged his foreign counterparts.
-                            However, Trump posted 200 tweets more about international topics than internal affairs.
-                            <!-- However, Trump tweeted near equal amounts about both American and international topics.  -->
-                            <!-- He also made 200 tweets more regarding foreign affairs than internal affairs. -->
-                        </p>
-                        <!-- But amongst the tweets of foreign nations, Obama adopted a positive outlook ... -->
-                        <!-- The sentiment of most of these tweets expressed a positive outlook,  -->
-                        <p><strong>From a glance, Trump already appears to have strayed from the internal challenges of his country, while Obama stayed true to his own nation.</strong></p>
-                        
-                    <p>Mapping out the countries mentioned in their tweets, it shows just how widespread Trump's international perspective was, as opposed to Obama.</p>
+                    <p>
+                        In fact, Obama tweeted about American topics over 10 times as much as he acknowledged his
+                        foreign counterparts.
+                        However, Trump posted 200 tweets more about international topics than internal affairs.
+                    </p>
+                    <p><strong>From a glance, Trump already appears to have strayed from the internal challenges of his
+                            country, while Obama stayed true to his own nation.</strong></p>
 
-                    <p class="instruction">Choose a president to see the international reach of his tweets. Tap a country for a random tweet mentioning it.</p>
-                    <h3>Tweets involving countries by: <div class="dropdown"><a class="obama">Obama</a><a class="trump">Trump</a></div>
+                    <p>Mapping out the countries mentioned in their tweets, it shows just how widespread Trump's
+                        international perspective was, as opposed to Obama.</p>
+
+                    <p class="instruction">Choose a president to see the international reach of his tweets. Tap a
+                        country for a random tweet mentioning it.</p>
+                    <h3>Tweets involving countries by: <div class="dropdown"><a class="obama">Obama</a><a
+                                class="trump">Trump</a></div>
                         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L5 5L9 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            </h3>
-                    <!-- <div class="button-container">
-                        <button name="obama" type="button">Obama</button>
-                        <button name="trump" type="button">Trump</button>  
-                    </div> -->
+                            <path d="M1 1L5 5L9 1" stroke="black" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </h3>
+                    <!-- world map chart of countries mentioned -->
                     <div id="countries-mentioned">
                         <div id="countries-mentioned-map" class="plots"></div>
-                        <div  id="random-tweet-box"><h3></h3><p></p></div>
+                        <div id="random-tweet-box">
+                            <h3></h3>
+                            <p></p>
+                        </div>
                     </div>
+                    <div id="special"></div>
+                    <p>President Obama's tweets on foreign nations appear to consist of diplomatically necessary
+                        exchanges, such as in response to the 2010 Chilean earthquake:
+                    </p>
+                    <mark class="indented">"The American people send their deepest condolences to the Chilean people.
+                        The U.S. is ready to help in any way."</mark>
 
-                        <!-- <p>A deep dive into the tweets, categorised by country and sentiment, reveals even more about their perspectives on America against the World.</p> -->
-                        <!-- <h1>CHART HERE WITH TWEET CLUSTERS ON FOREIGN AND INTERNAL TOPICS</h1> -->
-                        <div id="special"></div>
-                        <p>President Obama's tweets on foreign nations appear to consist of diplomatically necessary exchanges, such as in response to the 2010 Chilean earthquake:
-                            <!-- "Welcoming Prime Minister Singh of India for the first state visit of this administration." and -->
-                        </p>
-                        <!-- </br></br> -->
-                            <mark class="indented">"The American people send their deepest condolences to the Chilean people. The U.S. is ready to help in any way."</mark>
-                    <!-- </br></br> -->
-                                 <!-- which seem to be diplomatically necessitated exchanges.</p> -->
-                            <!-- <p>As president, Trump was known for tweeting </p> -->
-                            <!-- <p>Although some of the comments made were politically motivated, especially from President Trump who attempted to defend a non-collusive relationship with the Russian government,
-                            Trump also made personal attacks on nations, most of which lack any factual backing. 
-                        </p> -->
-                        <p>However, on more than one occasion, President Trump has been accused of divisive language against other nations.</p>
-                            <mark class="indented">
-                                "[Mexico] laughs at our dumb immigration laws. They must stop the big drug and people flows, or I will stop their cash cow, NAFTA. NEED WALL!"
-                            </mark>
-                        
-                    </article>
-                    <article>
-                        <p>It could be said that President Obama adopted a 'unifier' mindset, perpetuating internal topics and issues, for the benefit of the nation.</p>
-                        <p>Completely polar to his predecessor, President Trump demonstrated a 'divider' attitude making personal attacks on foreign nations, not necessarily in the interest of the people as a whole, and thus 
-                            could be seen as self-serving.
-                        </p>
-                        <!-- ON CLICK OF A COUNTRY ON THE MAP, A RANDOM TWEET APPEARS THEN FADES AFTER ABOUT 5-10 SECONDS ON SCREEN -->
-                        <!-- <div id="foreign-internal-sentiment" class="plots"></div> -->
+                    <p>However, on more than one occasion, President Trump has been accused of divisive language against
+                        other nations.</p>
+                    <mark class="indented">
+                        "[Mexico] laughs at our dumb immigration laws. They must stop the big drug and people flows, or
+                        I will stop their cash cow, NAFTA. NEED WALL!"
+                    </mark>
 
-                        <!-- <p>Just from their comments on Twitter alone, Obama clearly lives up to his title of a 'unifier', retaining an internal focus through nearly all of the topics 
-                            he opted to address. Inversely, President Trump engaged more frequently in foreign influence and interference
-                            than internal challenges, making his divisive approach to leadership apparent.
-                        </p> -->
-                    <!-- <p>
-                            Even though his slogan throughout his political campaign was ‘Make America Great Again’, Trump seemed 
-                            to be more interested in foreign than internal affairs. Most predominantly, he seemed to enjoy speaking 
-                            about countries including X Y and Z. 
-                            
-                            Correspondingly, a sentiment analysis shows, that when talking about these nations, Trump seems to be 
-                            putting them down/speaking negative things. 
-                              
-                            
-                            However, on twitter, President Obama spoke more frequently about America and Americans than of his 
-                            foreign counterparts. 
-                        </p> -->
+                </article>
+                <article>
+                    <p>It could be said that President Obama adopted a 'unifier' mindset, perpetuating internal topics
+                        and issues, for the benefit of the nation.</p>
+                    <p>Completely polar to his predecessor, President Trump demonstrated a 'divider' attitude making
+                        personal attacks on foreign nations, not necessarily in the interest of the people as a whole,
+                        and thus
+                        could be seen as self-serving.
+                    </p>
                 </article>
                 <!-- OBAMA foreign tweet count - 97 (12 negative, 41 positive, the rest were neutral) American tweet count 1026 (121 were negative, 489 were positive, the rest were neutral)-->
                 <!-- TRUMP foreign tweet count - 2168 (598 negative, 1331 were positive, the rest were neutral) American tweet count - 1938 (416 were negative, 1295 were positive, the rest were neutral) -->
-
-                <!-- <article>
-                    <p>Political correctness begins with a belief in using inclusive language—words and phrases that
-                        have not historically been used to demean, belittle, or insult any particular group of people.
-                    </p>
-                    <p>Although it is a term that has been around for centuries, Political Correctness has grown to be a
-                        hot button topic. This is particularly true in the United States, arguably the most powerful
-                        nation in the world which continues to grow both demographically and economically. </p>
-                    <p>Political correctness has also been exacerbated, social media platforms like Twitter, have become
-                        a breeding ground for criticisms and exchanged words against political correctness. </p>
-                    <p>So the purpose of political correctness is to unite, rather than to divide.</p>
-                    <p>Heres how the views of two of America’s most polarising presidents put them on the side of
-                        Unifier and Divider in the political correctness debate.</p>
-                    <p>The good news is, neither is a fence sitter.</p>
-                </article> -->
             </section>
-            <!-- <section class="graphic">
-            </section> -->
         </section>
         <section style="min-height: calc(100vh - 200px)" id="verdict" class="contain dark isolated">
             <section class="text">
@@ -825,35 +404,38 @@
                         As social media
                         becomes inherently critical to presidential campaigns, a candidate's presence in the digital
                         space serves as a
-                        valuable hint to voters about what kind of president they may eventually become. <label class="blinking">|</label>
+                        valuable hint to voters about what kind of president they may eventually become. <label
+                            class="blinking">|</label>
                     </p>
-                    
+
                 </article>
             </section>
             <section class="graphic">
+                <!-- delete this -->
                 <div id="graph" class="plots"></div>
- 
             </section>
         </section>
     </main>
+    <!-- NAV -->
     <nav id="jump-links" class="hide"></nav>
     <script>
-        // https://safi.me.uk/typewriterjs/
+        //typewriter.js https://safi.me.uk/typewriterjs/
+        // creates a new typewriter object
         let nextTypewriter = new Typewriter('#intro h1', {
-                loop: true,
-                delay: 200,
-                wrapperClassName: 'wrapper',
-                // cursorClassName: 'typeCursor'
-            });
+            loop: true,
+            delay: 200,
+            wrapperClassName: 'wrapper',
+        });
 
-            nextTypewriter
-                .typeString('United')
-                .pauseFor(3000)
-                .deleteAll()
-                .typeString('Divided')
-                .pauseFor(3000)
-                .deleteAll()
-                .start();
+        // initiates the typewriter function with the following commands
+        nextTypewriter
+            .typeString('United')
+            .pauseFor(3000)
+            .deleteAll()
+            .typeString('Divided')
+            .pauseFor(3000)
+            .deleteAll()
+            .start();
 
     </script>
     <script src="public/js/script.js"></script>

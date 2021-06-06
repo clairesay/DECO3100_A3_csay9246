@@ -1,12 +1,15 @@
-// Check if the text box is visible in window space then make opacity visible?
+// Check if the text box is visible in window space then make opacity of its corresponding nav visible
 // Navigation thingo should work with IDs. 
 
 // populating nav with the right jump links 
 const sections = document.querySelectorAll('section.contain')
 var nav = document.querySelector('nav#jump-links')
+
+// for all the sections, set its corresponding nav liink to the nme of it
 sections.forEach(function (section, index) {
     let jumpLink = document.createElement('a')
     jumpLink.setAttribute('href', '#' + section.id)
+    // if its hyphenated, include a space
     jumpLink.innerHTML = section.id.replace('-', ' ')
     if (section.id == "") {
         jumpLink.setAttribute('style', 'display: none')
@@ -14,21 +17,18 @@ sections.forEach(function (section, index) {
     nav.appendChild(jumpLink)
 })
 
-// smooth scrolling found on stack exchange
+// smooth scrolling found on stack overflow - purpose is to smoothly scroll from user's current position to new position on page
 // https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        // prevents href link from opening
         e.preventDefault();
-
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
     });
 });
 
-
-
-// var previousChild = null
 // calculating page height and checking whether element is at the top
 // x = every section's height before it
 // if greater than (x) and less than (x) + own-height
@@ -51,32 +51,18 @@ window.addEventListener('scroll', function () {
             children.forEach(function (child) {
 
                 if (isScrolledIntoView(child, 'full')) {
-                    
+                    // if there is an id with the subsection
                     if (child.id != '') {
-                    //     if (child.id != previousChild) {
-                    //         previousChild = child.id
-                            plotChange(child.id) // relayouts are in func
-                            return
-                        // }
-                        // detects the child
-   // Detecting on load of plots
-
-                            
-                        
-                        // console.log(child.id)
+                        plotChange(child.id) // relayouts are in the toggle.js file
+                        return
                     }
-                    // corresponding child --> activate corresponding function
-                    // console.log(child)
-                    // plotChange(section, child, child.getAttribute('state'))
                 } else {
-                    // console.log(child)
-                    // resetChange(section, child, child.getAttribute('state'))
                 }
             })
         }
     })
 
-    // changing colour of nav if in a different section 
+    // changing colour of nav for appropriate contrast if in a different section 
     if (sections[indexInView].classList.contains('light')) {
         nav.classList.add('dark')
     } else {
@@ -88,7 +74,6 @@ window.addEventListener('scroll', function () {
     } else {
         nav.classList.remove('hide')
     }
-
 
     // setting the relevant jumpLink to be active
     nav.querySelectorAll('a').forEach(function (jumpLink, jumpLinkIndex) {
@@ -108,25 +93,11 @@ function isScrolledIntoView(el, mode) {
         isVisible;
 
     if (mode == 'full') {
+        // Only completely visible elements return true:
         isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
     } else if (mode == 'partial') {
+        // Partially visible elements return true:
         isVisible = elemTop < window.innerHeight / 3 && elemBottom >= 0;
     }
-    // Only completely visible elements return true:
-
-    // Partially visible elements return true:
-    // var isVisible = elemTop < window.innerHeight / 3 && elemBottom >= 0;
     return isVisible;
 }
-
-// function isPartialIntoView(el) {
-//     var rect = el.getBoundingClientRect(),
-//         elemTop = rect.top,
-//         elemBottom = rect.bottom;
-
-//     // Only completely visible elements return true:
-//     // var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
-//     // Partially visible elements return true:
-//     var isVisible = elemTop < window.innerHeight / 3 && elemBottom >= 0;
-//     return isVisible;
-// }

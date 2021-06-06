@@ -1,4 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 :root {
@@ -12,27 +11,18 @@
     --middle: #683962;
 }
 
-/* 
-dropshadows?
-borderstrokes: 2px solid
-dot patterns okay
-*/
-/* 
-use opacity to bring text into focus
-*/
-
 * {
     color: #303030;
 }
 
 /* text */
+
 strong {
     font-weight: 600;
 }
 
 mark {
     font-weight: 500;
-    /* background-color: #90909048; */
     background-color: var(--middle);
 }
 
@@ -71,7 +61,7 @@ p {
     text-align: left;
 }
 
-section.contain[id] section.text>article:first-of-type:not(#ethnic) > p:first-of-type::first-letter {
+section.contain[id] section.text>article:first-of-type:not(#ethnic)>p:first-of-type::first-letter {
     font-size: 48px;
 }
 
@@ -80,6 +70,7 @@ p:not(:first-child) {
 }
 
 /* NAV */
+
 nav#jump-links {
     position: fixed;
     top: 20vh;
@@ -91,6 +82,7 @@ nav#jump-links {
     opacity: 1;
     transition: opacity 0.2s ease-out;
 }
+
 nav#jump-links a {
     color: var(--white);
     text-decoration: none;
@@ -100,9 +92,11 @@ nav#jump-links a {
     margin-left: 6px;
     opacity: 0.2;
 }
+
 nav#jump-links a:hover, nav#jump-links a.active {
     opacity: 1;
 }
+
 nav#jump-links a::before {
     position: absolute;
     content: '';
@@ -112,26 +106,32 @@ nav#jump-links a::before {
     background-color: var(--white);
     transition: all 0.2s ease-out;
 }
+
 nav#jump-links a.active::before {
     width: 12px;
     left: -12px;
 }
+
 /* dark nav */
+
 nav#jump-links.dark a {
     color: var(--black)
 }
+
 nav#jump-links.dark a::before {
     background-color: var(--black)
 }
 
 /* hidden nav */
+
 nav#jump-links.hide {
-    /* display: none; */
     opacity: 0;
 }
 
 /* STRUCTURE */
+
 /* Main sections that break up parts of the page */
+
 section.contain {
     padding: 100px 20%;
     display: flex;
@@ -146,22 +146,7 @@ section.contain.isolated section.text {
     justify-content: center;
 }
 
-/* section.contain.isolated {
-    display: flex;
-    justify-content: center;
-    margin-left: -6.5%;
-}
-
-section.contain.isolated section.text {
-    width: 80%;
-}
-
-section.contain.isolated section.text article {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
+/* section colour variations */
 
 section.contain.dark {
     background-color: var(--black);
@@ -204,12 +189,14 @@ section.contain#intro img {
     object-fit: cover;
     opacity: 0.8;
 }
- section.contain#intro img:first-child {
-    filter:grayscale(1) drop-shadow(0 0 24px var(--blue));
- }
- section.contain#intro img:last-child {
-    filter:grayscale(1) drop-shadow(0 0 24px var(--red));
- }
+
+section.contain#intro img:first-child {
+    filter: grayscale(1) drop-shadow(0 0 24px var(--blue));
+}
+
+section.contain#intro img:last-child {
+    filter: grayscale(1) drop-shadow(0 0 24px var(--red));
+}
 
 section.contain * {
     color: var(--dark-white);
@@ -220,14 +207,13 @@ section.contain:first-child div.background {
 }
 
 div.background {
-    /* position: absolute; */
     width: 100%;
     height: 100%;
 }
 
 /* TEXT HALF */
-section.contain section.text{
-    /* width: 600px; */
+
+section.contain section.text {
     color: var(--white);
     text-align: center;
     display: flex;
@@ -244,51 +230,40 @@ section.contain section.text article.centered {
     align-items: center;
 }
 
-section.contain section.graphic ~ section.text {
+section.contain section.graphic~section.text {
     align-items: flex-start;
 }
 
 /* GRAPHIC HALF */
+
 section.contain section.graphic {
     grid-area: Graphic;
     position: sticky;
-    /* top: 0; */
-    /* height: max-content; */
     top: 10%;
     height: 80%;
-    /* display: grid;
-    grid-template-rows: 1fr 1fr; */
-}
-/* change this to suit plots too */
-section.contain section.graphic img, section.contain section.graphic div.plot {
-    /* margin: auto; */
-    /* height: 40vh; */
 }
 
 /* TEXT */
+
 article.padded-text {
-    min-height: 75vh; 
-    display: flex; 
-    flex-direction: column; 
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
-
 /* SPLIT VISUAL FOR LEADERSHIP DISCUSSION */
+
 article.split-visual {
     display: flex;
     justify-content: space-between;
     gap: 72px;
 }
 
-article.split-visual div:hover > img {
+article.split-visual div:hover>img {
     transform: translateY(-5px);
     opacity: 1;
 }
-/* 
-article.split-visual div:last-child > img {
-    transform: translateY(-5px)
-} */
 
 article.split-visual img {
     width: 80%;
@@ -300,6 +275,7 @@ article.split-visual img {
 }
 
 /* SECTION COLOUR THEMES */
+
 .democrat {
     background-color: var(--blue)
 }
@@ -309,8 +285,8 @@ article.split-visual img {
 }
 
 /* MARK COLOUR THEMES */
+
 section.contain mark.democrat {
-    /* color: var(--white); */
     text-decoration: underline solid var(--blue);
     text-decoration-thickness: 2px;
     background-color: transparent;
@@ -322,12 +298,11 @@ section.contain mark.republican {
     background-color: transparent;
 }
 
-
 /* MAP STYLE */
+
 .layer.bg rect {
     fill: transparent !important;
 }
-
 
 /* HOVER TOOLTIP */
 
@@ -337,12 +312,13 @@ i {
 
 i>label.definition>strong {
     font-weight: 700;
-    font-family:'PT Serif'
+    font-family: 'PT Serif'
 }
 
 section.contain.dark i {
     color: var(--white);
 }
+
 section.contain.dark i>label.definition, section.contain.dark i>label.definition>strong {
     background-color: var(--white);
     color: var(--black);
@@ -351,6 +327,7 @@ section.contain.dark i>label.definition, section.contain.dark i>label.definition
 section.contain.light i {
     color: var(--black);
 }
+
 section.contain.light i>label.definition, section.contain.light i>label.definition>strong {
     background-color: var(--black);
     color: var(--white);
@@ -360,15 +337,10 @@ i>label.definition {
     z-index: 5;
     font-size: 12px;
     position: absolute;
-    /* left: calc(20% + 332px); */
     margin-left: 24px;
-    /* top: 0; */
     visibility: hidden;
     border-radius: 4px;
     width: 20%;
-    /* filter: drop-shadow(0 0 2px #909090); */
-    /* background-color: var(--white);
-    color: var(--black); */
     padding: 18px;
     transition: all 0.1s ease-out;
     opacity: 0;

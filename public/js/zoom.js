@@ -1,103 +1,6 @@
-// // generating random dots
-// var n = 500;
-// var x = [], y = [];
-// for (var i = 0; i < n; i++) {
-//   x[i] = i / (n - 1);
-//   y[i] = x[i] + 0.2 * (Math.random() - 0.5);
-// }
-
-// // plotting the dots
-// Plotly.plot('graph', [{
-//   x: x,
-//   y: y,
-//   mode: 'markers'
-// }], {
-//   xaxis: {range: [0, 1]},
-//   yaxis: {range: [0, 1]}
-// }, {showSendToCloud:true});
-
-// Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/diversity.csv", function (err, rows) {
-//     var data = [{
-//         type: 'choropleth',
-//         locationmode: 'USA-states',
-//         locations: unpack(rows, 'code'),
-//         z: unpack(rows, '2000'),
-//         text: unpack(rows, 'state'),
-//         zmin: 0,
-//         zmax: 1.79,
-//         colorscale: [
-//             [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
-//             [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
-//             [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
-//         ],
-//         colorbar: {
-//             title: 'Diversity Index',
-//             thickness: 0.2
-//         },
-//         marker: {
-//             line: {
-//                 color: 'rgb(255,255,255)',
-//                 width: 1
-//             }
-//         }
-//     },
-//     {
-//         type: 'choropleth',
-//         locationmode: 'USA-states',
-//         locations: unpack(rows, 'code'),
-//         z: unpack(rows, '2010'),
-//         text: unpack(rows, 'state'),
-//         marker: {
-//             line: {
-//                 color: 'rgb(255,255,255)',
-//                 width: 1
-//             }
-//         }
-//     },
-//     {
-//         type: 'choropleth',
-//         locationmode: 'USA-states',
-//         locations: unpack(rows, '2017'),
-//         z: unpack(rows, 'index'),
-//         text: unpack(rows, 'state'),
-//         marker: {
-//             line: {
-//                 color: 'rgb(255,255,255)',
-//                 width: 1
-//             }
-//         }
-//     }
-//     ];
-
-
-//     var layout = {
-//         title: 'Countries mentioned by Trump and Obama in their tweets',
-//         colorbar: true,
-//         geo: {
-//             scope: 'north america',
-//             projection: {
-//                 type: 'equirectangular'
-//             },
-//             showland: true,
-//             showocean: true,
-//             oceancolor: black,
-//             landcolor: 'rgb(250,250,250)',
-//             subunitcolor: 'transparent',
-//             countrycolor: 'transparent',
-//             countrywidth: 0.5,
-//             subunitwidth: 0.5
-//         },
-//         "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
-//         paper_bgcolor: 'transparent',
-//         plot_bgcolor: 'transparent'
-//     };
-
-//     Plotly.newPlot('diversity-plot', data, layout, { displayModeBar: false });
-
-// })
-
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/state-diversity-update.csv", function (err, rows) {
 
+  // code structure from https://plotly.com/javascript/map-animations/ for multi stage 'framed' animations
   function filter_and_unpack(rows, key, year) {
     return rows.filter(row => row['year'] == year).map(row => row[key])
   }
@@ -105,10 +8,12 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
   var frames = []
   var slider_steps = []
 
+  // number of increments
   var n = 4;
+  // year beginning
   var num = 1980;
   for (var i = 0; i <= n; i++) {
-    //   value of life expectancy
+    // value
     var z = filter_and_unpack(rows, 'diversity', num)
     // location
     var locations = filter_and_unpack(rows, 'code', num)
@@ -126,21 +31,22 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       ]
     })
     //   increment by year
+    // if its 2010, only go up to 2017 because that's the limit
     if (num == 2010) {
       num = num + 7
+    // otherwise its every decade
     } else {
       num = num + 10
     }
-
   }
 
+  // setting data attributes for the choropleth map
   var data = [{
     type: 'choropleth',
     locationmode: 'USA-states',
+    // frames determined by slider
     locations: frames[0].data[0].locations,
     z: frames[0].data[0].z,
-    // text: frames[0].data[0].locations,
-    // hoverinfo: 'skip',
     zauto: false,
     zmin: 0,
     zmax: 1.8,
@@ -162,36 +68,18 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       nticks: 2,
       tickmode: 'array',
       tickvals: [0, 0.5, 1, 1.5, 1.79],
-      // tickvals: ['More Diverse', 'Less Diverse'],
       ticktext: ['<b>0</b>       Least Diverse', '<b>0.5</b>', '<b>1</b>', '<b>1.5</b>', '<b>1.79</b>   Most Diverse'],
       tickfont: {
         family: 'PT Sans',
         color: white
       },
     },
-    // },{
-    //   type: 'choropleth',
-    //   locationmode: 'USA-states',
-    //   locations: unpack(rows, 'code'),
-    //   // z: ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-    //   z: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //   // text: frames[0].data[0].locations,
-    //   zauto: false,
-    //   zmin: 0,
-    //   zmax: 1.79,
-    //   colorscale: [
-    //                 [0, 'blue'], [1, 'blue']
-    //             ],
   }];
   var layout = {
     dragmode: false,
     scrollzoom: false,
-    // title: 'Diversity Index across the US<br>1980 - 2017',
     geo: {
       scope: 'usa',
-      // projection: {
-      //   type: 'equirectangular'
-      // },
       countrycolor: 'rgb(255, 255, 255)',
       showland: true,
       landcolor: 'rgb(217, 217, 217)',
@@ -207,45 +95,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     paper_bgcolor: 'transparent',
     plot_bgcolor: 'transparent',
 
-    // BUTTONS
-    // updatemenus: [{
-    //   x: 0.1,
-    //   y: 0,
-    //   yanchor: "top",
-    //   xanchor: "right",
-    //   showactive: false,
-    //   direction: "left",
-    //   type: "buttons",
-    //   pad: {"t": 87, "r": 10},
-    //   buttons: [{
-    //     method: "animate",
-    //     args: [null, {
-    //       fromcurrent: true,
-    //       transition: {
-    //         duration: 200,
-    //       },
-    //       frame: {
-    //         duration: 500
-    //       }
-    //     }],
-    //     label: "Play"
-    //   }, {
-    //     method: "animate",
-    //     args: [
-    //       [null],
-    //       {
-    //         mode: "immediate",
-    //         transition: {
-    //           duration: 0
-    //         },
-    //         frame: {
-    //           duration: 0
-    //         }
-    //       }
-    //     ],
-    //     label: "Pause"
-    //   }]
-    // }],
+    // slider for the year being displayed currently
     sliders: [{
       active: 0,
       steps: slider_steps,
@@ -258,6 +108,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       y: 0,
       yanchor: "top",
       pad: { t: 50, b: 10 },
+      // displaying the curernt value of the year
       currentvalue: {
         x: 0,
         xanchor: 'left',
@@ -281,21 +132,21 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     }]
   };
 
+  // creating the plot
   Plotly.newPlot('diversity-plot', data, layout, { displayModeBar: false }).then(function (event) {
 
+    // adding the frames for the different years
     Plotly.addFrames('diversity-plot', frames);
 
     let currentState = 'US';
     let myPlot = document.getElementById('diversity-plot')
+
+    // on clicking a state in the map
     event.on('plotly_click', d => {
-
-
       var pt = (d.points || [])[0]
       miniScatter(pt.location)
 
-      // myPlot.parentElement
-      console.log(myPlot.data[0].z)
-      
+      // delete any extra traces to ensure there is only the necessary layer
       if (myPlot.data.length > 1) {
     Plotly.deleteTraces('diversity-plot', 1)
       }
@@ -305,6 +156,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       // get its z value create a new trace, covering all below it except for the current one. 
       allStates = d.points[0].data.locations
 
+      // cover trace shadows all other states that aren't being clicked or hovered on. 
       let coverTrace = {
         type: 'choropleth',
         locationmode: 'USA-states',
@@ -317,33 +169,33 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         showscale: false,
         text: frames[0].data[0].text,
         customdata: myPlot.data[0].z,
-        // hoverinfo: 'none',
         hovertemplate:
         "<b>%{text}</b><br>" +
         "%{customdata}<br>" +
-        // "%{xaxis.title.text}: %{x:.0%}<br>" +
-        // "Number Employed: %{marker.size:,}" +
         "<extra></extra>",
-        // hoverinfo: "text",
       }
+
       coverTrace.z[allStates.indexOf(pt.location)] = 1
       Plotly.addTraces('diversity-plot', coverTrace)
       currentState = pt.location
     })
 
+    // same effect on hovering, as is clicking
     event.on('plotly_hover', d=> {
       var pt = (d.points || [])[0]
       event.style.cursor = "pointer"
 
+      // delete any extra traces to ensure there is only the necessary layer
       if (myPlot.data.length > 1) {
         Plotly.deleteTraces('diversity-plot', 1)
           }
-    
+
           // search all the states, if a match in state codes, create a line plot.
     
           // get its z value create a new trace, covering all below it except for the current one. 
           allStates = d.points[0].data.locations
     
+          // cover trace shadows all other states that aren't being clicked or hovered on. 
           let coverTrace = {
             type: 'choropleth',
             locationmode: 'USA-states',
@@ -356,71 +208,30 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             showscale: false,
             text: frames[0].data[0].text,
             customdata: myPlot.data[0].z,
-            // hoverinfo: 'none',
             hovertemplate:
             "<b>%{text}</b><br>" +
             "%{customdata}<br>" +
-            // "%{xaxis.title.text}: %{x:.0%}<br>" +
-            // "Number Employed: %{marker.size:,}" +
             "<extra></extra>",
-            // hoverinfo: "text",
-          
           }
           coverTrace.z[allStates.indexOf(currentState)] = 1
           coverTrace.z[allStates.indexOf(pt.location)] = 1
           Plotly.addTraces('diversity-plot', coverTrace)
     })
-    event.on('plotly_unhover', d=> {
-      // plotly.deleteTraces()
-      // var pt = (d.points || [])[0]
-      // event.style.cursor = "initial"
 
-      // ///////////////////////////
+    // after hovering, or mouseout from the plot
+    event.on('plotly_unhover', d=> {
+
+      // delete any extra traces to ensure there is only the necessary layer
       if (myPlot.data.length > 1) {
         Plotly.deleteTraces('diversity-plot', 1)
           }
-    
-      //     // search all the states, if a match in state codes, create a line plot.
-    
-      //     // get its z value create a new trace, covering all below it except for the current one. 
-      //     allStates = d.points[0].data.locations
-    
-      //     let coverTrace = {
-      //       type: 'choropleth',
-      //       locationmode: 'USA-states',
-      //       locations: frames[0].data[0].locations,
-      //       z: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      //       zauto: false,
-      //       zmin: 0,
-      //       zmax: 1.8,
-      //       colorscale: [[0, '#303030CC'], [1, 'transparent']],
-      //       showscale: false,
-      //     }
-      //     coverTrace.z[allStates.indexOf(currentState)] = 1
-      //     // coverTrace.z[allStates.indexOf(pt.location)] = 1
-      //     Plotly.addTraces('diversity-plot', coverTrace)
-      // ///////////////////////////
     })
   })
 
-
-  // .then(gd => {
-  //   gd.on('plotly_click', d => {
-  //     var pt = (d.points || [])[0]
-
-  //     switch(pt.location) {
-  //       case 'CA':
-  //         console.log('you clicked on CALIFORNIA')
-  //         break
-  //       case 'USA':
-  //         console.log('you clicked on USA')
-  //         break
-  //     }
-
-  //   })
-  // })
+  // this function creates the mini scatter/line plot next to the choropleth map. it shows changes in diversity index over time for a certain state
+  // through a simple line chart
   function miniScatter(state) {
-    // alert('called')
+    // getting the state dates, contents, etc.
     let raw_states = unpack(rows, 'code'),
       raw_dates = unpack(rows, 'year'),
       dates = [],
@@ -436,14 +247,12 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       }
     })
 
-    // Plotly.d3.csv("", function (err, rows) {
     var data = [{
       type: 'scatter',
       x: dates,
       y: diversity,
       line: {
         simplify: false,
-        // color: '#683962',
         color: white,
         shape: 'spline'
       },
@@ -466,40 +275,34 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         },
         y: 0.05,
         x: 0.43
-        // y: 0.95,
-        // x: 0.25
       },
-      // title: stateName,
+      // setting the size to better match map
       width: 300,
       height: 400,
       xaxis: {
         visible: true,
         color: '#909090',
         gridcolor: '#90909048'
-        // showgrid: false 
       },
       yaxis: {
         title: {
           text: '<b>DIVERSITY INDEX</b>',
-          // text: 'Diversity Index',
-          // text: 'DIVERSITY INDEX',
           family: 'PT Sans'
         },
         range: [0, 1.79],
         visible: true,
         color: '#909090',
         gridcolor: '#90909048'
-        // showgrid: false 
       },
-      // title: 'Diversity across the US,'
       paper_bgcolor: 'transparent',
       plot_bgcolor: '#90909048',
       margin: { t: 75, r: 0 }
-      // "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
     };
 
+    // if initial/on page load, generate a line graph of the US
     if (state == 'US') {
       Plotly.react('state-diversity', data, layout, { displayModeBar: false });
+    // otherwise, display the relevant state
     } else {
       Plotly.animate('state-diversity', {
         data,
@@ -514,10 +317,8 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       }
     });
     }
-
-    // Plotly.newPlot('total-trump-line', [data[1]], layout, { displayModeBar: false });
-    // })
   }
+  // czll function onload
   miniScatter('US')
 })
 
