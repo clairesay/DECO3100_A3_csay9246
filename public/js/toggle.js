@@ -18,7 +18,18 @@ function plotChange(id) {
     // article.setAttribute('status', 0)
     switch (id) {
 
-        case 'ethnic':
+        case 'obama-blank':
+        case 'obama-we': 
+        case 'obama-you':
+        case 'trump-blank':
+            if (triggerArticle.getAttribute('status') == 1) {
+                animateSunburst(id)
+            }
+            articles.forEach(function(article) {
+                if (article.id != id) {
+                    article.setAttribute('status', 0)
+                }
+            })
             // updateImmigration()
             break;
         case 'neither':
