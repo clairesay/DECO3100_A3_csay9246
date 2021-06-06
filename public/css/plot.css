@@ -279,3 +279,26 @@ b {
     width: 500px;
     text-align: center
 }
+
+.blinking {
+    font-size: 18px;
+    animation: type 1s infinite forwards
+}
+
+@keyframes type {
+    0% {
+        opacity: 1
+    }
+    1% {
+        opacity: 0
+    }
+    50% {
+        opacity: 0
+    }
+    51% {
+        opacity: 1
+    }
+    100% {
+        opacity: 1
+    }
+}

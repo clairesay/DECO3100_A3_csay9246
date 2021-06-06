@@ -36,7 +36,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             "type": "sunburst",
             "labels": someWords,
             "parents": someParents,
-            "values": obamaValues,
+            values: obamaValues,
             // maxdepth: 2,
             meta: 'obama',
             "leaf": { opacity: 0.6 },
@@ -50,12 +50,13 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
                 size: 10,
             },
             // hoverinfo: 'skip',
+            hovertemplate: '%{value:.2f}<extra></extra>',
             outsidetextfont: {color: white, size: 12},
             sort: false,
             rotation: 90,
             insidetextorientation: 'horizontal'
         }];
-
+        
     var layout = {
         // sunburstcolorway: ['#eeeeee', '#909090', '#eeeeee', '#909090'],
         sunburstcolorway: ['#909090', '#909090', '#909090', '#909090'],
