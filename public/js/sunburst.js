@@ -1,5 +1,5 @@
 // ////////////////////
-var words, parents, obamaValues, trumpValues;
+var words, parents, obamaValues, trumpValues, someObamaValues, someTrumpValues, allObamaValues, allTrumpValues;
 // // Scatter plot demonstrating the topics discussed in the lead up to election y-axis: sentiment vertically, date horizontally
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/pronouns.csv", function (err, rows) {
     // console.log(unpack(rows, 'words'))
@@ -26,10 +26,11 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
                 color: white,
                 size: 10,
             },
+            hoverinfo: 'skip',
             outsidetextfont: {color: white, size: 12},
             sort: false,
             rotation: 90,
-            insidetextorientation: 'radial'
+            insidetextorientation: 'horizontal'
         }];
 
     var layout = {
@@ -52,7 +53,11 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         "margin": { "l": 0, "r": 0, "b": 20, "t": 30 },
     };
 
-    Plotly.newPlot('words', data, layout, { displayModeBar: false })
+    Plotly.newPlot('words', data, layout, { displayModeBar: false }).then(function (event) {
+        event.on('plotly_hover', d=> {
+            var pt = (d.points || [])[0]
+        })
+    })
 })
 
 function animateSunburst(id) {
@@ -66,27 +71,27 @@ function animateSunburst(id) {
     } else if (id == 'obama-we') {
         layout = {
             sunburstcolorway:  ['#eeeeee', '#3462E0', '#eeeeee', '#909090'],
-            annotations: [
-                {
-                    text: 'Inclusive  ',
-                    font: {
-                        family: 'PT Sans',
-                        color: white,
-                        size: 16
-                    },
-                    bgcolor: obamaColor,
-                    width: 92,
-                    align: 'right',
-                    arrowcolor: white,
-                    xref: "paper", 
-                    yref: "paper",
-                    x: 0.23,
-                    y: 0.3,
-                    ax: -30,
-                    ay: 30,
-                    xanchor: 'right',
-                    yanchor: 'top'
-                },
+            // annotations: [
+            //     {
+            //         text: 'Inclusive  ',
+            //         font: {
+            //             family: 'PT Sans',
+            //             color: white,
+            //             size: 16
+            //         },
+            //         bgcolor: obamaColor,
+            //         width: 92,
+            //         align: 'right',
+            //         arrowcolor: white,
+            //         xref: "paper", 
+            //         yref: "paper",
+            //         x: 0.23,
+            //         y: 0.3,
+            //         ax: -30,
+            //         ay: 30,
+            //         xanchor: 'right',
+            //         yanchor: 'top'
+            //     },
                 // {
                 //     text: '  Engaging',
                 //     font: {
@@ -107,7 +112,7 @@ function animateSunburst(id) {
                 //     xanchor: 'left',
                 //     yanchor: 'bottom'
                 // },
-            ],
+            // ],
         };
     } else if (id == 'obama-you') {
         data = [{
@@ -136,26 +141,26 @@ function animateSunburst(id) {
                 //     xanchor: 'right',
                 //     yanchor: 'top'
                 // },
-                {
-                    text: '  Engaging',
-                    font: {
-                        family: 'PT Sans',
-                        color: white,
-                        size: 16
-                    },
-                    bgcolor: '#7793E0',
-                    arrowcolor: white,
-                    xref: "paper", 
-                    yref: "paper",
-                    width: 89,
-                    align: 'left',
-                    x: 0.75,
-                    y: 0.8,
-                    ax: 30,
-                    ay: -30,
-                    xanchor: 'left',
-                    yanchor: 'bottom'
-                },
+                // {
+                //     text: '  Engaging',
+                //     font: {
+                //         family: 'PT Sans',
+                //         color: white,
+                //         size: 16
+                //     },
+                //     bgcolor: '#7793E0',
+                //     arrowcolor: white,
+                //     xref: "paper", 
+                //     yref: "paper",
+                //     width: 89,
+                //     align: 'left',
+                //     x: 0.75,
+                //     y: 0.8,
+                //     ax: 30,
+                //     ay: -30,
+                //     xanchor: 'left',
+                //     yanchor: 'bottom'
+                // },
             ],
         };
     } else if (id == 'trump-blank') {
