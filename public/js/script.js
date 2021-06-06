@@ -101,26 +101,36 @@ var data = [{
     // x: [0.0000417336, 0.000109534],
     //   x: [0.004100622, 0.009529447],
     x: [0.006342344, 0.009898671],
-    y: ['Trump', 'Obama'],
+    y: ['Trump    ', 'Obama    '],
     marker: {
         color: [trumpColor, obamaColor],
     },
-    orientation: 'h'
+    orientation: 'h',
+    hoverinfo: 'x'
 }];
 
 var layout = {
     font: {
         family: 'PT Sans',
         size: 12,
-        color: black
+        // color: black
     },
     xaxis: {
+        title: {
+            // text: 'Use frequency of word / 100',
+            text: '<b>USE FREQUENCY OF WORD</b>',
+            font: {
+                color: '#909090',
+            },
+            standoff: 20,
+
+        }
     },
     yaxis: {
         size: 18
     },
     height: 300,
-    margin: { r: 0, t: 50 },
+    margin: { r: 0, t: 20, l: 50 },
     // title: 'Diversity across the US,'
     paper_bgcolor: 'transparent',
     plot_bgcolor: 'transparent'
@@ -207,7 +217,9 @@ function changePresident() {
                 // [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
             ],
             colorbar: {
-                title: 'Frequency',
+                // title: 'Frequency',
+                title: '<b>FREQUENCY</b>',
+                nticks: 4,
                 thickness: 8,
                 outlinecolor: 'transparent',
                 len: 0.7,
@@ -354,9 +366,19 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             size: 12,
             color: black
         },
+        title: {
+            // text: 'Use frequency of word / 100',
+            // text: '<b>FREQUENCY USAGE OF A PRONOUN AS A % OF ALL PRONOUN USE</b>',
+            text: '<b>PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b>',
+            font: {
+                color: white,
+            },
+            standoff: 20,
+
+        },
         plot_bgcolor: white,
         paper_bgcolor: 'transparent',
-        "margin": { "l": 0, "r": 0, "b": 0, "t": 0 },
+        "margin": { "l": 0, "r": 0, "b": 0, "t": 40 },
     };
 
     Plotly.newPlot('words', data, layout, { displayModeBar: false })
@@ -390,9 +412,15 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             lon: [ startLongitude[i] , endLongitude[i] ],
             lat: [ startLat[i] , endLat[i] ],
             mode: 'lines+markers',
+            hoverinfo: 'none',
             line: {
                 width: 2,
-                color: white
+                color: '#F587E6'
+            },
+            //  [ '#826E7F', '#B59AB1', '#683962', '#F587E6'] 
+            marker: {
+                size: 10,
+                color: '#F587E6'
             },
             opacity: opacityValue
         };
@@ -406,8 +434,11 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         z: count.concat([20]),
         zmin: 0,
         zmax: 20,
+        hovertemplate: '<b style="text-transform: uppercase">%{location}</b><extra></extra>',
+                        // '<b>%{z} immigrations per year</b>',
+        // hoverinfo: 'location',
     colorscale: [
-            [0, white], [0.9, white], [1, purple]
+            [0, grey], [0.9, grey], [1, '#B59AB1']
         ],
         showscale: false,
     })
@@ -419,11 +450,9 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         scrollzoom: false,
         geo:{
             scope: 'world',
-            // lonaxis: {range: [-200, -30]},
-            // lataxis: {range: [0, 90]},
             projection: {
                 rotation: {
-                    lon: -20
+                    lon: 180
                 }
             },
             center : {

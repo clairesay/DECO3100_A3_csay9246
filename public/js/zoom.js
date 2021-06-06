@@ -148,20 +148,22 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     colorscale: [[0, white], [0.7, '#824e7b'], [1, purple]],
     colorbar: {
       title: {
-        color: white,
-        text: 'Diversity<br>Index',
-        font: 'PT Sans',
-
+        text: '<b>DIVERSITY INDEX</b>',
+        font: {
+          family: 'PT Sans',
+          color: white
+        },
       },
       thickness: 8,
-      len: 0.9,
+      len: 1.2,
       tick0: 1.4,
       tickcolor: white,
       outlinecolor: 'transparent',
       nticks: 2,
       tickmode: 'array',
+      tickvals: [0, 0.5, 1, 1.5, 1.79],
       // tickvals: ['More Diverse', 'Less Diverse'],
-      ticktext: ['More Diverse', 'Less Diverse'],
+      ticktext: ['<b>0</b>       Least Diverse', '<b>0.5</b>', '<b>1</b>', '<b>1.5</b>', '<b>1.79</b>   Most Diverse'],
       tickfont: {
         family: 'PT Sans',
         color: white
@@ -444,11 +446,17 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         // color: '#683962',
         color: white,
         shape: 'spline'
-      }
+      },
+      hoverinfo: 'y'
     }
     ];
 
     var layout = {
+      font: {
+        color: '#909090',
+        family: 'PT Sans',
+        size: 12
+      },
       title: {
         text: stateName,
         font: {
@@ -472,7 +480,8 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       },
       yaxis: {
         title: {
-          text: 'Diversity Index',
+          text: '<b>DIVERSITY INDEX</b>',
+          // text: 'Diversity Index',
           // text: 'DIVERSITY INDEX',
           family: 'PT Sans'
         },

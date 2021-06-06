@@ -181,6 +181,10 @@ p.instruction {
     color: var(--dark-grey) !important;
 }
 
+label.title ~ p.instruction {
+    margin-top: 48px;
+}
+
 div#countries-mentioned {
     position: relative;
     left: -10%;
@@ -234,4 +238,21 @@ div#random-tweet-box h3 {
 
 div#random-tweet-box p::first-letter {
     font-size: 14px;
+}
+
+label.title {
+    font-family: 'PT Sans';
+    text-transform: uppercase;
+    /* max-width: 332px; */
+    text-align: left;
+    font-weight: 700;
+    margin-top: 72px;
+}
+
+b {
+    text-transform: uppercase;
+}
+
+#america-mentioned-bar * {
+    color: #909090 !important;
 }

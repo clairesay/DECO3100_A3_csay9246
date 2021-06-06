@@ -232,7 +232,7 @@
         <!-- MAKING THIS ANIMATE WITH A SLIDER AND AUTO PLAY -->
         <section id="diversity"  style="padding-bottom: 0;" class="contain dark isolated" >
             <div id="immigration" class="plots"></div>
-            <section class="text">
+            <section style="pointer-events : none;" class="text">
                 <!-- style="position: relative; left: 70%;" -->
                 <article style="height: 100vh;" class="padded-text">
                     <h3>On diversity</h3>
@@ -271,6 +271,7 @@
                             <!-- The more densely populated, coastal states such as California and New York continue to record faster diversification than regional inland states. -->
                     
                         </p>
+                        <label class="title">Changes in the Diversity Index across the United States</label>
                         <p class="instruction">Tap a state to see its progress on diversity. Change the year depicted on the map by using the slider.</p>
                         <!-- <h3>Diversity Index across the US</h3> -->
                     <div class="plot-container">
@@ -471,6 +472,7 @@
             </section>
     
             <section class="graphic">
+                <!-- <label class="title">Monthly frequency and sentiment of tweets</label> -->
                 <div id="total-obama-line" class="plots"></div>
                 <div style="display: none; max-height: 20px" id="total-trump-line" class="plots"></div>
             <!-- USE THESE SLOGANS AS A COLLAGE -->
@@ -493,7 +495,7 @@
                 <!-- HOW DID THEIR TWITTER ACTIVITY REFLECT THEIR  -->
             </section>
         </section>
-        <section style="min-height: initial" class="contain light isolated">
+        <section style="min-height: initial; padding-top: 0" class="contain light isolated">
             <section class="text">
                 <article >
                     <p>Interestingly, their sentiments on Twitter reflect the outcome of their re-election, and more importantly, their actions as leaders.</p>
@@ -663,7 +665,7 @@
                 </article>
             </section>
             <section class="graphic"> 
-
+                <!-- <label class="title">Frequency use of a pronoun, as a % of all pronoun use</label> -->
                 <div id="words" class="plots"></div>
             </section>
             <!-- <h3>OBAMA</h3>
@@ -677,18 +679,17 @@
 
             </section>
         </section> -->
-        <section id="foreign-policy" class="contain light">
+        <section id="Countries" class="contain light">
             <section class="text">
                 <article class="centered">
                     <!-- If you were to spin a wheel to pick a country that Trump or Obama were speaking about, you'd probably land in China or Russia -->
-                    <h3>On foreign policy</h3>
-                    <h4>How do the presidents talk about and treat foreign powers?</h4>
+                    <h3>On Countries</h3>
+                    <!-- <h4>How do the presidents talk about and treat foreign powers?</h4> -->
                     <!-- Carrying on from their initial presidential campaign, it’s interesting to observe how these both men 
                         have followed through with their method of leadership throughout their time in office.  -->
 
                     <!-- <p>Now lets take a step back and see how these leaders perform on a global scope.</p> -->
-                    <p>As presidents of the US, one might assume that both Obama and Trump are focused on discussing and raising problems
-                        that have to do with internal policies.
+                    <p>As presidents of the US, one might assume that both Obama and Trump are focused on addressing internal problems and pursuits.
                     </br></br>
                     The data tells us otherwise, however.
                     </p>
@@ -702,7 +703,8 @@
                     
                         <!-- we want a bar graph here -->
                         <!-- ==  === -->
-                    <p>Interestingly, President Obama tweeted about the US almost twice as frequently than Trump.</p>
+                    <p><strong>Interestingly, President Obama tweeted about America almost twice as frequently than Trump.</strong></p>
+                    <label class="title">'America' and 'Americans': Frequency of usage in tweets</label>
                     <div id="america-mentioned-bar" class="plots"></div>
                     <!-- <p>Looking at the tweets specifically, </p> -->
                     <!-- these were the countries that these tweets were associated with (choropleth map)-->
@@ -727,7 +729,7 @@
                     <p>Mapping out the countries mentioned in their tweets, it shows just how widespread Trump's international perspective was, as opposed to Obama.</p>
 
                     <p class="instruction">Choose a president to see the international reach of his tweets. Tap a country for a random tweet mentioning it.</p>
-                    <h3>Tweets by: <div class="dropdown"><a class="obama">Obama</a><a class="trump">Trump</a></div>
+                    <h3>Tweets involving countries by: <div class="dropdown"><a class="obama">Obama</a><a class="trump">Trump</a></div>
                         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 1L5 5L9 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -807,7 +809,7 @@
             <!-- <section class="graphic">
             </section> -->
         </section>
-        <section style="min-height: calc(100vh - 200px)" id="concluding" class="contain left dark isolated">
+        <section style="min-height: calc(100vh - 200px)" id="concluding" class="contain dark isolated">
             <section class="text">
                 <article>
                     <p>

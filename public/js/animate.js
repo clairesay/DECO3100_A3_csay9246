@@ -128,7 +128,12 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 
     var layout = {
         showlegend: false,
-        // title: 'Diversity across the US,'
+        title: {
+            text:  '<b>TWEET SENTIMENT: MONTHLY AVERAGE</b>',
+            font: {
+                size: 16
+            }
+        },
         font: {
             family: 'PT Sans',
             size: 12,

@@ -71,7 +71,7 @@ p {
     text-align: left;
 }
 
-section.text>article:first-of-type:not(#ethnic) > p:first-of-type::first-letter {
+section.contain[id] section.text>article:first-of-type:not(#ethnic) > p:first-of-type::first-letter {
     font-size: 48px;
 }
 
@@ -83,7 +83,7 @@ p:not(:first-child) {
 nav#jump-links {
     position: fixed;
     top: 20vh;
-    left: 25px;
+    left: 5vh;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -360,7 +360,9 @@ i>label.definition {
     z-index: 5;
     font-size: 12px;
     position: absolute;
-    left: calc(20% + 332px);
+    /* left: calc(20% + 332px); */
+    margin-left: 24px;
+    /* top: 0; */
     visibility: hidden;
     border-radius: 4px;
     width: 20%;
