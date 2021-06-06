@@ -9,7 +9,7 @@
     <meta name="author" content="Claire Say">
     <link rel="stylesheet" href="public/css/reset.css">
     <link rel="stylesheet" href="public/css/style.css">
-    <link rel="stylesheet" href="public/css/animate.css">
+    <!-- <link rel="stylesheet" href="public/css/animate.css"> -->
     <link rel="stylesheet" href="public/css/plot.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
@@ -505,7 +505,7 @@
 
             </section>
         </section>
-        <section style="min-height: initial;" id="pronouns" class="contain dark isolated">
+        <section style="min-height: initial; padding-bottom: 0" id="pronouns" class="contain dark isolated">
             <section class="text">
                 <article >
                     <h3>On pronouns</h3>                <!--     /    -->
@@ -544,7 +544,8 @@
         </section>
         <section class="contain left dark">
             <section class="text">
-                <article>
+                <article class="padded-text">
+
                     <p>
                         Obama truly lives up to his 'unified' approach to leadership through inclusive language. 
                         His use of 'we' and other collective pronouns implies "shared identity and responsibilities", 
@@ -654,7 +655,7 @@
                     </p> -->
                     
                 </article>
-                <article>
+                <article class="padded-text">
                     <p>
                         This is in comparison with President Trump whose most used pronouns were 'third person' terms like 'they' and 'them', 
                         which place the greatest distance between a speaker and the party in question. (Bramley, 2001)
@@ -666,7 +667,8 @@
             </section>
             <section class="graphic"> 
                 <!-- <label class="title">Frequency use of a pronoun, as a % of all pronoun use</label> -->
-                <div id="words" class="plots"></div>
+                <div style="margin-bottom: 10vh" id="words" class="plots"></div>
+                <p class="instruction">Tap a segment of the sunburst chart to expand it.</p>
             </section>
             <!-- <h3>OBAMA</h3>
             <h3>TRUMP</h3> -->
@@ -839,7 +841,8 @@
         let nextTypewriter = new Typewriter('#intro h1', {
                 loop: true,
                 delay: 200,
-                // cursorClassName: 'typeCursor'
+                wrapperClassName: 'wrapper',
+                cursorClassName: 'typeCursor'
             });
 
             nextTypewriter

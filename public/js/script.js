@@ -1,6 +1,8 @@
 var plots = document.querySelectorAll('.plots')
 const obamaColor = '#224193'
+// additional colors: #3462E0, #586DA6, #7793E0, #162A61
 const trumpColor = '#AE3131'
+// additional colors: #FA4646, #BB6C6C, #FA9191, #7A2222
 const purple = '#683962'
 const white = '#FAFAFA'
 const black = '#303030'
@@ -348,7 +350,14 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             "values": values,
             "leaf": { opacity: 0.6 },
             // '#B564AA', 
-            "marker": { line: { width: 2, color: black }, colors: [ '#826E7F', '#B59AB1', '#683962', '#F587E6']   },
+            // additional colors: #3462E0, #586DA6, #7793E0, #162A61
+
+            // additional colors: #FA4646, #BB6C6C, #FA9191, #7A2222
+            "marker": { 
+                line: { width: 1, color: black }, 
+                colors: ['#7793E0', '#3462E0', '#7793E0', '#3462E0']
+                // colors: [  '#3462E0', '#586DA6', '#7793E0',obamaColor]
+            },
             "branchvalues": 'total',
             textfont: {
                 family: 'PT Sans',
@@ -357,10 +366,36 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             },
             outsidetextfont: {color: white, size: 12},
             // textposition: 'outside',
-            insidetextorientation: 'horizontal'
+            // insidetextorientation: 'horizontal'
         }];
 
     var layout = {
+        annotations: [
+            {
+                text: 'Inclusive language',
+                font: {
+                    family: 'PT Sans',
+                    color: white
+                },
+                arrowcolor: white,
+                xref: "paper", 
+                yref: "paper",
+                x: 0.2,
+                y: 0.4,
+            },
+            {
+                text: 'Encouraging audience',
+                font: {
+                    family: 'PT Sans',
+                    color: white
+                },
+                arrowcolor: white,
+                xref: "paper", 
+                yref: "paper",
+                x: 0.8,
+                y: 0.7,
+            },
+        ],
         font: {
             family: 'PT Sans',
             size: 12,
@@ -373,12 +408,12 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             font: {
                 color: white,
             },
-            standoff: 20,
+            // standoff: 50,
 
         },
         plot_bgcolor: white,
         paper_bgcolor: 'transparent',
-        "margin": { "l": 0, "r": 0, "b": 0, "t": 40 },
+        "margin": { "l": 0, "r": 0, "b": 20, "t": 30 },
     };
 
     Plotly.newPlot('words', data, layout, { displayModeBar: false })

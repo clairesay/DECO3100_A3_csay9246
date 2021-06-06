@@ -258,13 +258,24 @@ b {
 }
 
 
-.Typewriter__wrapper {
+.wrapper {
     font-size: 72px;
 }
 
-.Typewriter__cursor {
+.typeCursor {
     font-family: 'PT Serif';
     font-size: 72px;
     margin-bottom: 2px;
     font-weight: 200;
+}
+
+#words ~ p {
+    position: absolute;
+    bottom: 5vh;
+    /* bottom: -10vh; */
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: initial;
+    width: 500px;
+    text-align: center
 }

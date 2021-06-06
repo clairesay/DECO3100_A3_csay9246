@@ -86,8 +86,10 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             cmax: cmax,
             showscale: false,
             colorbar: {
+                title: '<b>Sentiment</b>',
                 outlinecolor: 'transparent',
                 thickness: 8,
+                nticks: 4,
             },
             colorscale: 'Bluered',
             color: obamaSentiment
@@ -116,8 +118,10 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             cmin: cmin,
             cmax: cmax,
             colorbar: {
+                title: '<b>Sentiment</b>',
                 outlinecolor: 'transparent',
                 thickness: 8,
+                nticks: 4,
             },
             colorscale: 'Bluered',
             color: trumpSentiment
