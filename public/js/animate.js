@@ -11,7 +11,9 @@ var allObama,
     trumpSentiment = [],
     allDates,
     obamaFake,
-    trumpFake;
+    trumpFake,
+    obama500Fake,
+    trump500Fake;
 
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/monthly_sentiment.csv", function (err, rows) {
     allObama = unpack(rows, 'obama_frequency');
@@ -47,7 +49,9 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     console.log(trumpSentiment)
 
     obamaFake = Array(obamaData.length).fill(0);
+    obama500Fake = Array(obamaData.length).fill(500);
     trumpFake = Array(trumpData.length).fill(0);
+    trump500Fake = Array(obamaData.length).fill(500);
 
     // 6 months before first election
     // first 100 days
@@ -77,11 +81,11 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         line: {
             width: 3,
             simplify: false,
-            color: grey
+            color: '#909090'
             // color: obamaSentiment
         },
         marker: {
-            size: 12,
+            size: 24,
             cmin: cmin,
             cmax: cmax,
             showscale: false,
@@ -92,7 +96,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
                 nticks: 4,
             },
             colorscale: 'Bluered',
-            color: obamaSentiment
+            color: obamaFake
 
         }
         
@@ -109,11 +113,11 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
 
             width: 3,
             simplify: false,
-            color: grey
+            color: '#909090'
             // color: trumpSentiment
         },
         marker: {
-            size: 12,
+            size: 24,
             showscale: false,
             cmin: cmin,
             cmax: cmax,
@@ -124,7 +128,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
                 nticks: 4,
             },
             colorscale: 'Bluered',
-            color: trumpSentiment
+            color: obamaFake
 
         }
     }
@@ -144,7 +148,9 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             color: black
         },
         xaxis: {
-            range: ['2009-01-01', '2021-03-01']
+            // range: ['2009-01-01', '2021-03-01']
+            // range: ['2008-10-01', '2013-03-01']
+            range: ['2008-01-01', '2013-12-01']
         },
         yaxis: {
             title: {
@@ -153,10 +159,10 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
                 // size: 14,
                 // color: obamaColor,
             },
-            range: [0, 1000]
+            range: [-100, 1000]
         },
         paper_bgcolor: 'transparent',
-        plot_bgcolor: 'transparent'
+        plot_bgcolor: 'transparent',
     };
     Plotly.react('total-obama-line', data, layout, { displayModeBar: false });
     // Plotly.newPlot('total-trump-line', [data[1]], layout, { displayModeBar: false });
@@ -184,8 +190,8 @@ function animate(id) {
     if (id == 'neither') {
         data = [{
             x: obamaDates,
-            y: obamaFake,
-            opacity: 0,
+            y: obamaData,
+            opacity: 1,
             marker: {
                 showscale: false
             }
@@ -208,19 +214,49 @@ function animate(id) {
             y: obamaData,
             opacity: 1,
             marker: {
-                showscale: true
-            }
+                size: 12,
+                showscale: true,
+                color: obamaSentiment
+            },
+            hoverinfo: 'auto'
         }, {
             x: trumpDates,
             y: trumpFake,
             opacity: 0,
             marker: {
-                showscale: false
+                showscale: false,
+                color: trumpSentiment
             }
         }]
 
         layout = {
-            shapes: [null
+            xaxis: {
+                range: ['2008-01-01', '2013-12-01']
+            },
+            yaxis: {
+                range: [-100, 1000],
+                // https://stackoverflow.com/questions/54826436/how-to-remove-axes-and-numbers-from-plotly
+                zeroline: true, // thick line at x=0
+                visible: true,  // numbers below
+            },
+            shapes: [
+                {
+                    type: 'rect',
+                    layer: 'below',
+                    // x-reference is assigned to the x-values
+                    xref: 'x',
+                    // y-reference is assigned to the plot paper [0,1]
+                    yref: 'paper',
+                    x0: '2012-01-01',
+                    y0: 0,
+                    x1: '2013-03-01',
+                    y1: 1,
+                    fillcolor: grey,
+                    opacity: 0.9,
+                    line: {
+                        width: 0
+                    }
+                }, null, null],
                 // {
                 //     type: 'rect',
                 //     layer: 'below',
@@ -255,7 +291,7 @@ function animate(id) {
                 //         width: 0
                 //     }
                 // },
-            ],
+
 
             annotations: [
                 {
@@ -282,17 +318,31 @@ function animate(id) {
             y: obamaFake,
             opacity: 0,
             marker: {
-                showscale: false
+                showscale: false,
+                color: obamaSentiment
             }
         }, {
             x: trumpDates,
             y: trumpData,
             opacity: 1,
             marker: {
-                showscale: true
-            }
+                size: 12,
+                showscale: true,
+                color: trumpSentiment,
+            },
+            hoverinfo: 'auto'
         }]
         layout = {
+            xaxis: {
+                // range: ['2009-01-01', '2021-03-01']
+                range: ['2016-01-01', '2021-12-01']
+            },
+            yaxis: {
+                range: [-100, 1000],
+                // https://stackoverflow.com/questions/54826436/how-to-remove-axes-and-numbers-from-plotly
+                zeroline: true, // thick line at x=0
+                visible: true,  // numbers below
+            },
             shapes: [
                 {
                     type: 'rect',
@@ -301,34 +351,16 @@ function animate(id) {
                     xref: 'x',
                     // y-reference is assigned to the plot paper [0,1]
                     yref: 'paper',
-                    x0: '2016-01-01',
+                    x0: '2020-01-01',
                     y0: 0,
-                    x1: '2016-12-01',
+                    x1: '2021-03-01',
                     y1: 1,
                     fillcolor: grey,
-                    opacity: 0.2,
+                    opacity: 0.9,
                     line: {
                         width: 0
                     }
-                },
-                {
-                    type: 'rect',
-                    layer: 'below',
-                    // x-reference is assigned to the x-values
-                    xref: 'x',
-                    // y-reference is assigned to the plot paper [0,1]
-                    yref: 'paper',
-                    x0: '2020-04-01',
-                    y0: 0,
-                    x1: '2021-01-01',
-                    y1: 1,
-                    fillcolor: grey,
-                    opacity: 0.2,
-                    line: {
-                        width: 0
-                    }
-                },
-            ],
+                }, null, null, null, null, null],
             annotations: [
                 {
                     x: trumpDates[trumpData.indexOf((Math.max(...trumpData)).toString())],
@@ -345,20 +377,41 @@ function animate(id) {
                         size: 14,
                         color: black
                     },
-                  }
+                },
+                null
             ]
         }
     } else if (id == 'obama-tweet-reelect') {
         data = [{
             x: obamaDates,
-            y: obamaData,
+            y: obama500Fake,
             opacity: 1,
+            marker: {
+                size: 36,
+                showscale: true,
+                color: obamaSentiment
+            },
+            hoverinfo: 'x'
         }, {
             x: trumpDates,
             y: trumpFake,
             opacity: 0,
+            marker: {
+                showscale: false,
+                color: trumpSentiment
+            }
         }]
         layout = {
+            xaxis: {
+            // range: ['2009-01-01', '2021-03-01']
+            range: ['2008-01-01', '2013-12-01']
+            },
+            yaxis: {
+                // range: [-100, 100],
+                // https://stackoverflow.com/questions/54826436/how-to-remove-axes-and-numbers-from-plotly
+                zeroline: false, // thick line at x=0
+                visible: false,  // numbers below
+            },
             shapes: [
                 // {
                 //     type: 'rect',
@@ -379,28 +432,192 @@ function animate(id) {
                 // },
                 {
                     type: 'rect',
-                    layer: 'below',
+                    // layer: 'below',
                     // x-reference is assigned to the x-values
                     xref: 'x',
                     // y-reference is assigned to the plot paper [0,1]
-                    yref: 'paper',
-                    x0: '2012-01-01',
-                    y0: 0,
+                    yref: 'y',
+                    x0: '2009-01-01',
+                    y0: 700,
                     x1: '2012-12-01',
-                    y1: 1,
-                    fillcolor: 'darkgrey',
-                    opacity: 0.6,
+                    y1: 705,
+                    fillcolor: black,
+                    // opacity: 0.6,
                     line: {
                         width: 0
                     }
                 },
+                {
+                    type: 'rect',
+                    xref: 'x',
+                    yref: 'y',
+                    x0: '2009-01-01',
+                    y0: 680,
+                    x1: '2009-01-01',
+                    y1: 705,
+                },
+                {
+                    type: 'rect',
+                    xref: 'x',
+                    yref: 'y',
+                    x0: '2012-12-01',
+                    y0: 680,
+                    x1: '2012-12-01',
+                    y1: 705,
+                }
             ],
-            annotations: [null],
+            annotations: [{
+                x: 0.5,
+                    y: 0.85,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: 'consistency in sentiment',
+                    showarrow: false,
+                    // arrowhead: 0,
+                    // ax: 0,
+                    // ay: -40,
+                    font: {
+                        family: 'PT Sans',
+                        size: 14,
+                        color: black
+                },
+            }],
         }
     } else if (id == 'trump-tweet-reelect') {
+        data = [{
+            x: obamaDates,
+            y: obamaFake,
+            opacity: 0,
+            marker: {
+                color: obamaSentiment
+            }
+        }, {
+            x: trumpDates,
+            y: trump500Fake,
+            opacity: 1,
+            marker: {
+                size: 36,
+                color: trumpSentiment,
+                showscale: true
+            },
+            hoverinfo: 'x'
+        }]
         layout = {
+            xaxis: {
+                range: ['2016-01-01', '2021-12-01']
+            },
+            yaxis: {
+                // range: [-100, 100],
+                // https://stackoverflow.com/questions/54826436/how-to-remove-axes-and-numbers-from-plotly
+                zeroline: false, // thick line at x=0
+                visible: false,  // numbers below
+            },
+            shapes: [
+                {
+                    type: 'rect',
+                    // layer: 'below',
+                    // x-reference is assigned to the x-values
+                    xref: 'x',
+                    // y-reference is assigned to the plot paper [0,1]
+                    yref: 'y',
+                    x0: '2017-01-01',
+                    y0: 700,
+                    x1: '2018-12-01',
+                    y1: 705,
+                    fillcolor: black,
+                    // opacity: 0.6,
+                    line: {
+                        width: 0
+                    }
+                },
+                {
+                    type: 'rect',
+                    xref: 'x',
+                    yref: 'y',
+                    x0: '2017-01-01',
+                    y0: 680,
+                    x1: '2017-01-01',
+                    y1: 705,
+                },
+                {
+                    type: 'rect',
+                    xref: 'x',
+                    yref: 'y',
+                    x0: '2018-12-01',
+                    y0: 680,
+                    x1: '2018-12-01',
+                    y1: 705,
+                },
+                // ///
+                {
+                    type: 'rect',
+                    // layer: 'below',
+                    // x-reference is assigned to the x-values
+                    xref: 'x',
+                    // y-reference is assigned to the plot paper [0,1]
+                    yref: 'y',
+                    x0: '2019-03-01',
+                    y0: 700,
+                    x1: '2020-12-01',
+                    y1: 705,
+                    fillcolor: black,
+                    // opacity: 0.6,
+                    line: {
+                        width: 0
+                    }
+                },
+                {
+                    type: 'rect',
+                    xref: 'x',
+                    yref: 'y',
+                    x0: '2019-03-01',
+                    y0: 680,
+                    x1: '2019-03-01',
+                    y1: 705,
+                },
+                {
+                    type: 'rect',
+                    xref: 'x',
+                    yref: 'y',
+                    x0: '2020-12-01',
+                    y0: 680,
+                    x1: '2020-12-01',
+                    y1: 705,
+                }
+            ],
             annotations: [
-                null
+                {
+                    x: 0.25,
+                    y: 0.85,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: 'mostly positive',
+                    showarrow: false,
+                    // arrowhead: 0,
+                    // ax: 0,
+                    // ay: -40,
+                    font: {
+                        family: 'PT Sans',
+                        size: 14,
+                        color: black
+                    },
+                },
+                {
+                    x: 0.78,
+                    y: 0.85,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: 'mostly negative',
+                    showarrow: false,
+                    // arrowhead: 0,
+                    // ax: 0,
+                    // ay: -40,
+                    font: {
+                        family: 'PT Sans',
+                        size: 14,
+                        color: black
+                    },
+                }
             ]
         }
     } else if (id == 'both') {
