@@ -256,3 +256,15 @@ b {
 #america-mentioned-bar * {
     color: #909090 !important;
 }
+
+
+.Typewriter__wrapper {
+    font-size: 72px;
+}
+
+.Typewriter__cursor {
+    font-family: 'PT Serif';
+    font-size: 72px;
+    margin-bottom: 2px;
+    font-weight: 200;
+}

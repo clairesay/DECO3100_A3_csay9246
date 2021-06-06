@@ -77,10 +77,10 @@
                 <article>
                     <h3>The</h3>
                     <h1>
-                        <span class="type-container">
+                        <!-- <span class="type-container">
                             <span class="type">United</span>
                             <span class="type">Divided</span>
-                        </span>
+                        </span> -->
                     </h1>
 
                     <h3>States of America</h3>
@@ -835,6 +835,21 @@
     </main>
     <nav id="jump-links" class="hide"></nav>
     <script>
+        // https://safi.me.uk/typewriterjs/
+        let nextTypewriter = new Typewriter('#intro h1', {
+                loop: true,
+                delay: 200,
+                // cursorClassName: 'typeCursor'
+            });
+
+            nextTypewriter
+                .typeString('United')
+                .pauseFor(3000)
+                .deleteAll()
+                .typeString('Divided')
+                .pauseFor(3000)
+                .deleteAll()
+                .start();
 
     </script>
     <script src="public/js/script.js"></script>
