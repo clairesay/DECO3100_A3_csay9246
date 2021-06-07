@@ -135,6 +135,7 @@ nav#jump-links.hide {
 section.contain {
     padding: 100px 20%;
     display: flex;
+    justify-content: center;
     max-width: 100vw;
     min-height: 100vh;
     position: relative;
@@ -260,6 +261,10 @@ article.split-visual {
     gap: 72px;
 }
 
+article.split-visual div {
+    max-width: 332px;
+}
+
 article.split-visual div:hover>img {
     transform: translateY(-5px);
     opacity: 1;
@@ -337,7 +342,8 @@ i>label.definition {
     z-index: 5;
     font-size: 12px;
     position: absolute;
-    margin-left: 24px;
+    margin-left: 12px;
+    margin-top: 6px;
     visibility: hidden;
     border-radius: 4px;
     width: 20%;

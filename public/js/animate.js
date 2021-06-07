@@ -68,6 +68,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             simplify: false,
             color: '#909090'
         },
+        hoverinfo: 'x+y',
         marker: {
             size: 24,
             cmin: cmin,
@@ -95,6 +96,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             simplify: false,
             color: '#909090'
         },
+        hoverinfo: 'x+y',
         marker: {
             size: 24,
             showscale: false,
@@ -115,7 +117,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
     var layout = {
         showlegend: false,
         title: {
-            text: '<b>TWEET SENTIMENT: MONTHLY AVERAGE</b>',
+            text: "<b>OBAMA'S TWEET SENTIMENT: MONTHLY AVERAGE</b>",
             font: {
                 size: 16
             }
@@ -130,7 +132,10 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
         },
         yaxis: {
             title: {
-                text: 'Monthly Tweet Count',
+                text: '<b>Monthly Tweet Count</b>',
+                font: {
+                    color: '#909090'
+                }
             },
             range: [-100, 1000]
         },
@@ -183,7 +188,7 @@ function animate(id) {
                 showscale: true,
                 color: obamaSentiment
             },
-            hoverinfo: 'auto'
+            hoverinfo: 'x+y',
         }, {
             x: trumpDates,
             y: trumpFake,
@@ -195,6 +200,9 @@ function animate(id) {
         }]
 
         layout = {
+            title: {
+                text: "<b>OBAMA'S TWEET SENTIMENT: MONTHLY AVERAGE</b>",
+            },
             // crop date range to obama's term
             xaxis: {
                 range: ['2008-01-01', '2013-12-01']
@@ -265,9 +273,12 @@ function animate(id) {
                 showscale: true,
                 color: trumpSentiment,
             },
-            hoverinfo: 'auto'
+            hoverinfo: 'x+y',
         }]
         layout = {
+            title: {
+                text: "<b>TRUMP'S TWEET SENTIMENT: MONTHLY AVERAGE</b>",
+            },
             // date range
             xaxis: {
                 range: ['2016-01-01', '2021-12-01']
@@ -341,6 +352,9 @@ function animate(id) {
             }
         }]
         layout = {
+            title: {
+                text: "<b>OBAMA'S TWEET SENTIMENT: MONTHLY AVERAGE</b>",
+            },
             xaxis: {
                 range: ['2008-01-01', '2013-12-01']
             },
@@ -420,6 +434,9 @@ function animate(id) {
             hoverinfo: 'x'
         }]
         layout = {
+            title: {
+                text: "<b>TRUMP'S TWEET SENTIMENT: MONTHLY AVERAGE</b>",
+            },
             xaxis: {
                 range: ['2016-01-01', '2021-12-01']
             },

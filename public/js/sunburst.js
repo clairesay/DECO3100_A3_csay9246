@@ -65,7 +65,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             color: black
         },
         title: {
-            text: '<b>PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b>',
+            text: "<b>OBAMA'S PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b>",
             font: {
                 color: white,
             },
@@ -165,6 +165,9 @@ function animateSunburst(id) {
         }]
         // highlight collective section
         layout = {
+            title: {
+                text: "<b>OBAMA's PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b>",
+            },
             sunburstcolorway: ['#cccccc', obamaColor, '#cccccc', '#909090'],
             annotations: [null]
         };
@@ -176,6 +179,9 @@ function animateSunburst(id) {
         }]
         // highlight second person section
         layout = {
+            title: {
+                text: "<b>OBAMA's PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b>",
+            },
             sunburstcolorway: ['#cccccc', '#909090', '#cccccc', obamaColor],
             annotations: [null]
         };
@@ -187,6 +193,9 @@ function animateSunburst(id) {
         }]
         // highlight third person section
         layout = {
+            title: {
+                text: "<b>TRUMP's PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b>",
+            },
             sunburstcolorway: ['#909090', '#cccccc', trumpColor, '#cccccc'],
             annotations: [null]
         }
@@ -198,6 +207,9 @@ function animateSunburst(id) {
         }]
         // highlight first person section
         layout = {
+            title: {
+                text: "<b>TRUMP's PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b>",
+            },
             sunburstcolorway: [trumpColor, '#cccccc', '#909090', '#cccccc'],
             annotations: [null]
         }
