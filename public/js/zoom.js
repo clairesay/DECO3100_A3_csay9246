@@ -1,3 +1,5 @@
+// this is for the hybrid line chart and choropleth map for diversity.
+// The data is from the National Equity Atlas, which depcits changes in the Diversity Index of the US from 1980 to 2017 for each state and the nation as a whole. 
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/state-diversity-update.csv", function (err, rows) {
 
   // code structure from https://plotly.com/javascript/map-animations/ for multi stage 'framed' animations

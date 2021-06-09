@@ -15,6 +15,7 @@ var allObama,
     obama500Fake,
     trump500Fake;
 
+// this data was formatted in excel. I calculated the number of tweets that were made in each month, and also the average sentiment over that time.
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/monthly_sentiment.csv", function (err, rows) {
     // unpacking all of the data needed
     allObama = unpack(rows, 'obama_frequency');

@@ -14,6 +14,7 @@ function unpack(rows, key) {
     return rows.map(function (row) { return row[key]; });
 }
 
+// the frequency they mentioned 'America', 'Americans' and other related terms. This was done in Excel calculating the frequency (through sum) that each president said that word
 ///////////////////////// frequency by which Obama or Trump mention the word America
 var data = [{
     type: 'bar',
@@ -94,6 +95,7 @@ dropdownLinks.forEach(function (link, index) {
 })
 
 // FUNCTION GENERATES MAP OF WHERE IN THE WORLD WHICH PRESIDENT TWEETED ABOUT
+// this data was done by sifting all countries from the vocabulary data and the frequency that they were mentioned
 function changePresident() {
     Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/countries-mentioned.csv", function (err, rows) {
         let president = dropDown.querySelector('a').classList,
@@ -220,6 +222,7 @@ function changePresident() {
                 tweetText = randomTweetBox.querySelector('p');
 
             // setting the data url for retrieval
+            // these quotes were sorted by country from each president. Although some countries (i.e. America) had over 1000 tweets, this slowed the load of the js and so only 100 tweets were taken of each country for this random selection.
             if (president == 'obama') {
                 url = "https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/obama_tweets_by_country.csv"
             } else if (president == 'trump') {
@@ -262,6 +265,7 @@ changePresident()
 
 //////////////////////// FLOW OF IMMIGRATIONS LINES ON MAP
 // code structured based on https://plotly.com/javascript/lines-on-maps/
+// this takes the most recent data about the top 10 common immigrant country of origin to the US https://www.infoplease.com/us/immigration/countries-birth-foreign-born-population-1850-2011
 Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/country_of_origin.csv', function (err, rows) {
     // unpacking data and getting maximum of array
     function unpack(rows, key) {

@@ -1,6 +1,7 @@
 // PRONOUN SUNBURST CHART
 var words, someWords, parents, someParents, obamaValues, trumpValues, someObamaValues, someTrumpValues, allObamaValues, allTrumpValues;
 
+// this data was cleaned and formatted in excel from the tweet data. It takes the most common pronouns utilised and calculates the percentage usage out of the sum of all pronouns used by that president.
 Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/main/public/data/pronouns.csv", function (err, rows) {
     // unpacking all data
     words = unpack(rows, 'words'),
