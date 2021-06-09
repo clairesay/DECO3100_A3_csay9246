@@ -142,7 +142,7 @@ function changePresident() {
                 }
             },
             colorbar: {
-                title: '<b>FREQUENCY MENTIONED</b>',
+                title: '<b>% MENTION FREQUENCY OF COUNTRY</b>',
                 tickmode: 'array',
                 tickvals: [0, 0.0005, 0.001, 0.0015],
                 ticktext: ['<b>0</b>', '<b>0.0005</b>', '<b>0.001</b>', '<b>0.0015</b>'],
