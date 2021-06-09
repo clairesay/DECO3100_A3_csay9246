@@ -174,7 +174,7 @@ function animateSunburst(id) {
             title: {
                 text: "<b>OBAMA's PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b>",
             },
-            sunburstcolorway: ['#cccccc', obamaColor, '#cccccc', '#909090'],
+            sunburstcolorway: ['#cccccc', '#909090', '#cccccc', obamaColor],
             annotations: [null]
         };
         // second
@@ -188,7 +188,7 @@ function animateSunburst(id) {
             title: {
                 text: "<b>OBAMA's PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b>",
             },
-            sunburstcolorway: ['#cccccc', '#909090', '#cccccc', obamaColor],
+            sunburstcolorway: ['#cccccc', obamaColor, '#cccccc', '#909090'],
             annotations: [null]
         };
         // third
