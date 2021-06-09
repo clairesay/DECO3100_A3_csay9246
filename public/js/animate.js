@@ -69,6 +69,13 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             color: '#909090'
         },
         hoverinfo: 'x+y',
+        hovertemplate: '<b>%{y} Tweets</b><extra></extra>',
+        hoverlabel: {
+            bgcolor: white,
+            font: {
+                family: 'PT Sans'
+            }
+        },
         marker: {
             size: 24,
             cmin: cmin,
@@ -78,9 +85,16 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
                 title: '<b>Sentiment</b>',
                 outlinecolor: 'transparent',
                 thickness: 8,
-                nticks: 4,
+                tickmode: 'array',
+                tickvals: [-0.04, 0, 0.10, 0.2, 0.25],
+                ticktext: ['<b>-0.05</b> Towards Negative', '<b>0</b>', '<b>0.1</b>', '<b>0.2</b>', '<b>0.25</b> Towards Positive'],
+                tickfont: {
+                    family: 'PT Sans',
+                    color: black
+                },
             },
             colorscale: 'Bluered',
+            reversescale: true,
             color: obamaFake
 
         }
@@ -97,6 +111,13 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             color: '#909090'
         },
         hoverinfo: 'x+y',
+        hovertemplate: '<b>%{y} Tweets</b><extra></extra>',
+        hoverlabel: {
+            bgcolor: white,
+            font: {
+                family: 'PT Sans'
+            }
+        },
         marker: {
             size: 24,
             showscale: false,
@@ -106,15 +127,23 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
                 title: '<b>Sentiment</b>',
                 outlinecolor: 'transparent',
                 thickness: 8,
-                nticks: 4,
+                tickmode: 'array',
+                tickvals: [0, 0.05, 0.10, 0.15, 0.2, 0.22],
+                ticktext: ['<b>0</b>', '<b>0.05</b>', '<b>0.1</b> Towards Negative', '<b>0.15</b>', '<b>0.2</b>', '<b>0.22</b> Towards Positive'],
+                tickfont: {
+                    family: 'PT Sans',
+                    color: black
+                },
             },
             colorscale: 'Bluered',
+            reversescale: true,
             color: obamaFake
         }
     }
     ];
 
     var layout = {
+        dragmode: false,
         showlegend: false,
         title: {
             text: "<b>OBAMA'S TWEET SENTIMENT: MONTHLY AVERAGE</b>",
@@ -189,6 +218,7 @@ function animate(id) {
                 color: obamaSentiment
             },
             hoverinfo: 'x+y',
+            hovertemplate: '<b>%{y} Tweets</b><extra></extra>',
         }, {
             x: trumpDates,
             y: trumpFake,
@@ -274,6 +304,7 @@ function animate(id) {
                 color: trumpSentiment,
             },
             hoverinfo: 'x+y',
+            hovertemplate: '<b>%{y} Tweets</b><extra></extra>',
         }]
         layout = {
             title: {
@@ -341,7 +372,8 @@ function animate(id) {
                 showscale: true,
                 color: obamaSentiment
             },
-            hoverinfo: 'x'
+            hoverinfo: 'x',
+            hovertemplate: '',
         }, {
             x: trumpDates,
             y: trumpFake,
@@ -431,7 +463,8 @@ function animate(id) {
                 color: trumpSentiment,
                 showscale: true
             },
-            hoverinfo: 'x'
+            hoverinfo: 'x',
+            hovertemplate: '',
         }]
         layout = {
             title: {

@@ -68,7 +68,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
       nticks: 2,
       tickmode: 'array',
       tickvals: [0, 0.5, 1, 1.5, 1.79],
-      ticktext: ['<b>0</b>       Least Diverse', '<b>0.5</b>', '<b>1</b>', '<b>1.5</b>', '<b>1.79</b>   Most Diverse'],
+      ticktext: ['<b>0</b>       Least Diverse', '<b>0.5</b>', '<b>1.0</b>', '<b>1.5</b>', '<b>1.8</b>   Most Diverse'],
       tickfont: {
         family: 'PT Sans',
         color: white

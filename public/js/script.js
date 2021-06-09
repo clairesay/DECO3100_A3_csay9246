@@ -24,7 +24,12 @@ var data = [{
     },
     // horizontal
     orientation: 'h',
-    hoverinfo: 'x'
+    hovertemplate: '<b>%{x:.4f}%</b><extra></extra>',
+    hoverlabel: {
+        font: {
+            family: 'PT Sans'
+        }
+    },
 }];
 
 var layout = {
@@ -34,7 +39,7 @@ var layout = {
     },
     xaxis: {
         title: {
-            text: '<b>USE FREQUENCY OF WORD</b>',
+            text: '<b>% USE FREQUENCY OF WORD</b>',
             font: {
                 color: '#909090',
             },
@@ -43,10 +48,12 @@ var layout = {
         }
     },
     yaxis: {
+        tickformat: '%{x} lol',
         size: 18
     },
     height: 300,
     margin: { r: 0, t: 20, l: 50 },
+    dragmode: false,
     paper_bgcolor: 'transparent',
     plot_bgcolor: 'transparent'
 };
@@ -126,16 +133,30 @@ function changePresident() {
             zmax: presidentMax,
             hoverinfo: 'location',
             colorscale: [
-                [0, grey], [0.3, presidentColor], [1, black],
+                [0, grey], [0.5, presidentColor], [1, black],
             ],
+            hovertemplate: '<b>%{location}</b><extra></extra>',
+            hoverlabel: {
+                font: {
+                    family: 'PT Sans'
+                }
+            },
             colorbar: {
-                title: '<b>FREQUENCY</b>',
-                nticks: 4,
+                title: '<b>FREQUENCY MENTIONED</b>',
+                tickmode: 'array',
+                tickvals: [0, 0.0005, 0.001, 0.0015],
+                ticktext: ['<b>0</b>', '<b>0.0005</b>', '<b>0.001</b>', '<b>0.0015</b>'],
+                tickfont: {
+                    family: 'PT Sans',
+                    color: black
+                },
                 thickness: 8,
                 outlinecolor: 'transparent',
                 len: 0.7,
-                x: -0.15,
-                xref: 'left'
+                x: -0.1,
+                xpad: 0, 
+                xref: 'left',
+                xanchor: 'left',
             },
             marker: {
                 line: {
@@ -269,6 +290,11 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             lat: [startLat[i], endLat[i]],
             mode: 'lines+markers',
             hoverinfo: 'none',
+            hoverlabel: {
+                font: {
+                    family: 'PT Sans'
+                }
+            },
             line: {
                 width: 2,
                 color: '#F587E6'
@@ -277,7 +303,7 @@ Plotly.d3.csv('https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
                 size: 10,
                 color: '#F587E6'
             },
-            opacity: opacityValue
+            opacity: opacityValue + 0.2
         };
 
         data.push(result);

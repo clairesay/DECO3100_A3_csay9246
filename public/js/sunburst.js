@@ -48,7 +48,12 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
                 color: white,
                 size: 12,
             },
-            hovertemplate: '%{value:.2f}<extra></extra>',
+            hovertemplate: '%{value:.2f}%<extra></extra>',
+            hoverlabel: {
+                font: {
+                    family: 'PT Sans'
+                }
+            },
             outsidetextfont: { color: white, size: 12 },
             sort: false,
             rotation: 90,
@@ -65,7 +70,7 @@ Plotly.d3.csv("https://raw.githubusercontent.com/clairesay/DECO3100_A3_csay9246/
             color: black
         },
         title: {
-            text: "<b>OBAMA'S PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b>",
+            text: "<b>OBAMA'S PRONOUN USAGE: FREQUENCY AS A % OF ALL PRONOUN USES</b></br></br>",
             font: {
                 color: white,
             },
